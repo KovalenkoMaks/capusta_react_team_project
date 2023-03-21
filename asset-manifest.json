@@ -1,15 +1,21 @@
 {
   "files": {
-    "main.css": "/capusta_react_team_project/static/css/main.2b5bff67.css",
-    "main.js": "/capusta_react_team_project/static/js/main.b6f8b4cb.js",
+    "main.css": "/capusta_react_team_project/static/css/main.8f05ee41.css",
+    "main.js": "/capusta_react_team_project/static/js/main.d9fb41be.js",
+    "static/media/bcgImage.svg": "/capusta_react_team_project/static/media/bcgImage.c8f9053fc615c9815075.svg",
+    "static/media/bcgImageBottom.svg": "/capusta_react_team_project/static/media/bcgImageBottom.90f3983372cc68c0ee48.svg",
+    "static/media/imgText2.svg": "/capusta_react_team_project/static/media/imgText2.a79d90a1e459de95cbb8.svg",
+    "static/media/Vector.svg": "/capusta_react_team_project/static/media/Vector.240c54ffef22d31c5053.svg",
+    "static/media/imgText3.svg": "/capusta_react_team_project/static/media/imgText3.1dd9aeb539a96768eb38.svg",
+    "static/media/imgText1.svg": "/capusta_react_team_project/static/media/imgText1.996eabe358fceed2b9f2.svg",
     "static/media/logoIcon.svg": "/capusta_react_team_project/static/media/logoIcon.9a1219fa7b0c5ccef923ebbd77f9ee7b.svg",
     "index.html": "/capusta_react_team_project/index.html",
     "static/media/exitIcon.svg": "/capusta_react_team_project/static/media/exitIcon.bde7ea51d65470190b21886710692baf.svg",
-    "main.2b5bff67.css.map": "/capusta_react_team_project/static/css/main.2b5bff67.css.map",
-    "main.b6f8b4cb.js.map": "/capusta_react_team_project/static/js/main.b6f8b4cb.js.map"
+    "main.8f05ee41.css.map": "/capusta_react_team_project/static/css/main.8f05ee41.css.map",
+    "main.d9fb41be.js.map": "/capusta_react_team_project/static/js/main.d9fb41be.js.map"
   },
   "entrypoints": [
-    "static/css/main.2b5bff67.css",
-    "static/js/main.b6f8b4cb.js"
+    "static/css/main.8f05ee41.css",
+    "static/js/main.d9fb41be.js"
   ]
 }
