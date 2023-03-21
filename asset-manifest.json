@@ -1,13 +1,15 @@
 {
   "files": {
-    "main.css": "/capusta_react_team_project/static/css/main.7acaea2f.css",
-    "main.js": "/capusta_react_team_project/static/js/main.07d3183d.js",
+    "main.css": "/capusta_react_team_project/static/css/main.2b5bff67.css",
+    "main.js": "/capusta_react_team_project/static/js/main.b6f8b4cb.js",
+    "static/media/logoIcon.svg": "/capusta_react_team_project/static/media/logoIcon.9a1219fa7b0c5ccef923ebbd77f9ee7b.svg",
     "index.html": "/capusta_react_team_project/index.html",
-    "main.7acaea2f.css.map": "/capusta_react_team_project/static/css/main.7acaea2f.css.map",
-    "main.07d3183d.js.map": "/capusta_react_team_project/static/js/main.07d3183d.js.map"
+    "static/media/exitIcon.svg": "/capusta_react_team_project/static/media/exitIcon.bde7ea51d65470190b21886710692baf.svg",
+    "main.2b5bff67.css.map": "/capusta_react_team_project/static/css/main.2b5bff67.css.map",
+    "main.b6f8b4cb.js.map": "/capusta_react_team_project/static/js/main.b6f8b4cb.js.map"
   },
   "entrypoints": [
-    "static/css/main.7acaea2f.css",
-    "static/js/main.07d3183d.js"
+    "static/css/main.2b5bff67.css",
+    "static/js/main.b6f8b4cb.js"
   ]
 }
