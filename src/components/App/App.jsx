@@ -1,5 +1,5 @@
-import HomePageView from 'pages/HomePageView/HomePageView';
-import Header from 'components/Header/Header';
+// import HomePageView from 'pages/HomePageView/HomePageView';
+// import Header from 'components/Header/Header';
 import '../../../node_modules/modern-normalize/modern-normalize.css';
 import { PrivateRoute } from 'components/utils/PrivateRoute';
 import { RestrictedRoute } from 'components/utils/RestrictedRout';

@@ -53,7 +53,7 @@ const Registration = () => {
           />
         </label>
         <button type="submit">Sign Up</button>
-        {/* <Link>Registration</Link> */}
+        <Link to={'login'}>LOG IN</Link>
       </Form>
     </Formik>
   );

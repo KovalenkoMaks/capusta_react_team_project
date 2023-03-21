@@ -1,5 +1,5 @@
-import { LogIn } from 'components/logIn/Login';
-import { Registration } from 'components/registrations/Registrations';
+// import { LogIn } from 'components/logIn/Login';
+// import { Registration } from 'components/registrations/Registrations';
 
 const Home = () => {
   return (

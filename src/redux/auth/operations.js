@@ -3,13 +3,13 @@ import axios from 'axios';
 
 axios.defaults.baseURL = 'https://kapusta-backend.goit.global/';
 
-const setAuthHeader = token => {
-  axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-};
+// const setAuthHeader = token => {
+//   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+// };
 
-const clearAuthHeader = token => {
-  axios.defaults.headers.common.Authorization = ``;
-};
+// const clearAuthHeader = token => {
+//   axios.defaults.headers.common.Authorization = ``;
+// };
 
 export const register = createAsyncThunk(
   'auth/register',
