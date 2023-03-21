@@ -1,6 +1,6 @@
-// import { LogIn } from 'components/logIn/Login';
-// import { Registration } from 'components/registrations/Registrations';
-// import { Home } from 'pages/Home';
+import HomePageView from 'pages/HomePageView/HomePageView';
+import Header from 'components/Header/Header';
+import '../../../node_modules/modern-normalize/modern-normalize.css';
 import { PrivateRoute } from 'components/utils/PrivateRoute';
 import { RestrictedRoute } from 'components/utils/RestrictedRout';
 import Layout from 'pages/Layout';
@@ -15,6 +15,9 @@ const Registration = lazy(() =>
 
 export const App = () => {
   return (
+    //      <Header/>
+    //  <HomePageView />
+
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route
@@ -28,8 +31,6 @@ export const App = () => {
         />
         <Route path="/registration" element={<Registration />} />
       </Route>
-      {/* <Registration /> */}
     </Routes>
-    // </Suspense>
   );
 };
