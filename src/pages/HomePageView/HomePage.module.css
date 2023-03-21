@@ -1,0 +1,152 @@
+a {
+    text-decoration: none;
+}
+
+.container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.logoImg {
+    margin-left: 19px;
+}
+
+.firstSection {
+    position: relative;
+    background-color: #f5f6fb;
+    overflow: hidden;
+    height: 286px;
+    border-radius: 0 0 0 45px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.secondSection {
+    height: 514px;
+    position: relative;
+}
+
+.imgText {
+    position: absolute;
+    z-index: 3;
+    width: 183px;
+    height: 63px;
+    top: 142px;
+    left: 20px;
+    background-image: url('../../images/imgText1.svg ');
+}
+
+/* Adaptive */
+@media screen and (min-width: 320px) {
+    .container {
+        width: 320px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .bcgImage {
+        position: absolute;
+        z-index: 2;
+        background-image: url('../../images/Vector.svg');
+        width: 83px;
+        height: 89px;
+        top: 104px;
+        left: 271px;
+        transform: rotate(-180deg);
+    }
+
+    .bcgImageBottom {
+        position: absolute;
+        width: 83px;
+        height: 89px;
+        top: 425px;
+        left: 35px;
+        background-image: url('../../images/Vector.svg');
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .container {
+        width: 768px;
+    }
+
+    .imgText {
+        position: absolute;
+        z-index: 3;
+        width: 306px;
+        height: 101px;
+        top: 65px;
+        left: 161px;
+        background-image: url('../../images/imgText2.svg ');
+    }
+
+    .firstSection {
+        height: 526px;
+        position: relative;
+    }
+
+    .bcgImage {
+        position: absolute;
+        z-index: 2;
+        width: 100%;
+        height: 232px;
+        top: 28px;
+        left: 10px;
+        background-image: url('../../images/bcgImage.svg');
+    }
+
+    .secondSection {
+        height: 442px;
+    }
+
+    .bcgImageBottom {
+        position: absolute;
+        z-index: 99;
+        width: 183px;
+        height: 142px;
+        top: 56%;
+        left: 13%;
+        background-image: url('../../images/bcgImageBottom.svg');
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .container {
+        width: 1280px;
+    }
+
+    .firstSection {
+        position: relative;
+    }
+
+    .bcgImage {
+        position: absolute;
+        z-index: 2;
+        width: 1334px;
+        height: 232px;
+        top: 28px;
+        left: 10px;
+        background-image: url('../../images/bcgImage.svg');
+    }
+
+
+    .imgText {
+        position: absolute;
+        width: 377px;
+        height: 140px;
+        top: 365px;
+        left: 229px;
+        background-image: url('../../images/imgText3.svg ');
+    }
+
+    .secondSection {
+        height: 268px;
+    }
+
+    .bcgImageBottom {
+        width: 183px;
+        height: 142px;
+        left: 230px;
+        top: 76px;
+    }
+}
