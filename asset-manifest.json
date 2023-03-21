@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/capusta_react_team_project/static/css/main.7acaea2f.css",
+    "main.js": "/capusta_react_team_project/static/js/main.07d3183d.js",
+    "index.html": "/capusta_react_team_project/index.html",
+    "main.7acaea2f.css.map": "/capusta_react_team_project/static/css/main.7acaea2f.css.map",
+    "main.07d3183d.js.map": "/capusta_react_team_project/static/js/main.07d3183d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7acaea2f.css",
+    "static/js/main.07d3183d.js"
+  ]
+}
