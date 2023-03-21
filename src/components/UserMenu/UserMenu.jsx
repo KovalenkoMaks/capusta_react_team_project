@@ -6,7 +6,7 @@ export default function UserMenu(){
     <>
     <UserAvatarContainer>U</UserAvatarContainer>
 
-    <UserNameContainer><UserName>Name</UserName></UserNameContainer>
+    <UserNameContainer><UserName>User Name</UserName></UserNameContainer>
 
     <LogOutTextBtn type="button">Exit</LogOutTextBtn>
     <LogOutIconBtn type="button">

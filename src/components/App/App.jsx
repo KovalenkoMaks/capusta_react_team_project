@@ -15,7 +15,7 @@ const Registration = lazy(() =>
 
 export const App = () => {
   return (
-    //      <Header/>
+        //  <Header/>
     //  <HomePageView />
 
     <Routes>
