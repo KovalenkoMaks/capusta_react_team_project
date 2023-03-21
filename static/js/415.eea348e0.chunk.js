@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkcapusta_react_team_project=self.webpackChunkcapusta_react_team_project||[]).push([[415],{415:function(e,t,u){u.r(t);var a=u(184);t.default=function(){return(0,a.jsx)("div",{children:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus optio explicabo natus consequuntur qui aliquid nesciunt totam, fuga, nobis autem molestiae assumenda esse saepe corrupti voluptatum eius! Eveniet, earum fugiat!"})}}}]);
-//# sourceMappingURL=415.eea348e0.chunk.js.map
