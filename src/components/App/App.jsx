@@ -13,7 +13,7 @@ const Registration = lazy(() =>
 
 export const App = () => {
   return (
-    <Routes>
+      <Routes>
       <Route path="/" element={<Layout />}>
         <Route
           index
