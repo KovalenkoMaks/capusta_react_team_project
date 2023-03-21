@@ -1,18 +1,12 @@
 import HomePageView from 'pages/HomePageView/HomePageView'
+import Header from "components/Header/Header";
+import '../../../node_modules/modern-normalize/modern-normalize.css'
 
 export const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      <HomePageView />
+    <div>
+   <Header/>
+   <HomePageView />
     </div>
   );
 };
