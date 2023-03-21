@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/capusta_react_team_project/static/css/main.89ae4a40.css",
-    "main.js": "/capusta_react_team_project/static/js/main.85449cde.js",
+    "main.js": "/capusta_react_team_project/static/js/main.947b89b5.js",
     "static/js/415.eea348e0.chunk.js": "/capusta_react_team_project/static/js/415.eea348e0.chunk.js",
     "static/js/715.5bf9390b.chunk.js": "/capusta_react_team_project/static/js/715.5bf9390b.chunk.js",
     "static/js/382.c7fb0131.chunk.js": "/capusta_react_team_project/static/js/382.c7fb0131.chunk.js",
@@ -16,7 +16,7 @@
     "index.html": "/capusta_react_team_project/index.html",
     "static/media/exitIcon.svg": "/capusta_react_team_project/static/media/exitIcon.bde7ea51d65470190b21886710692baf.svg",
     "main.89ae4a40.css.map": "/capusta_react_team_project/static/css/main.89ae4a40.css.map",
-    "main.85449cde.js.map": "/capusta_react_team_project/static/js/main.85449cde.js.map",
+    "main.947b89b5.js.map": "/capusta_react_team_project/static/js/main.947b89b5.js.map",
     "415.eea348e0.chunk.js.map": "/capusta_react_team_project/static/js/415.eea348e0.chunk.js.map",
     "715.5bf9390b.chunk.js.map": "/capusta_react_team_project/static/js/715.5bf9390b.chunk.js.map",
     "382.c7fb0131.chunk.js.map": "/capusta_react_team_project/static/js/382.c7fb0131.chunk.js.map",
@@ -24,6 +24,6 @@
   },
   "entrypoints": [
     "static/css/main.89ae4a40.css",
-    "static/js/main.85449cde.js"
+    "static/js/main.947b89b5.js"
   ]
 }
