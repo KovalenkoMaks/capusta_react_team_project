@@ -9,12 +9,13 @@ import { BalanceContainer } from '../ExpensesPage.styled';
 export const Balance = () => {
   const { transactions } = useTransactions();
   const { balance } = useAuth();
-  let disabled = false;
+  let disabled = transactions.length === 0 && balance === 0;
+  console.log(disabled);
+  // if (transactions.length === 0 || balance === 0) {
+  //   disabled = true;
 
-  if (transactions.length === 0 || balance === 0) {
-    console.log(disabled);
-    disabled = true;
-  }
+  //   console.log(disabled);
+  // }
 
   const dispatch = useDispatch();
   const onSubmit = e => {
@@ -32,13 +33,18 @@ export const Balance = () => {
           <Input
             placeholder={`${balance} UAH`}
             type="text"
-            disabled={disabled}
+            disabled={!disabled}
           />
-          {disabled ? null : (
-            <Button type="text" className="button" disabled={disabled}>
+          {disabled ? (
+            <Button
+              type="text"
+              className="button"
+              disabled={disabled}
+              // htmlType={onSubmit}
+            >
               Confirm
             </Button>
-          )}
+          ) : null}
         </form>
       </div>
 
