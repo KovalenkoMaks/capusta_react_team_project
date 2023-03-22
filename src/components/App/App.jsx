@@ -26,7 +26,7 @@ export const App = () => {
   }, [dispatch]);
 
   return (
-    <Routes>
+      <Routes>
       <Route path="/" element={<Layout />}>
         <Route
           index
