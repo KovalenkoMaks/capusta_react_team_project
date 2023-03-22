@@ -32,7 +32,6 @@ export const App = () => {
           index
           element={<PrivateRoute component={Home} redirectTo={'/login'} />}
         />
-
         <Route
           path="/login"
           element={<RestrictedRoute component={LogIn} redirectTo={'/'} />}
