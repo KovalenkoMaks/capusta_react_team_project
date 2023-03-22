@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
-
+import { getMonthStats } from 'redux/auth/operations';
 import { transactionSelectors } from 'redux/transactions';
 import s from './Summary.styled.css';
 
@@ -12,6 +12,11 @@ function Summary() {
   const summaryExpenses = useSelector(
     transactionSelectors.getExpenseMonthStats
   );
+
+  // eslint-disable-next-line no-unused-vars
+  const monthStats =
+    useSelector(getMonthStats.getIncomeMonthStats) +
+    useSelector(getMonthStats.getExpenseMonthStats);
 
   const elements =
     transtype === 'expense'

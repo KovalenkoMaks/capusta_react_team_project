@@ -19,7 +19,6 @@ export const transactionsSlice = createSlice({
       //getMonthStats
       .addCase(getMonthStats.pending, (state, action) => {})
       .addCase(getMonthStats.fulfilled, (state, action) => {
-        console.log(action.payload);
         state.monthsStats = action.payload.monthsStats;
         // console.log(state.monthStats);
       })
