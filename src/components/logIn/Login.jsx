@@ -13,21 +13,6 @@ const LogIn = () => {
   };
   const handleSubmit = async (values, { resetForm }) => {
     dispath(logIn(values));
-
-    // resetForm();
-    // let check = data.find(
-    //   e => e.name.toLowerCase() === values.name.toLowerCase()
-    // );
-    // if (check === undefined) {
-    //   resetForm();
-    //   try {
-    //     await addContact(values);
-    //   } catch (error) {
-    //     console.log(error);
-    //   }
-    // } else {
-    //   swal(`"${values.name}" is alredy in contacts`, '', 'warning');
-    // }
   };
   return (
     <DivEl>
@@ -35,7 +20,7 @@ const LogIn = () => {
       <a href="https://www.google.com/">
         <span>
           <GoogleIcon />
-        </span>{' '}
+        </span>
         Google
       </a>
       <p>Or log in using an email and password, after registering:</p>
