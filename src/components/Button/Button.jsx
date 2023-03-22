@@ -1,10 +1,11 @@
 import { StyledBtn } from './Button.styled';
+import { Button } from 'antd';
 
-export default function Button(){
+export default function Buttons(){
 
   return (
     <>
-      <StyledBtn></StyledBtn>
+      <Button></Button>
     </>
   );
 }
