@@ -1,14 +1,22 @@
 const { default: styled } = require('@emotion/styled');
 
 export const DivEl = styled.div`
+  button {
+    width: 116px;
+    height: 44px;
+    filter: drop-shadow(1px 3px 5px rgba(255, 107, 8, 0.35));
+    border-radius: 16px;
+    background-color: rgba(255, 107, 8);
+    color: white;
+  }
   /* display: flex; */
   @media screen and (min-width: 320px) {
     position: absolute;
     z-index: 3;
     top: 255px;
     max-width: 280px;
-    left: 7%;
-    right: 7%;
+    /* left: 7%;
+    right: 7%; */
     height: 496px;
     background-color: #fff;
     border-radius: 30px;
@@ -17,6 +25,9 @@ export const DivEl = styled.div`
     text-align: center;
     letter-spacing: 0.04em;
     padding: 40px 20px;
+    p {
+      width: 238px;
+    }
   }
 
   @media screen and (min-width: 768px) {
@@ -61,6 +72,15 @@ export const DivEl = styled.div`
     justify-content: center;
     a {
       margin-bottom: 0;
+      width: 116px;
+      height: 44px;
+      filter: drop-shadow(1px 3px 5px rgba(255, 107, 8, 0.35));
+      border-radius: 16px;
+      background-color: rgba(255, 107, 8);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
   }
   input {

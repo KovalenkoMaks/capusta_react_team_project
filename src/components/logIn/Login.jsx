@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { logIn } from 'redux/auth/operations';
 import { ReactComponent as GoogleIcon } from 'images/google.svg';
 import { DivEl } from './Login.styled';
+import { StyledBtn } from 'components/Button/Button.styled';
 
 const LogIn = () => {
   const dispath = useDispatch();
@@ -13,21 +14,6 @@ const LogIn = () => {
   };
   const handleSubmit = async (values, { resetForm }) => {
     dispath(logIn(values));
-
-    // resetForm();
-    // let check = data.find(
-    //   e => e.name.toLowerCase() === values.name.toLowerCase()
-    // );
-    // if (check === undefined) {
-    //   resetForm();
-    //   try {
-    //     await addContact(values);
-    //   } catch (error) {
-    //     console.log(error);
-    //   }
-    // } else {
-    //   swal(`"${values.name}" is alredy in contacts`, '', 'warning');
-    // }
   };
   return (
     <DivEl>
