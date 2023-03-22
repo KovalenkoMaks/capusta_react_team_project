@@ -1,27 +1,33 @@
 {
   "files": {
-    "main.css": "/capusta_react_team_project/static/css/main.bfff2417.css",
-    "main.js": "/capusta_react_team_project/static/js/main.b1c1961d.js",
+    "main.css": "/capusta_react_team_project/static/css/main.c2e940b1.css",
+    "main.js": "/capusta_react_team_project/static/js/main.5a8f39b8.js",
     "static/js/544.afef04a4.chunk.js": "/capusta_react_team_project/static/js/544.afef04a4.chunk.js",
-    "static/js/170.6045ee6d.chunk.js": "/capusta_react_team_project/static/js/170.6045ee6d.chunk.js",
-    "static/js/529.3762af66.chunk.js": "/capusta_react_team_project/static/js/529.3762af66.chunk.js",
+    "static/js/170.e236dc92.chunk.js": "/capusta_react_team_project/static/js/170.e236dc92.chunk.js",
+    "static/js/529.a888c0e1.chunk.js": "/capusta_react_team_project/static/js/529.a888c0e1.chunk.js",
+    "static/js/404.7e954b12.chunk.js": "/capusta_react_team_project/static/js/404.7e954b12.chunk.js",
+    "static/js/346.49b0e0ec.chunk.js": "/capusta_react_team_project/static/js/346.49b0e0ec.chunk.js",
     "static/js/705.d9297afe.chunk.js": "/capusta_react_team_project/static/js/705.d9297afe.chunk.js",
-    "static/media/backgroundHome.svg": "/capusta_react_team_project/static/media/backgroundHome.3372a3a87cd771c8d6ad.svg",
-    "static/media/backgroundTablet.svg": "/capusta_react_team_project/static/media/backgroundTablet.03e6dd9450eec0ef55b1.svg",
-    "static/media/backgroundMobile.svg": "/capusta_react_team_project/static/media/backgroundMobile.ded58d12fa88fdb146ea.svg",
+    "static/js/355.09962e14.chunk.js": "/capusta_react_team_project/static/js/355.09962e14.chunk.js",
     "static/media/logoIcon.svg": "/capusta_react_team_project/static/media/logoIcon.9a1219fa7b0c5ccef923ebbd77f9ee7b.svg",
+    "static/media/calendar.svg": "/capusta_react_team_project/static/media/calendar.d58d6bfbc2c68ee135620551a62695bf.svg",
     "static/media/google.svg": "/capusta_react_team_project/static/media/google.45390fe8c864f6ba12f2fcaab8463918.svg",
+    "static/media/calculator.svg": "/capusta_react_team_project/static/media/calculator.548cfa77d066c8000a1216da93e9d1fb.svg",
     "index.html": "/capusta_react_team_project/index.html",
     "static/media/exitIcon.svg": "/capusta_react_team_project/static/media/exitIcon.bde7ea51d65470190b21886710692baf.svg",
-    "main.bfff2417.css.map": "/capusta_react_team_project/static/css/main.bfff2417.css.map",
-    "main.b1c1961d.js.map": "/capusta_react_team_project/static/js/main.b1c1961d.js.map",
+    "static/media/bar_chart.svg": "/capusta_react_team_project/static/media/bar_chart.e2667490b1afd852a34e0a1c6a4725d6.svg",
+    "main.c2e940b1.css.map": "/capusta_react_team_project/static/css/main.c2e940b1.css.map",
+    "main.5a8f39b8.js.map": "/capusta_react_team_project/static/js/main.5a8f39b8.js.map",
     "544.afef04a4.chunk.js.map": "/capusta_react_team_project/static/js/544.afef04a4.chunk.js.map",
-    "170.6045ee6d.chunk.js.map": "/capusta_react_team_project/static/js/170.6045ee6d.chunk.js.map",
-    "529.3762af66.chunk.js.map": "/capusta_react_team_project/static/js/529.3762af66.chunk.js.map",
-    "705.d9297afe.chunk.js.map": "/capusta_react_team_project/static/js/705.d9297afe.chunk.js.map"
+    "170.e236dc92.chunk.js.map": "/capusta_react_team_project/static/js/170.e236dc92.chunk.js.map",
+    "529.a888c0e1.chunk.js.map": "/capusta_react_team_project/static/js/529.a888c0e1.chunk.js.map",
+    "404.7e954b12.chunk.js.map": "/capusta_react_team_project/static/js/404.7e954b12.chunk.js.map",
+    "346.49b0e0ec.chunk.js.map": "/capusta_react_team_project/static/js/346.49b0e0ec.chunk.js.map",
+    "705.d9297afe.chunk.js.map": "/capusta_react_team_project/static/js/705.d9297afe.chunk.js.map",
+    "355.09962e14.chunk.js.map": "/capusta_react_team_project/static/js/355.09962e14.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.bfff2417.css",
-    "static/js/main.b1c1961d.js"
+    "static/css/main.c2e940b1.css",
+    "static/js/main.5a8f39b8.js"
   ]
 }
