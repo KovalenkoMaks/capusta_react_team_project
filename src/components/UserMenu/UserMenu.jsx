@@ -11,6 +11,7 @@ import { useAuth } from 'hooks/useAuth.js';
 export default function UserMenu() {
   const { user } = useAuth();
   return (
+
     <>
       <UserAvatarContainer>{user.email[0]}</UserAvatarContainer>
 
