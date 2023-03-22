@@ -3,7 +3,6 @@ import { ReactComponent as LogOutIcon } from 'images/exitIcon.svg';
 import { useAuth } from 'hooks/useAuth.js';
 
 export default function UserMenu(){
-
   const {user} = useAuth();
 
   return(
