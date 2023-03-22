@@ -1,0 +1,116 @@
+@media screen and (min-width: 320px) {
+    .background {
+        width: 320px;
+        height: 856px;
+        background-image: url('../../images/backgroundMobile.svg ');
+    }
+
+    .title {
+        padding-top: 80px;
+        padding-left: 17px;
+    }
+
+    .titleWord {
+        margin: 0;
+        font-size: 51px;
+        font-weight: 900;
+        line-height: calc(1.18);
+        text-transform: none;
+        color: rgb(0, 0, 0);
+    }
+
+    .titleLetter {
+        font-weight: 900;
+        font-size: 39px;
+    }
+
+    .titleText {
+        margin: 0;
+        padding: 0;
+        padding-top: 3px;
+        padding-left: 14px;
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 13px;
+        line-height: 15px;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: #52555F;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .background {
+        width: 768px;
+        height: 1024px;
+        background-image: url('../../images/backgroundTablet.svg');
+    }
+
+    .title {
+        padding-top: 115px;
+        padding-left: 162px;
+    }
+
+    .titleWord {
+        margin: 0;
+        font-size: 87px;
+        font-weight: 900;
+        text-transform: none;
+        color: rgb(0, 0, 0);
+    }
+
+    .titleLetter {
+        font-weight: 900;
+        font-size: 65px;
+    }
+
+    .titleText {
+        margin: 0;
+        padding: 0;
+        padding-left: 62px;
+        font-size: 16px;
+        line-height: 19px;
+        letter-spacing: 0.18em;
+
+    }
+
+
+}
+
+@media screen and (min-width: 1280px) {
+    .background {
+        width: 1280px;
+        height: 850px;
+        background-image: url('../../images/backgroundHome.svg');
+    }
+
+    .title {
+        padding-top: 362px;
+        padding-left: 229px;
+    }
+
+    .titleWord {
+        margin: 0;
+        padding: 0;
+        font-size: 102px;
+        font-weight: 900;
+        text-transform: none;
+        color: rgb(0, 0, 0);
+    }
+
+    .titleLetter {
+        font-weight: 900;
+        font-size: 78px;
+    }
+
+    .titleText {
+        margin: 0;
+        padding: 0;
+        padding-left: 70px;
+        font-size: 16px;
+        line-height: 19px;
+        letter-spacing: 0.18em;
+
+    }
+}

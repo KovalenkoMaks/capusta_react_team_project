@@ -1,13 +1,13 @@
 import { createPortal } from 'react-dom';
 import {
   ModalContainer,
-  ModalContent,
+  // ModalContent,
   ModalTitle,
-  ButtonContainer,
+  // ButtonContainer,
   CloseButton,
   Overlay,
-  OverlayContainer,
-} from './LogOutConfirmModal.styled';
+  // OverlayContainer,
+} from './ConfirmModal.styled';
 import {ReactComponent as CloseIcon} from 'images/closeIcon.svg'
 import Button from 'components/Button/Button';
 
@@ -20,11 +20,11 @@ export default function ConfirmModal({
 }){
 return createPortal(
   <Overlay>
-        <OverlayContainer>
+        {/* <OverlayContainer> */}
           <ModalContainer>
-            <ModalContent>
+            {/* <ModalContent> */}
               <ModalTitle>{text}</ModalTitle>
-              <ButtonContainer>
+              {/* <ButtonContainer> */}
                 <Button
                   text="Yes"
                   type="button"
@@ -37,13 +37,13 @@ return createPortal(
                   width= "125px"
                   onClick={handleCancel}
                 />
-              </ButtonContainer>
-            </ModalContent>
+              {/* </ButtonContainer> */}
+            {/* </ModalContent> */}
             <CloseButton type="button" onClick={onClick}>
               <CloseIcon/>
             </CloseButton>
           </ModalContainer>
-        </OverlayContainer>
+        {/* </OverlayContainer> */}
       </Overlay>
       ,modalElement);
     }
