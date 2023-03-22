@@ -62,7 +62,8 @@ export const refresh = createAsyncThunk('auth/refresh', async (_, thunkAPI) => {
   setAuthHeader(refreshToken);
   try {
     const { data } = await axios.post('/auth/refresh', { sid });
-    setAuthHeader(data.accessToken);
+    // console.log(data);
+    setAuthHeader(data.newAccessToken);
     return data;
   } catch (error) {
     // clearAuthHeader();
