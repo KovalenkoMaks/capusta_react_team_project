@@ -20,13 +20,13 @@ export const App = () => {
     dispatch(refresh())
       .unwrap()
       .then(() => {
-        dispatch(getAllUserData);
+        // dispatch(getAllUserData);
       })
       .catch(console.log);
   }, [dispatch]);
 
   return (
-      <Routes>
+    <Routes>
       <Route path="/" element={<Layout />}>
         <Route
           index
