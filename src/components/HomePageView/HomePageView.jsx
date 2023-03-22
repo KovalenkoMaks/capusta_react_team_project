@@ -1,14 +1,23 @@
 import s from './HomePage.module.css';
-// import { FirstSection } from './HomePage.styled';
+// import { Background } from './HomePage.styled';
 
 const HomePageView = () => {
   return (
     <>
-      <div className={s.firstSection}>
-        <div className={s.bcgImage}></div>
-        <div className={s.imgText}></div>
+      <div className={s.background}>
+        <div className={s.title}>
+          <h1 className={s.titleWord}>Kapu
+            <span className={s.titleLetter}>
+              $
+            </span>
+            ta
+          </h1>
+          <p className={s.titleText}>
+            smart finance
+          </p>
+        </div>
+
       </div>
-      <div className={s.bcgImageBottom}></div>
     </>
   );
 };
