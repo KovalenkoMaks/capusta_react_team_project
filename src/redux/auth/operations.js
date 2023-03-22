@@ -29,7 +29,6 @@ export const logIn = createAsyncThunk(
   async (userData, thunkAPI) => {
     try {
       const res = await axios.post('/auth/login', userData);
-      console.log(res.data.sid);
       setAuthHeader(res.data.accessToken);
       // console.log(res);
       return res.data;
@@ -71,3 +70,32 @@ export const refresh = createAsyncThunk('auth/refresh', async (_, thunkAPI) => {
     return thunkAPI.rejectWithValue();
   }
 });
+export const getAllUserData = createAsyncThunk(
+  'user',
+  async (userData, thunkAPI) => {
+    try {
+      const res = await axios.get('/user');
+      // thunkAPI.dispatch(summary())
+      // console.log(res);
+      // setAuthHeader(res.data.accessToken);
+      return res.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+export const getMonthStats = createAsyncThunk(
+  'monthStats',
+  async (userData, thunkAPI) => {
+    try {
+      const res = await axios.get('/transaction/income');
+      // thunkAPI.dispatch(summary())
+      // console.log(res.data);
+      // setAuthHeader(res.data.accessToken);
+      // console.log(res.data);
+      return res.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);

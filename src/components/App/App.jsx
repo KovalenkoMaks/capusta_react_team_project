@@ -5,7 +5,7 @@ import Layout from 'pages/Layout/Layout';
 import { lazy, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { refresh } from 'redux/auth/operations';
+import { getAllUserData, getMonthStats, refresh } from 'redux/auth/operations';
 
 const Home = lazy(() => import('pages/Home/Home'));
 const LogIn = lazy(() => import('components/logIn/Login'));
@@ -20,13 +20,14 @@ export const App = () => {
     dispatch(refresh())
       .unwrap()
       .then(() => {
-        dispatch(getAllUserData);
+        dispatch(getAllUserData());
+        dispatch(getMonthStats());
       })
       .catch(console.log);
   }, [dispatch]);
 
   return (
-      <Routes>
+    <Routes>
       <Route path="/" element={<Layout />}>
         <Route
           index
