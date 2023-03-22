@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { logIn, register, logOut, refresh } from './operations';
+import { logIn, register, logOut, refresh, getAllUserData } from './operations';
 
 export const authSlice = createSlice({
   name: 'auth',
@@ -57,7 +57,15 @@ export const authSlice = createSlice({
         state.refreshToken = action.payload.newRefreshToken;
         state.sid = action.payload.newSid;
       })
-      .addCase(refresh.rejected, (state, action) => {}),
+      .addCase(refresh.rejected, (state, action) => {})
+
+      //getAllUserData
+      .addCase(getAllUserData.pending, (state, action) => {})
+      .addCase(getAllUserData.fulfilled, (state, action) => {
+        state.user.email = action.payload.email;
+        state.user.balance = action.payload.balance;
+      })
+      .addCase(getAllUserData.rejected, (state, action) => {}),
 });
 
 export default authSlice.reducer;
