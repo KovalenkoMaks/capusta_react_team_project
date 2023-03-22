@@ -15,11 +15,16 @@ background-color: rgba(0, 0, 0, 0.4);
 
 export const ModalContainer = styled.div`
 position: relative;
-width: 380px;
-padding:  50px 58px 60px;
+width: 280px;
+padding: 40px 40px 50px;
 background-color: #fff;
 box-shadow: 10px 10px 30px rgba(82, 85, 95, 0.4);
 border-radius: 30px;
+
+@media screen and (min-width: 420px) {
+    width: 380px;
+    padding: 50px 58px 60px;
+  }
 `;
 
 export const ModalTitle = styled.p`

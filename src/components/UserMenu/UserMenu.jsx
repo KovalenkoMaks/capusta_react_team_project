@@ -32,9 +32,10 @@ export default function UserMenu() {
     setModal(false);
   };
   const dispatch = useDispatch();
-  // const ClickHandel = () => {
-  //   dispatch(logOut());
-  // };
+  const handleLogOut = () => {
+    dispatch(logOut());
+    closeModal();
+  };
   const handleClick = () => {
     setModal(true);
   };
@@ -56,7 +57,7 @@ export default function UserMenu() {
       <ConfirmModal
         onClick={closeModal}
         text="Do you really want to leave?"
-        handleConfirm={() => dispatch(logOut())}
+        handleConfirm={handleLogOut}
         handleCancel={() => setModal(prevState => !prevState)}
       />
     )}

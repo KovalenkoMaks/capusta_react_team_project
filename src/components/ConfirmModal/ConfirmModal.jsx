@@ -1,12 +1,10 @@
 import { createPortal } from 'react-dom';
 import {
   ModalContainer,
-  // ModalContent,
   ModalTitle,
   ButtonContainer,
   CloseButton,
   Overlay,
-  // OverlayContainer,
 } from './ConfirmModal.styled';
 import {ReactComponent as CloseIcon} from 'images/closeIcon.svg'
 import Button from 'components/Button/Button';
@@ -20,9 +18,9 @@ export default function ConfirmModal({
 }){
 return createPortal(
   <Overlay>
-        {/* <OverlayContainer> */}
+        
           <ModalContainer>
-            {/* <ModalContent> */}
+           
               <ModalTitle>{text}</ModalTitle>
               <ButtonContainer>
                 <Button
@@ -38,12 +36,12 @@ return createPortal(
                   onClick={handleCancel}
                 />
               </ButtonContainer>
-            {/* </ModalContent> */}
+          
             <CloseButton type="button" onClick={onClick}>
               <CloseIcon/>
             </CloseButton>
           </ModalContainer>
-        {/* </OverlayContainer> */}
+        
       </Overlay>
       ,modalElement);
     }

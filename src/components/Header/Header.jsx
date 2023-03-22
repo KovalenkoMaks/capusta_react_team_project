@@ -5,20 +5,20 @@ import UserMenu from 'components/UserMenu/UserMenu.jsx';
 import { useAuth } from 'hooks/useAuth.js';
 
 export default function Header(){
-// const {isLoggedIn} = useAuth();
+const {isLoggedIn} = useAuth();
   return(
     <>
     <Container>
     <Link to="/"  alt="homepage">
 <LogoIcon/>
 </Link>
-{/* {isLoggedIn && (
-  <> */}
+{isLoggedIn && (
+  <>
   <MenuContainer>
   <UserMenu></UserMenu>
 </MenuContainer>
-  {/* </> */}
-{/* )} */}
+  </>
+)}
     </Container>
     </>
   )
