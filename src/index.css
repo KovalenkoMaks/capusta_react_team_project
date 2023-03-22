@@ -7,6 +7,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 100vh;
+  color: #52555f;
+  background-color: #F2F5FC;
 }
 
 h1,
@@ -37,4 +39,32 @@ button {
 
 svg {
   fill: currentColor;
+}
+
+.ant-picker .ant-picker-input,
+.ant-picker.ant-picker-range {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+.ant-picker .ant-picker-input span.ant-picker-suffix,
+.ant-picker.ant-picker-range span.ant-picker-suffix {
+  margin-left: 0;
+  margin-right: 10px;
+}
+
+.ant-picker .ant-picker-input {
+  width: 120px;
+}
+
+.ant-dropdown-trigger.ant-dropdown-open .anticon {
+  transform: rotate(180deg);
+}
+
+.ant-dropdown-trigger .anticon {
+  transition: transform 250ms ease-in-out;
+}
+
+.ant-dropdown-trigger .anticon svg {
+  height: 10px;
 }
