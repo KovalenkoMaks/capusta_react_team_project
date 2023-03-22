@@ -1,11 +1,11 @@
 {
   "files": {
     "main.css": "/capusta_react_team_project/static/css/main.a0f42e63.css",
-    "main.js": "/capusta_react_team_project/static/js/main.05c3f294.js",
+    "main.js": "/capusta_react_team_project/static/js/main.f4737a4d.js",
     "static/js/544.afef04a4.chunk.js": "/capusta_react_team_project/static/js/544.afef04a4.chunk.js",
-    "static/js/170.e236dc92.chunk.js": "/capusta_react_team_project/static/js/170.e236dc92.chunk.js",
-    "static/js/529.a888c0e1.chunk.js": "/capusta_react_team_project/static/js/529.a888c0e1.chunk.js",
-    "static/js/199.e832d72f.chunk.js": "/capusta_react_team_project/static/js/199.e832d72f.chunk.js",
+    "static/js/170.03879b61.chunk.js": "/capusta_react_team_project/static/js/170.03879b61.chunk.js",
+    "static/js/529.3c2bcae9.chunk.js": "/capusta_react_team_project/static/js/529.3c2bcae9.chunk.js",
+    "static/js/379.bfb3b64a.chunk.js": "/capusta_react_team_project/static/js/379.bfb3b64a.chunk.js",
     "static/js/346.49b0e0ec.chunk.js": "/capusta_react_team_project/static/js/346.49b0e0ec.chunk.js",
     "static/js/705.d9297afe.chunk.js": "/capusta_react_team_project/static/js/705.d9297afe.chunk.js",
     "static/js/616.d2a5e8fe.chunk.js": "/capusta_react_team_project/static/js/616.d2a5e8fe.chunk.js",
@@ -19,17 +19,17 @@
     "static/media/bar_chart.svg": "/capusta_react_team_project/static/media/bar_chart.e2667490b1afd852a34e0a1c6a4725d6.svg",
     "static/media/closeIcon.svg": "/capusta_react_team_project/static/media/closeIcon.725652eddfe0bd34d7c252763578a80c.svg",
     "main.a0f42e63.css.map": "/capusta_react_team_project/static/css/main.a0f42e63.css.map",
-    "main.05c3f294.js.map": "/capusta_react_team_project/static/js/main.05c3f294.js.map",
+    "main.f4737a4d.js.map": "/capusta_react_team_project/static/js/main.f4737a4d.js.map",
     "544.afef04a4.chunk.js.map": "/capusta_react_team_project/static/js/544.afef04a4.chunk.js.map",
-    "170.e236dc92.chunk.js.map": "/capusta_react_team_project/static/js/170.e236dc92.chunk.js.map",
-    "529.a888c0e1.chunk.js.map": "/capusta_react_team_project/static/js/529.a888c0e1.chunk.js.map",
-    "199.e832d72f.chunk.js.map": "/capusta_react_team_project/static/js/199.e832d72f.chunk.js.map",
+    "170.03879b61.chunk.js.map": "/capusta_react_team_project/static/js/170.03879b61.chunk.js.map",
+    "529.3c2bcae9.chunk.js.map": "/capusta_react_team_project/static/js/529.3c2bcae9.chunk.js.map",
+    "379.bfb3b64a.chunk.js.map": "/capusta_react_team_project/static/js/379.bfb3b64a.chunk.js.map",
     "346.49b0e0ec.chunk.js.map": "/capusta_react_team_project/static/js/346.49b0e0ec.chunk.js.map",
     "705.d9297afe.chunk.js.map": "/capusta_react_team_project/static/js/705.d9297afe.chunk.js.map",
     "616.d2a5e8fe.chunk.js.map": "/capusta_react_team_project/static/js/616.d2a5e8fe.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a0f42e63.css",
-    "static/js/main.05c3f294.js"
+    "static/js/main.f4737a4d.js"
   ]
 }
