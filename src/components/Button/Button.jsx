@@ -1,11 +1,22 @@
 import { StyledBtn } from './Button.styled';
-import { Button } from 'antd';
 
-export default function Buttons(){
+export default function Button({
+  text,
+  type,
+  disabled,
+  onClick,
+  width,
+
+}){
 
   return (
     <>
-      <Button></Button>
+      <StyledBtn
+        type={type}
+        width={width}
+        disabled={disabled}
+        onClick={onClick}
+      >{text}</StyledBtn>
     </>
   );
 }
