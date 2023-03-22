@@ -6,8 +6,8 @@ import { DivEl } from './Layout.styled';
 const Layout = () => {
   return (
     <DivEl>
+      <Header />
       <Suspense fallback={<div>Loading...</div>}>
-        <Header />
         {/* <HomePageView /> */}
         <Outlet />
       </Suspense>
