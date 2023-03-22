@@ -57,7 +57,9 @@ export const authSlice = createSlice({
         state.refreshToken = action.payload.newRefreshToken;
         state.sid = action.payload.newSid;
       })
-      .addCase(refresh.rejected, (state, action) => {})
+      .addCase(refresh.rejected, (state, action) => {
+        state.isRefreshing = false;
+      })
 
       //getAllUserData
       .addCase(getAllUserData.pending, (state, action) => {})

@@ -50,9 +50,6 @@ export const UserName = styled.div`
   }
 `;
 
-
-
-
 export const LogOutTextBtn = styled.div`
   display: none;
   @media (min-width: 768px){
