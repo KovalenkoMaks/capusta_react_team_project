@@ -10,7 +10,7 @@ export const ExpensesPage = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(categories());
-  }, []);
+  }, [dispatch]);
 
   return (
     <ExpensCont>
