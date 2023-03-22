@@ -6,12 +6,18 @@ import { lazy, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { getAllUserData, getMonthStats, refresh } from 'redux/auth/operations';
+// import SharedLayout from 'pages/SharedLayout/SharedLayout';
 
 const Home = lazy(() => import('pages/Home/Home'));
 const LogIn = lazy(() => import('components/logIn/Login'));
 const Registration = lazy(() =>
   import('components/registrations/Registrations')
 );
+
+// це треба буде переробити і теж зробити Suspense i Outlet
+// бо тут теж є частинки, які не треба перерендерювати (я про Expenses i Income)
+const Expenses = lazy(() => import('pages/Expenses/Expenses'));
+const Income = lazy(() => import('pages/Income/Income'));
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -38,6 +44,10 @@ export const App = () => {
           element={<RestrictedRoute component={LogIn} redirectTo={'/'} />}
         />
         <Route path="/registration" element={<Registration />} />
+        {/* <Route path="/pup" element={<SharedLayout />}> */}
+          <Route path="expenses" element={<Expenses />} />
+          <Route path="income" element={<Income />} />
+        {/* </Route> */}
       </Route>
     </Routes>
   );
