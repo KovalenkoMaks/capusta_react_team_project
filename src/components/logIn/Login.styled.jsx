@@ -76,11 +76,12 @@ export const DivEl = styled.div`
       height: 44px;
       filter: drop-shadow(1px 3px 5px rgba(255, 107, 8, 0.35));
       border-radius: 16px;
-      background-color: rgba(255, 107, 8);
-      color: white;
+      /* background-color: rgba(255, 107, 8); */
+      /* color: white; */
       display: flex;
       align-items: center;
       justify-content: center;
+      //
     }
   }
   input {

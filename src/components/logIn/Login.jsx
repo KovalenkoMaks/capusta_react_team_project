@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { logIn } from 'redux/auth/operations';
 import { ReactComponent as GoogleIcon } from 'images/google.svg';
 import { DivEl } from './Login.styled';
-import { StyledBtn } from 'components/Button/Button.styled';
 
 const LogIn = () => {
   const dispath = useDispatch();
@@ -21,7 +20,7 @@ const LogIn = () => {
       <a href="https://www.google.com/">
         <span>
           <GoogleIcon />
-        </span>{' '}
+        </span>
         Google
       </a>
       <p>Or log in using an email and password, after registering:</p>
