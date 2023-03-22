@@ -17,7 +17,12 @@ export const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(refresh());
+    dispatch(refresh())
+      .unwrap()
+      .then(() => {
+        dispatch(getAllUserData);
+      })
+      .catch(console.log);
   }, [dispatch]);
 
   return (

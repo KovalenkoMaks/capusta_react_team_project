@@ -53,9 +53,9 @@ export const authSlice = createSlice({
         // state.user = action.payload.userData;
         state.isRefreshing = false;
         state.isLoggedIn = true;
-        // state.accessToken = action.payload.accessToken;
-        // state.refreshToken = action.payload.refreshToken;
-        // state.sid = action.payload.sid;
+        state.accessToken = action.payload.newAccessToken;
+        state.refreshToken = action.payload.newRefreshToken;
+        state.sid = action.payload.newSid;
       })
       .addCase(refresh.rejected, (state, action) => {}),
 });
