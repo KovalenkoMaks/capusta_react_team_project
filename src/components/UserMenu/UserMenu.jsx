@@ -1,17 +1,28 @@
-import {UserAvatarBox, LogOutIconBtn}  from './UserMenu.styled.jsx';
+import {
+  UserAvatarContainer,
+  LogOutIconBtn,
+  LogOutTextBtn,
+  UserName,
+  UserNameContainer,
+} from './UserMenu.styled.jsx';
 import { ReactComponent as LogOutIcon } from 'images/exitIcon.svg';
+import { useAuth } from 'hooks/useAuth.js';
 
-export default function UserMenu(){
-  return(
+export default function UserMenu() {
+  const { user } = useAuth();
+  return (
+
     <>
-    <UserAvatarBox>U</UserAvatarBox>
-    {/* <UserName>Name</UserName>
-    <LogOutTextBtn>Exit</LogOutTextBtn> */}
-    <LogOutIconBtn>
-      <LogOutIcon/>
-    </LogOutIconBtn>
+      <UserAvatarContainer>{user.email[0]}</UserAvatarContainer>
+
+      <UserNameContainer>
+        <UserName>{user.email}</UserName>
+      </UserNameContainer>
+
+      <LogOutTextBtn type="button">Exit</LogOutTextBtn>
+      <LogOutIconBtn type="button">
+        <LogOutIcon />
+      </LogOutIconBtn>
     </>
-
-  )
-
+  );
 }
