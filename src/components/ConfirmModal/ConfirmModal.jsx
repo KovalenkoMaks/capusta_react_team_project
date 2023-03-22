@@ -3,7 +3,7 @@ import {
   ModalContainer,
   // ModalContent,
   ModalTitle,
-  // ButtonContainer,
+  ButtonContainer,
   CloseButton,
   Overlay,
   // OverlayContainer,
@@ -24,7 +24,7 @@ return createPortal(
           <ModalContainer>
             {/* <ModalContent> */}
               <ModalTitle>{text}</ModalTitle>
-              {/* <ButtonContainer> */}
+              <ButtonContainer>
                 <Button
                   text="Yes"
                   type="button"
@@ -37,7 +37,7 @@ return createPortal(
                   width= "125px"
                   onClick={handleCancel}
                 />
-              {/* </ButtonContainer> */}
+              </ButtonContainer>
             {/* </ModalContent> */}
             <CloseButton type="button" onClick={onClick}>
               <CloseIcon/>

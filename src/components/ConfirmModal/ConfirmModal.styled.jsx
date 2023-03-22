@@ -18,15 +18,31 @@ position: relative;
 width: 380px;
 padding:  50px 58px 60px;
 background-color: #fff;
+box-shadow: 10px 10px 30px rgba(82, 85, 95, 0.4);
+border-radius: 30px;
 `;
 
 export const ModalTitle = styled.p`
-font-size: 19px;
+margin-bottom: 20px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.02em;
 `;
 export const CloseButton = styled.button`
 position: absolute;
-  top: 20px;
-  right: 20px;
-font-size: 19px;
+top: 20px;
+right: 20px;
+cursor: pointer;
+ transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+ &:hover {
+    transform: scale(0.9);
+  }
+`;
+export const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 15px;
 `;
 
