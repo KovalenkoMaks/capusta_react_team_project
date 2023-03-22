@@ -13,7 +13,6 @@ function Summary() {
     transactionSelectors.getExpenseMonthStats
   );
 
-  
   // eslint-disable-next-line no-unused-vars
   const monthStats =
     useSelector(getMonthStats.getIncomeMonthStats) +
