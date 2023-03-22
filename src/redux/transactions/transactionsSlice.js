@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { getAllUserData, getMonthStats } from '../auth/operations';
+import { categories } from './operations';
 // import { newBalance } from './operations';
 
 export const transactionsSlice = createSlice({
@@ -7,6 +8,7 @@ export const transactionsSlice = createSlice({
   initialState: {
     transactions: [],
     monthsStats: {},
+    categories: [],
   },
   reducers: {},
   extraReducers: builder =>
@@ -21,9 +23,16 @@ export const transactionsSlice = createSlice({
       .addCase(getMonthStats.pending, (state, action) => {})
       .addCase(getMonthStats.fulfilled, (state, action) => {
         state.monthsStats = action.payload.monthsStats;
+
         // console.log(state.monthStats);
       })
-      .addCase(getMonthStats.rejected, (state, action) => {}),
+      .addCase(getMonthStats.rejected, (state, action) => {})
+      //getCategories
+      .addCase(categories.pending, (state, action) => {})
+      .addCase(categories.fulfilled, (state, action) => {
+        state.categories = action.payload;
+      })
+      .addCase(categories.rejected, (state, action) => {}),
 });
 
 export default transactionsSlice.reducer;

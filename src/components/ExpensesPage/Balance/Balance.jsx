@@ -10,12 +10,6 @@ export const Balance = () => {
   const { transactions } = useTransactions();
   const { balance } = useAuth();
   let disabled = transactions.length === 0 && balance === 0;
-  console.log(disabled);
-  // if (transactions.length === 0 || balance === 0) {
-  //   disabled = true;
-
-  //   console.log(disabled);
-  // }
 
   const dispatch = useDispatch();
   const onSubmit = e => {
