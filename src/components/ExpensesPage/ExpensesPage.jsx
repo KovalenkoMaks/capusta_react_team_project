@@ -5,6 +5,8 @@ import { Form } from './Form/Form';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { categories } from 'redux/transactions/operations';
+import Summary from 'components/Summary/Summary';
+
 
 export const ExpensesPage = () => {
   const dispatch = useDispatch();
@@ -17,6 +19,7 @@ export const ExpensesPage = () => {
       <Balance />
       <NavigationLinks />
       <Form />
+      <Summary/>
     </ExpensCont>
   );
 };
