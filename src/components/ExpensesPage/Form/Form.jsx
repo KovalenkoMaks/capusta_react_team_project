@@ -3,7 +3,6 @@ import { ReactComponent as Calculator } from '../../../images/calculator.svg';
 import { DatePicker, Input, Dropdown, Button } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 import { FormContainer } from '../ExpensesPage.styled';
-import { TablePage } from '../TablePage/TablePage';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 import { useTransactions } from 'hooks/useTransactions';
@@ -66,7 +65,6 @@ export const Form = () => {
         </Button>
         <Button style={{ width: '136px', height: '44px' }}>Clear</Button>
       </div>
-      <TablePage />
     </FormContainer>
   );
 };

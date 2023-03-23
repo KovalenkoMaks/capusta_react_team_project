@@ -31,7 +31,7 @@ export const Balance = () => {
                 {({ field }) => (
                   <Input
                     {...field}
-                    placeholder={`${balance} UAH`}
+                    placeholder={`${balance}.00 UAH`}
                     // value={values.name}
                     onChange={handleChange}
                     onBlur={handleBlur}
