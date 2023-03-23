@@ -9,6 +9,8 @@ import customParseFormat from 'dayjs/plugin/customParseFormat';
 import { useTransactions } from 'hooks/useTransactions';
 import { Select } from 'antd';
 import format from 'date-fns/format';
+import { useDispatch } from 'react-redux';
+import { addAnExpense } from 'redux/transactions/operations';
 dayjs.extend(customParseFormat);
 
 const dateFormat = 'DD.MM.YYYY';
@@ -16,6 +18,7 @@ const calendarIcon = <Calendar />;
 const calculatorIcon = <Calculator />;
 
 export const InputForm = () => {
+  const dispatch = useDispatch();
   const { categories } = useTransactions();
   const items = categories.map((e, index) => {
     return { value: e, label: e };
@@ -27,12 +30,13 @@ export const InputForm = () => {
     category: '',
   };
 
-  const onSubmit = (value, actions) => {
+  const onSubmit = (value, { resetForm }) => {
     const query = { ...value };
     let date = new Date(value.date.toString());
     date = format(date, 'yyyy-MM-dd');
     query.date = date;
-    console.log(query);
+    resetForm();
+    dispatch(addAnExpense(query));
   };
   return (
     <FormContainer>
@@ -44,8 +48,12 @@ export const InputForm = () => {
             handleBlur,
             handleSubmit,
             setFieldValue,
+            resetForm,
           }) => (
-            <Form onSubmit={handleSubmit}>
+            <Form
+              onSubmit={handleSubmit}
+              style={{ display: 'flex', alignItems: 'center' }}
+            >
               <Field name="date">
                 {({ field }) => (
                   <DatePicker
@@ -89,7 +97,7 @@ export const InputForm = () => {
                   as={Select}
                   placeholder="Select a value"
                   onChange={value => setFieldValue('category', value)}
-                  value={values.dropBox}
+                  // value={values.dropBox}
                   options={items}
                 ></Field>
               </div>
@@ -119,7 +127,12 @@ export const InputForm = () => {
               >
                 Input
               </Button>
-              <Button style={{ width: '136px', height: '44px' }}>Clear</Button>
+              <Button
+                style={{ width: '136px', height: '44px' }}
+                onClick={() => resetForm()}
+              >
+                Clear
+              </Button>
             </Form>
           )}
         </Formik>
