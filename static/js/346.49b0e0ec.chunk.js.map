@@ -1,1 +1,0 @@
-{"version":3,"file":"static/js/346.49b0e0ec.chunk.js","mappings":"iKAMA,UANgB,WACZ,OACI,iDAEP,C","sources":["pages/Income/Income.jsx"],"sourcesContent":["const Incomes = () => {\n    return (\n        <h2>Hi, i'm not ready yet</h2>\n    )\n}\n\nexport default Incomes;"],"names":[],"sourceRoot":""}

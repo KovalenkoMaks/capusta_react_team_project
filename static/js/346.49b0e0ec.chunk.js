@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkcapusta_react_team_project=self.webpackChunkcapusta_react_team_project||[]).push([[346],{6346:function(e,t,a){a.r(t);var c=a(184);t.default=function(){return(0,c.jsx)("h2",{children:"Hi, i'm not ready yet"})}}}]);
-//# sourceMappingURL=346.49b0e0ec.chunk.js.map
