@@ -6,6 +6,9 @@ export default function Button({
   disabled,
   onClick,
   width,
+  backgroundColor,
+  border,
+  textColor,
 
 }){
 
@@ -16,6 +19,9 @@ export default function Button({
         width={width}
         disabled={disabled}
         onClick={onClick}
+        backgroundColor={backgroundColor}
+        border={border}
+        textColor={textColor}
       >{text}</StyledBtn>
     </>
   );
