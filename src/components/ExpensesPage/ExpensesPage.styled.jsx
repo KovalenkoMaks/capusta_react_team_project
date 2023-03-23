@@ -71,6 +71,10 @@ export const ExpensCont = styled.div`
   position: relative;
   max-width: 1098px;
   margin: 0 auto;
+
+  @media screen and (min-width: 1280px) {
+    max-width: 1098px;
+  }
 `;
 
 export const Link = styled(NavLink)`
@@ -97,13 +101,19 @@ export const Link = styled(NavLink)`
   }
 `;
 
+export const FormWrapper = styled.div`
+box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+border-radius: 0px 30px 30px 30px;
+height: 579px;
+background-color: #fff;
+padding: 32px;
+
+@media screen and (min-width: 1280px) {
+  max-width: 1098px;
+}
+`
+
 export const FormContainer = styled.div`
-  box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
-  border-radius: 0px 30px 30px 30px;
-  height: 579px;
-  background-color: #fff;
-  width: 1098px;
-  padding: 32px;
 
   .inputs {
     display: flex;

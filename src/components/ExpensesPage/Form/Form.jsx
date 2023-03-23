@@ -3,7 +3,6 @@ import { ReactComponent as Calculator } from '../../../images/calculator.svg';
 import { DatePicker, Input, Button } from 'antd';
 import { Field, Form, Formik } from 'formik';
 import { FormContainer } from '../ExpensesPage.styled';
-import { TablePage } from '../TablePage/TablePage';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 import { useTransactions } from 'hooks/useTransactions';
@@ -137,7 +136,6 @@ export const InputForm = () => {
           )}
         </Formik>
       </div>
-      <TablePage />
     </FormContainer>
   );
 };
