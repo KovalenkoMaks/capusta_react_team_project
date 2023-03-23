@@ -16,7 +16,7 @@ export default function UserMenu() {
   const { user } = useAuth();
   const [modal, setModal] = useState(false);
 
-    useEffect(() => {
+  useEffect(() => {
     window.addEventListener('keydown', handleKeyDown);
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
@@ -41,7 +41,7 @@ export default function UserMenu() {
   };
   return (
     <>
-      <UserAvatarContainer>{user.email[0].toUpperCase()}</UserAvatarContainer>
+      <UserAvatarContainer>{user.email[0]}</UserAvatarContainer>
 
       <UserNameContainer>
         <UserName>{user.email}</UserName>
@@ -54,13 +54,13 @@ export default function UserMenu() {
         <LogOutIcon />
       </LogOutIconBtn>
       {modal && (
-      <ConfirmModal
-        onClick={closeModal}
-        text="Do you really want to leave?"
-        handleConfirm={handleLogOut}
-        handleCancel={() => setModal(prevState => !prevState)}
-      />
-    )}
-      </>
+        <ConfirmModal
+          onClick={closeModal}
+          text="Do you really want to leave?"
+          handleConfirm={handleLogOut}
+          handleCancel={() => setModal(prevState => !prevState)}
+        />
+      )}
+    </>
   );
 }

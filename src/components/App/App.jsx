@@ -41,12 +41,18 @@ export const App = () => {
         />
         <Route
           path="/login"
-          element={<RestrictedRoute component={LogIn} redirectTo={'/'} />}
+          element={
+            <RestrictedRoute component={LogIn} redirectTo={'/expenses'} />
+          }
         />
         <Route path="/registration" element={<Registration />} />
         {/* <Route path="/pup" element={<SharedLayout />}> */}
-          <Route path="expenses" element={<Expenses />} />
-          <Route path="income" element={<Income />} />
+        <Route
+          path="/expenses"
+          element={<PrivateRoute component={Expenses} redirectTo={'/'} />}
+        />
+        {/* <Route path="expenses" element={<Expenses />} /> */}
+        <Route path="income" element={<Income />} />
         {/* </Route> */}
       </Route>
     </Routes>
