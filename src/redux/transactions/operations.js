@@ -5,7 +5,7 @@ export const newBalance = createAsyncThunk(
   '/user/balance',
   async (userData, thunkAPI) => {
     try {
-      const res = await axios.patch('/user/balance', { newBalance: userData });
+      const res = await axios.patch('/user/balance', userData);
       // thunkAPI.dispatch(summary())
       // console.log(res.data);
       // setAuthHeader(res.data.accessToken);
