@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { newBalance } from 'redux/transactions/operations';
 import { logIn, register, logOut, refresh, getAllUserData } from './operations';
 
 export const authSlice = createSlice({
@@ -68,7 +69,13 @@ export const authSlice = createSlice({
         state.user.email = action.payload.email;
         state.user.balance = action.payload.balance;
       })
-      .addCase(getAllUserData.rejected, (state, action) => {}),
+      .addCase(getAllUserData.rejected, (state, action) => {})
+      //newBalance
+      .addCase(newBalance.pending, (state, action) => {})
+      .addCase(newBalance.fulfilled, (state, action) => {
+        state.user.balance = action.payload.newBalance;
+      })
+      .addCase(newBalance.rejected, (state, action) => {}),
 });
 
 export default authSlice.reducer;

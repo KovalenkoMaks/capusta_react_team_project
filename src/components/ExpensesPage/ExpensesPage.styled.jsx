@@ -145,3 +145,31 @@ export const FormContainer = styled.div`
     color: #ffffff;
   }
 `;
+
+export const TableContainer = styled.div`
+  margin-top: 60px;
+  width: 746px;
+  height: 384px;
+  overflow: hidden;
+
+
+  .ant-table {
+    
+  }
+
+  .ant-table-thead tr th {
+    text-transform: uppercase;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.02em;
+    color: #000000;
+    height: 40px;
+    background-color: #F5F6FB;
+  }
+
+  .ant-table-thead tr {
+    border-radius: 20px;
+  }
+`;
