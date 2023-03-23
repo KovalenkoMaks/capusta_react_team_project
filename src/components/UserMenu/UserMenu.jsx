@@ -41,7 +41,7 @@ export default function UserMenu() {
   };
   return (
     <>
-      <UserAvatarContainer>{user.email[0].toUpperCase()}</UserAvatarContainer>
+      <UserAvatarContainer>{user.email[0]}</UserAvatarContainer>
 
       <UserNameContainer>
         <UserName>{user.email}</UserName>
