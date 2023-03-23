@@ -10,6 +10,7 @@ export const Balance = () => {
   const { balance } = useAuth();
   const [value, setValue] = useState('');
 
+
   const dispatch = useDispatch();
 
   const validateNumber = (rule, value) => {
