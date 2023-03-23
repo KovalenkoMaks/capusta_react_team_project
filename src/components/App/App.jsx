@@ -8,7 +8,7 @@ import { useDispatch } from 'react-redux';
 import { getAllUserData, getMonthStats, refresh } from 'redux/auth/operations';
 import SharedLayout from 'pages/SharedLayout/SharedLayout';
 
-const Home = lazy(() => import('pages/Home/Home'));
+// const Home = lazy(() => import('pages/Home/Home'));
 const LogIn = lazy(() => import('components/logIn/Login'));
 const Registration = lazy(() =>
   import('components/registrations/Registrations')

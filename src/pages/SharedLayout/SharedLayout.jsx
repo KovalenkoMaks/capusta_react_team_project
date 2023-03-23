@@ -3,7 +3,7 @@ import { ExpensCont } from 'components/ExpensesPage/ExpensesPage.styled';
 import { NavigationLinks } from 'components/ExpensesPage/NavigationLinks/NavigationLinks';
 import { Outlet } from 'react-router';
 import { Suspense } from 'react';
-import { Form } from 'components/ExpensesPage/Form/Form';
+import { InputForm} from 'components/ExpensesPage/Form/Form';
 import { FormWrapper } from 'components/ExpensesPage/ExpensesPage.styled';
 
 const SharedLayout = () => {
@@ -12,7 +12,7 @@ const SharedLayout = () => {
       <Balance />
       <NavigationLinks />
       <FormWrapper>
-        <Form />
+        <InputForm />
         <Suspense fallback={<div>Loading...</div>}>
         <Outlet />
         </Suspense>
