@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { getAllUserData, getMonthStats } from '../auth/operations';
-import { categories } from './operations';
+import { addAnExpense, categories } from './operations';
 // import { newBalance } from './operations';
 
 export const transactionsSlice = createSlice({
@@ -32,7 +32,19 @@ export const transactionsSlice = createSlice({
       .addCase(categories.fulfilled, (state, action) => {
         state.categories = action.payload;
       })
-      .addCase(categories.rejected, (state, action) => {}),
+      .addCase(categories.rejected, (state, action) => {})
+      //addAnExpense
+      .addCase(addAnExpense.pending, (state, action) => {})
+      .addCase(addAnExpense.fulfilled, (state, action) => {
+        // state.categories = action.payload;
+      })
+      .addCase(addAnExpense.rejected, (state, action) => {}),
 });
-
+// newBalance: 4877;
+// transaction:
+//   amount: 123;
+//   category: 'Продукты';
+//   date: '2023-03-01';
+//   description: 'qweqweqwe';
+//   _id: '641c76da84b2992174d319c6';
 export default transactionsSlice.reducer;
