@@ -1,4 +1,5 @@
-import notFound from '../../images/404NotFound.png';
+
+import { ReactComponent as NotFoundIcon } from '../../images/404NotFound.svg';
 import { Link } from 'react-router-dom';
 import { NotFoundContainer } from './NotFound.styled';
 import Button from 'components/Button/Button';
@@ -6,7 +7,7 @@ import Button from 'components/Button/Button';
 export const NotFound = () => {
   return (
     <NotFoundContainer>
-      <img src={notFound} alt="404 not found" />
+      <NotFoundIcon/>
       <Button
         type='button'
         width="150px"

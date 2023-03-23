@@ -4,13 +4,17 @@ export const NotFoundContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 50px;
-  gap: 30px;
+  margin-top: 20px;
+  gap: 20px;
 
-  img {
+  svg {
     max-width: 320px;
     @media (min-width: 768px) {
-        max-width: 580px;
+        max-width: 300px;
+    }
+
+    @media (min-width: 1280px) {
+        max-width: 500px;
     }
   }
 
