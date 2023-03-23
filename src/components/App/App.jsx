@@ -49,7 +49,7 @@ export const App = () => {
         <Route path="/home" element={<SharedLayout />}>
         <Route
           path="expenses"
-          element={<PrivateRoute component={Expenses} redirectTo={'/home/expenses'} />}
+          element={<PrivateRoute component={Expenses} redirectTo={'/login'} />}
         />
         {/* <Route path="expenses" element={<Expenses />} /> */}
         <Route path="income" element={<Income />} />
