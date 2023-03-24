@@ -6,9 +6,13 @@ import { lazy, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { Navigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { getAllUserData, getMonthStats, refresh } from 'redux/auth/operations';
+import { getAllUserData, refresh } from 'redux/auth/operations';
 import SharedLayout from 'pages/SharedLayout/SharedLayout';
 import { NotFound } from 'components/NotFound/NotFound';
+import {
+  getMonthStatsExpenses,
+  getMonthStatsIncomes,
+} from 'redux/transactions/operations';
 
 const LogIn = lazy(() => import('components/logIn/Login'));
 const Registration = lazy(() =>
@@ -20,7 +24,6 @@ const Registration = lazy(() =>
 const Expenses = lazy(() => import('pages/Expenses/Expenses'));
 const Income = lazy(() => import('pages/Income/Income'));
 const Reports = lazy(() => import('pages/Reports/Reports'));
-
 export const App = () => {
   const dispatch = useDispatch();
 
@@ -29,7 +32,8 @@ export const App = () => {
       .unwrap()
       .then(() => {
         dispatch(getAllUserData());
-        dispatch(getMonthStats());
+        dispatch(getMonthStatsExpenses());
+        dispatch(getMonthStatsIncomes());
       })
       .catch(console.log);
   }, [dispatch]);
@@ -41,6 +45,8 @@ export const App = () => {
 
         <Route path="/home" element={<SharedLayout />}>
           <Route path="" element={<Navigate to="/home/expenses" />} />
+          <Route path="" element={<Navigate to="/home/expenses" />} />
+          {/* <Route path="" element={<Navigate to="/home/expenses"/>} /> */}
           <Route
             path="expenses"
             element={

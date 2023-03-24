@@ -2,25 +2,24 @@ import { TablePage } from './TablePage/TablePage';
 
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { categories } from 'redux/transactions/operations';
-import Header from 'components/Header/Header';
-import { Balance } from './Balance/Balance';
-import { NavigationLinks } from './NavigationLinks/NavigationLinks';
-import { Form } from 'react-router-dom';
-import { ExpensCont } from './ExpensesPage.styled';
+import { expenseCategories } from 'redux/transactions/operations';
+// import { useLocation } from 'react-router';
+import { useTransactions } from 'hooks/useTransactions';
+import Summary from 'components/Summary/Summary';
 
 export const ExpensesPage = () => {
+  // const location = useLocation();
   const dispatch = useDispatch();
+  const { categories } = useTransactions();
   useEffect(() => {
-    dispatch(categories());
-  }, [dispatch]);
+    if (categories.expenses.length > 0) return;
+    dispatch(expenseCategories());
+  }, [categories.expenses.length, dispatch]);
 
   return (
-    <ExpensCont>
-      <Header />
-      <Balance />
-      <NavigationLinks />
-      <Form />
-    </ExpensCont>
+    <>
+      <TablePage />
+      <Summary />
+    </>
   );
 };
