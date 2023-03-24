@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux';
 import { newBalance } from 'redux/transactions/operations';
 import { ReactComponent as Reports } from '../../../images/bar_chart.svg';
 import { BalanceContainer } from '../ExpensesPage.styled';
+import { Link } from 'react-router-dom';
 
 export const Balance = () => {
   const { transactions } = useTransactions();
@@ -50,7 +51,7 @@ export const Balance = () => {
       </div>
 
       <Button type="text" className="reports">
-        Reports <Reports />
+        <Link to='/reports'>Reports <Reports /></Link>
       </Button>
     </BalanceContainer>
   );
