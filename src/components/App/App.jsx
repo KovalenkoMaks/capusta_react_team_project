@@ -6,6 +6,7 @@ import { lazy, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { getAllUserData, getMonthStats, refresh } from 'redux/auth/operations';
+//import { ReportView } from 'pages/ReportView';
 // import SharedLayout from 'pages/SharedLayout/SharedLayout';
 
 const Home = lazy(() => import('pages/Home/Home'));
@@ -18,6 +19,8 @@ const Registration = lazy(() =>
 // бо тут теж є частинки, які не треба перерендерювати (я про Expenses i Income)
 const Expenses = lazy(() => import('pages/Expenses/Expenses'));
 const Income = lazy(() => import('pages/Income/Income'));
+const Report = lazy(() => import('pages/Report/Report'));
+// const ReportView = lazy(() => import('pages/ReportView'));
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -52,6 +55,16 @@ export const App = () => {
           element={<PrivateRoute component={Expenses} redirectTo={'/'} />}
         />
         {/* <Route path="expenses" element={<Expenses />} /> */}
+        <Route
+          path="/report"
+          element={<PrivateRoute component={Report} redirectTo={'/'} />}
+        />
+        {/* <Route path="report" element={<Report />} /> */}
+        {/* <Route
+          path="/reports"
+          element={<PrivateRoute component={ReportView} redirectTo={'/'} />}
+        /> */}
+        {/* <Route path="reports" element={<ReportView />} /> */}
         <Route path="income" element={<Income />} />
         {/* </Route> */}
       </Route>

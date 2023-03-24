@@ -66,10 +66,11 @@ export const TablePage = () => {
         layout="inline"
         pagination={false}
         size={'large'}
+        rowKey='_id'
       >
-        <Column title="Date" dataIndex="date" key="date" width='130px'/>
-        <Column title="Descrition" dataIndex="description" key="description" ellipsis='true' width='188px'/>
-        <Column title="category" dataIndex="category" key="category" width='116px'/>
+        <Column title="Date" dataIndex="date" key="date" width='130px' />
+        <Column title="Descrition" dataIndex="description" key="description" ellipsis='true' width='188px' />
+        <Column title="category" dataIndex="category" key="category" width='116px' />
         <Column
           title="sum"
           dataIndex="amount"

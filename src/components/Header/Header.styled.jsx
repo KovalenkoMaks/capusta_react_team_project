@@ -6,6 +6,7 @@ export const Container = styled.header`
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
+  background-color: #FFFFFF;
 
   @media (min-width: 768px){
     max-width: 1280px;

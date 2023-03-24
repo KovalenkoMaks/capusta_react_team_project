@@ -5,6 +5,7 @@ import { Form } from './Form/Form';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { categories } from 'redux/transactions/operations';
+import Header from 'components/Header/Header';
 
 export const ExpensesPage = () => {
   const dispatch = useDispatch();
@@ -14,6 +15,7 @@ export const ExpensesPage = () => {
 
   return (
     <ExpensCont>
+      <Header />
       <Balance />
       <NavigationLinks />
       <Form />
