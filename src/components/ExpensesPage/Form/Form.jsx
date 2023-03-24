@@ -9,7 +9,9 @@ import { useTransactions } from 'hooks/useTransactions';
 import { Select } from 'antd';
 import format from 'date-fns/format';
 import { useDispatch } from 'react-redux';
-import { addAnExpense } from 'redux/transactions/operations';
+import { addAnExpense, addAnIncome } from 'redux/transactions/operations';
+import { useLocation } from 'react-router-dom';
+
 dayjs.extend(customParseFormat);
 
 const dateFormat = 'DD.MM.YYYY';
@@ -17,11 +19,22 @@ const calendarIcon = <Calendar />;
 const calculatorIcon = <Calculator />;
 
 export const InputForm = () => {
+  const location = useLocation();
   const dispatch = useDispatch();
   const { categories } = useTransactions();
-  const items = categories.map((e, index) => {
-    return { value: e, label: e };
-  });
+  // console.log(categories.expenses);
+  // console.log(categories.incomes);
+  // });
+  // location.pathname === '/home/expenses';
+  let items = [];
+  location.pathname === '/home/expenses'
+    ? (items = categories.expenses.map(e => {
+        return { value: e, label: e };
+      }))
+    : (items = categories.incomes.map(e => {
+        return { value: e, label: e };
+      }));
+
   const initialValues = {
     description: '',
     amount: '',
@@ -35,7 +48,13 @@ export const InputForm = () => {
     date = format(date, 'yyyy-MM-dd');
     query.date = date;
     resetForm();
-    dispatch(addAnExpense(query));
+    console.log(query);
+    if (location.pathname === '/home/expenses') {
+      dispatch(addAnExpense(query));
+    }
+    if (location.pathname === '/home/income') {
+      dispatch(addAnIncome(query));
+    }
   };
   return (
     <FormContainer>
@@ -66,7 +85,7 @@ export const InputForm = () => {
                       })
                     }
                     onBlur={handleBlur}
-                    defaultValue={dayjs()}
+                    placeholder={dayjs().format(dateFormat)}
                     format={dateFormat}
                     bordered={false}
                     suffixIcon={calendarIcon}
