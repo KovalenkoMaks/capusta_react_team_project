@@ -32,3 +32,17 @@ export const categories = createAsyncThunk(
     }
   }
 );
+export const addAnExpense = createAsyncThunk(
+  '/transaction/expense',
+  async (userData, thunkAPI) => {
+    try {
+      const res = await axios.post('/transaction/expense', userData);
+
+      console.log(res.data);
+
+      return res.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);

@@ -1,6 +1,8 @@
+import { IncomePage } from "components/IncomePage/IncomePage";
+
 const Incomes = () => {
     return (
-        <h2>Hi, i'm not ready yet</h2>
+        <IncomePage/>
     )
 }
 
