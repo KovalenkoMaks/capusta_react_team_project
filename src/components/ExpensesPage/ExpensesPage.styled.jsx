@@ -73,6 +73,9 @@ export const ExpensCont = styled.div`
   position: relative;
   max-width: 1098px;
   margin: 0 auto;
+  width: 1280px;
+  height: 850px;
+  background-image: url(${img});
   @media screen and (min-width: 1280px) {
     max-width: 1098px;
   }

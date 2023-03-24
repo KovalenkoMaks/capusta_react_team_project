@@ -11,5 +11,12 @@ export const ExpensesPage = () => {
     dispatch(categories());
   }, [dispatch]);
 
-return <TablePage />;
+  return (
+    <ExpensCont>
+      <Header />
+      <Balance />
+      <NavigationLinks />
+      <Form />
+    </ExpensCont>
+  );
 };
