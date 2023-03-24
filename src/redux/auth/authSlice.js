@@ -1,5 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { addAnExpense, newBalance } from 'redux/transactions/operations';
+import {
+  addAnExpense,
+  delTransaction,
+  newBalance,
+} from 'redux/transactions/operations';
 import { logIn, register, logOut, refresh, getAllUserData } from './operations';
 
 export const authSlice = createSlice({
@@ -38,7 +42,7 @@ export const authSlice = createSlice({
         state.refreshToken = action.payload.refreshToken;
         state.sid = action.payload.sid;
       })
-      .addCase(logIn.rejected, (state, action) => {})
+      .addCase(logIn.rejected, (state, action) => { })
 
       //LogOut
       .addCase(logOut.fulfilled, (state, action) => {
@@ -64,23 +68,30 @@ export const authSlice = createSlice({
       })
 
       //getAllUserData
-      .addCase(getAllUserData.pending, (state, action) => {})
+      .addCase(getAllUserData.pending, (state, action) => { })
       .addCase(getAllUserData.fulfilled, (state, action) => {
         state.user.email = action.payload.email;
         state.user.balance = action.payload.balance;
       })
-      .addCase(getAllUserData.rejected, (state, action) => {})
+      .addCase(getAllUserData.rejected, (state, action) => { })
       //newBalance
-      .addCase(newBalance.pending, (state, action) => {})
+      .addCase(newBalance.pending, (state, action) => { })
       .addCase(newBalance.fulfilled, (state, action) => {
         state.user.balance = action.payload.newBalance;
       })
-      .addCase(newBalance.rejected, (state, action) => {}) //addAnExpense
-      .addCase(addAnExpense.pending, (state, action) => {})
+      .addCase(newBalance.rejected, (state, action) => { })
+      //addAnExpense
+      .addCase(addAnExpense.pending, (state, action) => { })
       .addCase(addAnExpense.fulfilled, (state, action) => {
         state.user.balance = action.payload.newBalance;
       })
-      .addCase(addAnExpense.rejected, (state, action) => {}),
+      .addCase(addAnExpense.rejected, (state, action) => { })
+      //deleteTransaction
+      .addCase(delTransaction.pending, (state, action) => { })
+      .addCase(delTransaction.fulfilled, (state, action) => {
+        state.user.balance = action.payload.newBalance;
+      })
+      .addCase(delTransaction.rejected, (state, action) => { }),
 });
 
 export default authSlice.reducer;

@@ -21,11 +21,6 @@ export const categories = createAsyncThunk(
   async (userData, thunkAPI) => {
     try {
       const res = await axios.get('/transaction/expense-categories');
-      // thunkAPI.dispatch(summary())
-      // console.log(res.data);
-      // setAuthHeader(res.data.accessToken);
-      // console.log(res.data);
-      //   console.log(res.data);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -37,9 +32,17 @@ export const addAnExpense = createAsyncThunk(
   async (userData, thunkAPI) => {
     try {
       const res = await axios.post('/transaction/expense', userData);
-
-      console.log(res.data);
-
+      return res.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+export const delTransaction = createAsyncThunk(
+  '/transaction/delete',
+  async (userData, thunkAPI) => {
+    try {
+      const res = await axios.delete(`/transaction/${userData}`);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
