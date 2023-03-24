@@ -1,8 +1,16 @@
 import { useTransactions } from 'hooks/useTransactions';
+import { useDispatch } from 'react-redux';
+import { delTransaction } from 'redux/transactions/operations';
 import { ReactComponent as DeleteBtn } from '../../../images/deleteTable.svg';
 import { TableContainer } from '../ExpensesPage.styled';
 
 export const TablePage = () => {
+  const dispatch = useDispatch();
+  const deleteTransaction = id => {
+    console.log(id);
+    // const id = e.target.parentNode.parentNode.parentNode.id;
+    dispatch(delTransaction(id));
+  };
   const { transactions } = useTransactions();
   return (
     <TableContainer>
@@ -35,7 +43,7 @@ export const TablePage = () => {
                     <td className="categ">{transaction.category}</td>
                     <td className="amount">{transaction.amount}.00 UAH</td>
                     <td className="del">
-                      <button type="button">{<DeleteBtn />}</button>
+                      <button type="button" onClick={deleteTransaction(transaction._id)}>{<DeleteBtn />}</button>
                     </td>
                   </tr>
                 )),
