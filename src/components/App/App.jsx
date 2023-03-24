@@ -49,22 +49,22 @@ export const App = () => {
         />
         <Route path="/registration" element={<Registration />} />
         <Route path="/home" element={<SharedLayout />}>
-        <Route
-          path="expenses"
-          element={<PrivateRoute component={Expenses} redirectTo={'/login'} />}
-        />
-        {/* <Route path="expenses" element={<Expenses />} /> */}
-        <Route
-          path="/report"
-          element={<PrivateRoute component={Report} redirectTo={'/'} />}
-        />
-        {/* <Route path="report" element={<Report />} /> */}
-        {/* <Route
+          <Route
+            path="expenses"
+            element={<PrivateRoute component={Expenses} redirectTo={'/login'} />}
+          />
+          {/* <Route path="expenses" element={<Expenses />} /> */}
+          {/* <Route
+            path="/report"
+            element={<PrivateRoute component={Report} redirectTo={'/'} />}
+          /> */}
+          {/* <Route path="report" element={<Report />} /> */}
+          {/* <Route
           path="/reports"
           element={<PrivateRoute component={ReportView} redirectTo={'/'} />}
         /> */}
-        {/* <Route path="reports" element={<ReportView />} /> */}
-        <Route path="income" element={<Income />} />
+          {/* <Route path="reports" element={<ReportView />} /> */}
+          <Route path="income" element={<Income />} />
         </Route>
       </Route>
     </Routes>
