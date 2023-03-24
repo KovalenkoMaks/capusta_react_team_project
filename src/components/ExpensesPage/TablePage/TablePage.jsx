@@ -1,7 +1,10 @@
 import { Table, Space, Button } from 'antd';
 import { useTransactions } from 'hooks/useTransactions';
 import { useDispatch } from 'react-redux';
-import { delTransaction } from 'redux/transactions/operations';
+import {
+  delTransaction,
+  getMonthStatsExpenses,
+} from 'redux/transactions/operations';
 import { ReactComponent as DeleteBtn } from '../../../images/deleteTable.svg';
 import { TableContainer } from '../ExpensesPage.styled';
 const { Column } = Table;
@@ -9,15 +12,17 @@ const { Column } = Table;
 export const TablePage = () => {
   const dispatch = useDispatch();
   const deleteTransaction = id => {
-    console.log(id);
-    // const id = e.target.parentNode.parentNode.parentNode.id;
-    dispatch(delTransaction(id));
+    dispatch(delTransaction(id))
+      .unwrap()
+      .then(() => {
+        dispatch(getMonthStatsExpenses());
+      });
   };
   const { transactions } = useTransactions();
   return (
     <TableContainer>
       <Table
-        dataSource={transactions}
+        dataSource={transactions.expenses}
         scroll={{
           y: 340,
         }}

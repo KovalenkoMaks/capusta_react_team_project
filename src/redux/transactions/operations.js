@@ -54,6 +54,7 @@ export const addAnIncome = createAsyncThunk(
   async (userData, thunkAPI) => {
     try {
       const res = await axios.post('/transaction/income', userData);
+      getMonthStatsIncomes();
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -65,6 +66,32 @@ export const delTransaction = createAsyncThunk(
   async (userData, thunkAPI) => {
     try {
       const res = await axios.delete(`/transaction/${userData}`);
+      return res.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+export const getMonthStatsExpenses = createAsyncThunk(
+  'GetExpensStats',
+  async (_, thunkAPI) => {
+    try {
+      const res = await axios.get('/transaction/expense');
+      // thunkAPI.dispatch(summary())
+      // console.log(res.data);
+      // setAuthHeader(res.data.accessToken);
+      // console.log(res.data);
+      return res.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+export const getMonthStatsIncomes = createAsyncThunk(
+  'GetIncomesStats',
+  async (_, thunkAPI) => {
+    try {
+      const res = await axios.get('/transaction/income');
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

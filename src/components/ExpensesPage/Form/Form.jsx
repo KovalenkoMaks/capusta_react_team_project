@@ -9,7 +9,12 @@ import { useTransactions } from 'hooks/useTransactions';
 import { Select } from 'antd';
 import format from 'date-fns/format';
 import { useDispatch } from 'react-redux';
-import { addAnExpense, addAnIncome } from 'redux/transactions/operations';
+import {
+  addAnExpense,
+  addAnIncome,
+  getMonthStatsExpenses,
+  getMonthStatsIncomes,
+} from 'redux/transactions/operations';
 import { useLocation } from 'react-router-dom';
 
 dayjs.extend(customParseFormat);
@@ -48,12 +53,19 @@ export const InputForm = () => {
     date = format(date, 'yyyy-MM-dd');
     query.date = date;
     resetForm();
-    console.log(query);
     if (location.pathname === '/home/expenses') {
-      dispatch(addAnExpense(query));
+      dispatch(addAnExpense(query))
+        .unwrap()
+        .then(() => {
+          dispatch(getMonthStatsExpenses());
+        });
     }
     if (location.pathname === '/home/income') {
-      dispatch(addAnIncome(query));
+      dispatch(addAnIncome(query))
+        .unwrap()
+        .then(() => {
+          dispatch(getMonthStatsIncomes());
+        });
     }
   };
   return (
