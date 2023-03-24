@@ -46,3 +46,18 @@ export const addAnExpense = createAsyncThunk(
     }
   }
 );
+export const delTransaction = createAsyncThunk(
+  '/transaction/delete',
+  async (userData, thunkAPI) => {
+    console.log(userData);
+    try {
+      const res = await axios.delete(`/transaction/${userData}`);
+
+      console.log(res);
+
+      return res.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
