@@ -1,6 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { getAllUserData, getMonthStats } from '../auth/operations';
-import { categories } from './operations';
+import {
+  addAnExpense,
+  addAnIncome,
+  expenseCategories,
+  incomesCategories,
+} from './operations';
 // import { newBalance } from './operations';
 
 export const transactionsSlice = createSlice({
@@ -8,7 +13,7 @@ export const transactionsSlice = createSlice({
   initialState: {
     transactions: [],
     monthsStats: {},
-    categories: [],
+    categories: { expenses: [], incomes: [] },
   },
   reducers: {},
   extraReducers: builder =>
@@ -27,12 +32,36 @@ export const transactionsSlice = createSlice({
         // console.log(state.monthStats);
       })
       .addCase(getMonthStats.rejected, (state, action) => {})
-      //getCategories
-      .addCase(categories.pending, (state, action) => {})
-      .addCase(categories.fulfilled, (state, action) => {
-        state.categories = action.payload;
+      //getExpenseCategories
+      .addCase(expenseCategories.pending, (state, action) => {})
+      .addCase(expenseCategories.fulfilled, (state, action) => {
+        state.categories.expenses = action.payload;
       })
-      .addCase(categories.rejected, (state, action) => {}),
+      .addCase(expenseCategories.rejected, (state, action) => {})
+      //getIncomeCategories
+      .addCase(incomesCategories.pending, (state, action) => {})
+      .addCase(incomesCategories.fulfilled, (state, action) => {
+        state.categories.incomes = action.payload;
+      })
+      .addCase(incomesCategories.rejected, (state, action) => {})
+      //addAnExpense
+      .addCase(addAnExpense.pending, (state, action) => {})
+      .addCase(addAnExpense.fulfilled, (state, action) => {
+        // state.categories = action.payload;
+      })
+      .addCase(addAnExpense.rejected, (state, action) => {})
+      //addAnIncome
+      .addCase(addAnIncome.pending, (state, action) => {})
+      .addCase(addAnIncome.fulfilled, (state, action) => {
+        // state.categories = action.payload;
+      })
+      .addCase(addAnIncome.rejected, (state, action) => {}),
 });
-
+// newBalance: 4877;
+// transaction:
+//   amount: 123;
+//   category: 'Продукты';
+//   date: '2023-03-01';
+//   description: 'qweqweqwe';
+//   _id: '641c76da84b2992174d319c6';
 export default transactionsSlice.reducer;

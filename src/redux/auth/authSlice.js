@@ -1,5 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { newBalance } from 'redux/transactions/operations';
+import {
+  addAnExpense,
+  addAnIncome,
+  delTransaction,
+  newBalance,
+} from 'redux/transactions/operations';
 import { logIn, register, logOut, refresh, getAllUserData } from './operations';
 
 export const authSlice = createSlice({
@@ -75,7 +80,25 @@ export const authSlice = createSlice({
       .addCase(newBalance.fulfilled, (state, action) => {
         state.user.balance = action.payload.newBalance;
       })
-      .addCase(newBalance.rejected, (state, action) => {}),
+      .addCase(newBalance.rejected, (state, action) => {})
+      //addAnExpense
+      .addCase(addAnExpense.pending, (state, action) => {})
+      .addCase(addAnExpense.fulfilled, (state, action) => {
+        state.user.balance = action.payload.newBalance;
+      })
+      .addCase(addAnExpense.rejected, (state, action) => {})
+      //addAnIncome
+      .addCase(addAnIncome.pending, (state, action) => {})
+      .addCase(addAnIncome.fulfilled, (state, action) => {
+        state.user.balance = action.payload.newBalance;
+      })
+      .addCase(addAnIncome.rejected, (state, action) => {})
+      //deleteTransaction
+      .addCase(delTransaction.pending, (state, action) => {})
+      .addCase(delTransaction.fulfilled, (state, action) => {
+        state.user.balance = action.payload.newBalance;
+      })
+      .addCase(delTransaction.rejected, (state, action) => {}),
 });
 
 export default authSlice.reducer;

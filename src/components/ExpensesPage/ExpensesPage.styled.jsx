@@ -57,20 +57,28 @@ export const BalanceContainer = styled.div`
     position: absolute;
     right: 0;
     top: 47px;
+  }
+
+  .reports a {
+    color: rgba(82, 85, 95, 0.7);
     display: flex;
     gap: 15px;
     align-items: center;
-  }
-
-  .reports span {
-    color: rgba(82, 85, 95, 0.7);
   }
 `;
 
 export const ExpensCont = styled.div`
   position: relative;
-  max-width: 1098px;
   margin: 0 auto;
+
+  @media screen and (min-width: 1280px) {
+    max-width: 1098px;
+  }
+`;
+
+export const Navigations = styled.div`
+  position: absolute;
+  bottom: 0;
 `;
 
 export const Link = styled(NavLink)`
@@ -97,14 +105,19 @@ export const Link = styled(NavLink)`
   }
 `;
 
-export const FormContainer = styled.div`
+export const FormWrapper = styled.div`
   box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
   border-radius: 0px 30px 30px 30px;
   height: 579px;
   background-color: #fff;
-  width: 1098px;
   padding: 32px;
 
+  @media screen and (min-width: 1280px) {
+    max-width: 1098px;
+  }
+`;
+
+export const FormContainer = styled.div`
   .inputs {
     display: flex;
     align-items: center;
@@ -148,28 +161,95 @@ export const FormContainer = styled.div`
 
 export const TableContainer = styled.div`
   margin-top: 60px;
-  width: 746px;
-  height: 384px;
-  overflow: hidden;
+  overflow-x: hidden;
 
-
-  .ant-table {
-    
+  table {
+    border-collapse: collapse; /* optional */
   }
 
-  .ant-table-thead tr th {
-    text-transform: uppercase;
-    font-style: normal;
+  thead,
+  tbody {
+    border: 0;
+    padding: 0;
+  }
+
+  .tHead {
+    background-color: #f5f6fb;
+    border-radius: 20px 20px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .tHead .dell {
+    width: 20px;
+  }
+
+  .tHead th {
     font-weight: 700;
     font-size: 12px;
     line-height: 14px;
     letter-spacing: 0.02em;
-    color: #000000;
-    height: 40px;
-    background-color: #F5F6FB;
+    text-transform: uppercase;
   }
 
-  .ant-table-thead tr {
-    border-radius: 20px;
+  tr {
+    display: flex;
+    height: 40px;
+    border: 2px solid #f5f6fb;
+    width: 746px;
+    background-color: #fff;
+    padding: 11px 46px 11px 20px;
+    justify-content: space-between;
+    align-items: center;
   }
+
+  tbody {
+    display: block;
+    height: 360px;
+    width: 746px;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    border: 2px solid #f5f6fb;
+  }
+
+  /* Chrome, Safari and Opera */
+  tbody::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  tbody::-webkit-scrollbar-track {
+    background-color: #f5f6fb;
+  }
+
+  tbody::-webkit-scrollbar-thumb {
+    background-color: #f57828;
+    border-radius: 10px;
+    border: 0px solid #ffffff;
+    height: 130px;
+  }
+
+  td {
+  }
+`;
+
+export const TabletDesctopWrapper = styled.div`
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+
+  @media (min-width: 768px) {
+    overflow: inherit;
+    opacity: 1;
+    pointer-events: inherit;
+  }
+`;
+
+export const NavMobileCont = styled.div`
+@media (min-width: 768px) {
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
 `;
