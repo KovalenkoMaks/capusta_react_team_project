@@ -15,5 +15,9 @@ export const ExpensesPage = () => {
     dispatch(expenseCategories());
   }, [categories.expenses.length, dispatch]);
 
-  return <TablePage />;
+  return(
+    <>
+  <TablePage />
+  <Summary/>
+  </>)
 };
