@@ -30,7 +30,7 @@ export const TablePage = () => {
           </tr>
         </thead>
         <tbody>
-          {transactions.length === 0
+          {transactions.expenses.length === 0
             ? [...Array(21)].map((_, index) => (
                 <tr key={index}>
                   <td></td>
@@ -41,7 +41,7 @@ export const TablePage = () => {
                 </tr>
               ))
             : [
-                ...transactions.map(transaction => (
+                ...transactions.expenses.map(transaction => (
                   <tr key={transaction._id}>
                     <td className="date">{transaction.date}</td>
                     <td className="decs">{transaction.description}</td>
@@ -50,24 +50,26 @@ export const TablePage = () => {
                     <td className="del">
                       <button
                         type="button"
-                        onClick={deleteTransaction(transaction._id)}
+                        onClick={() => {
+                          deleteTransaction(transaction._id);
+                        }}
                       >
                         {<DeleteBtn />}
                       </button>
                     </td>
                   </tr>
                 )),
-                ...[...Array(Math.max(0, 21 - transactions.length))].map(
-                  (_, index) => (
-                    <tr key={`empty-${index}`}>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                  )
-                ),
+                ...[
+                  ...Array(Math.max(0, 21 - transactions.expenses.length)),
+                ].map((_, index) => (
+                  <tr key={`empty-${index}`}>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                )),
               ]}
         </tbody>
       </table>
