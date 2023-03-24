@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import {
   addAnExpense,
+  addAnIncome,
   delTransaction,
   newBalance,
 } from 'redux/transactions/operations';
@@ -86,6 +87,12 @@ export const authSlice = createSlice({
         state.user.balance = action.payload.newBalance;
       })
       .addCase(addAnExpense.rejected, (state, action) => {})
+      //addAnIncome
+      .addCase(addAnIncome.pending, (state, action) => {})
+      .addCase(addAnIncome.fulfilled, (state, action) => {
+        state.user.balance = action.payload.newBalance;
+      })
+      .addCase(addAnIncome.rejected, (state, action) => {})
       //deleteTransaction
       .addCase(delTransaction.pending, (state, action) => {})
       .addCase(delTransaction.fulfilled, (state, action) => {
