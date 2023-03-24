@@ -1,19 +1,29 @@
 import styled from '@emotion/styled';
 
 export const SummaryContainer = styled.div`
-  display: block;
-  position: absolute;
-  z-index: 2;
-  top: 0;
-  right: 0;
-  transform: translate(-32px, 268px);
-  display: block;
+  display: none;
   width: 213px;
   height: 266px;
   overflow: hidden;
   border-radius: 20px 20px 20px 0;
   text-transform: uppercase;
   background-color: #f5f6fb;
+
+  @media screen and (min-width: 768px) {
+    display: block;
+    position: absolute;
+    z-index: 2;
+    left: 0;
+    bottom: 0;
+    transform: translate(30px, 318px);
+  }
+  @media screen and (min-width: 1280px){
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    transform: translate(853px, 268px);
+  }
 `;
 
 export const Header = styled.div`

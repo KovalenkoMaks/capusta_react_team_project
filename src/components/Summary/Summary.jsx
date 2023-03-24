@@ -1,4 +1,5 @@
 import {SummaryContainer, Header, SummaryTable, TableTbody, MonthTd, ValueTd, TableTr} from './Summary.styled.jsx';
+// import { rusToEng } from 'hooks/useMonthTranslate';
 // import { useTransactions } from 'hooks/useTransactions.js';
 
 export default function Summary(){
