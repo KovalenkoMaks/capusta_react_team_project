@@ -40,7 +40,7 @@ export const App = () => {
         <Route index element={<Navigate to="/home/expenses" />} />
 
         <Route path="/home" element={<SharedLayout />}>
-          <Route path="" element={<Navigate to="/home/expenses"/>} />
+          {/* <Route path="" element={<Navigate to="/home/expenses"/>} /> */}
           <Route
             path="expenses"
             element={
