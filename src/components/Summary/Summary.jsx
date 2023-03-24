@@ -1,60 +1,43 @@
-import { useSelector } from 'react-redux';
-import { useLocation } from 'react-router-dom';
-import { getMonthStats } from 'redux/auth/operations';
-import { transactionSelectors } from 'redux/transactions';
-import s from './Summary.styled.css';
+import {SummaryContainer, Header, SummaryTable, TableTbody, MonthTd, ValueTd, TableTr} from './Summary.styled.jsx';
+// import { rusToEng } from 'hooks/useMonthTranslate';
+// import { useTransactions } from 'hooks/useTransactions.js';
 
-function Summary() {
-  const { pathname } = useLocation();
-  const transtype = pathname.slice(1);
-
-  const summaryIncomes = useSelector(transactionSelectors.getIncomeMonthStats);
-  const summaryExpenses = useSelector(
-    transactionSelectors.getExpenseMonthStats
-  );
-
-  // eslint-disable-next-line no-unused-vars
-  const monthStats =
-    useSelector(getMonthStats.getIncomeMonthStats) +
-    useSelector(getMonthStats.getExpenseMonthStats);
-
-  const elements =
-    transtype === 'expense'
-      ? Object.entries(summaryExpenses)
-      : Object.entries(summaryIncomes);
-
-  const markup = elements
-    .map(([month, sum]) => {
-      if (sum === 'N/A') sum = 0;
-      return (
-        <li key={month} className={s.item}>
-          <span className={s.month}>{month}</span>
-          <span className={s.sum}>
-            {transtype === 'expense' ? '-' : '+'}
-            {fnForNumberDivide(sum)}.00
-          </span>
-        </li>
-      );
-    })
-    .reverse();
-
-  return (
-    <div className={s.wrap}>
-      <h2 className={s.title}>
-        {transtype === 'expense' ? 'Expenses' : 'Income'}
-      </h2>
-      <ul className={s.list}>{markup}</ul>
-    </div>
-  );
-}
-
-const fnForNumberDivide = number => {
-  if (number === undefined) {
-    return 0;
-  } else {
-    const res = number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
-    return res;
+export default function Summary(){
+  const monthStats = {
+    January: 50000,
+    February: 100,
+    March: "N/A",
+    April: "N/A",
+    May: 1,
+    June: "N/A",
+    July: 3,
+    August: "N/A",
+    September: "N/A",
+    October: 77,
+    November: "N/A",
+    December: 123
   }
-};
-
-export default Summary;
+  // const { monthsStats } = useTransactions();
+  // console.log(monthsStats);
+  return(
+    <SummaryContainer>
+     <Header>Summary</Header>
+     <SummaryTable>
+     <TableTbody>
+          { Object.entries(monthStats).map((element) => {
+             if(element[1] === 'N/A') {
+              return false;
+            } else {
+              return(
+                <TableTr key={`${element[0]}${element[1]}`}>
+                  <MonthTd>{element[0]}</MonthTd>
+                  <ValueTd>{element[1]}.00</ValueTd>
+                </TableTr>
+              );
+            }
+          })}
+        </TableTbody>
+     </SummaryTable>
+    </SummaryContainer>
+  )
+}
