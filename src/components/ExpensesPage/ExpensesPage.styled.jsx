@@ -57,13 +57,13 @@ export const BalanceContainer = styled.div`
     position: absolute;
     right: 0;
     top: 47px;
+  }
+
+  .reports a {
+    color: rgba(82, 85, 95, 0.7);
     display: flex;
     gap: 15px;
     align-items: center;
-  }
-
-  .reports span {
-    color: rgba(82, 85, 95, 0.7);
   }
 `;
 
@@ -102,19 +102,18 @@ export const Link = styled(NavLink)`
 `;
 
 export const FormWrapper = styled.div`
-box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
-border-radius: 0px 30px 30px 30px;
-height: 579px;
-background-color: #fff;
-padding: 32px;
+  box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+  border-radius: 0px 30px 30px 30px;
+  height: 579px;
+  background-color: #fff;
+  padding: 32px;
 
-@media screen and (min-width: 1280px) {
-  max-width: 1098px;
-}
-`
+  @media screen and (min-width: 1280px) {
+    max-width: 1098px;
+  }
+`;
 
 export const FormContainer = styled.div`
-
   .inputs {
     display: flex;
     align-items: center;
@@ -162,9 +161,7 @@ export const TableContainer = styled.div`
   height: 384px;
   overflow: hidden;
 
-
   .ant-table {
-    
   }
 
   .ant-table-thead tr th {
@@ -176,7 +173,7 @@ export const TableContainer = styled.div`
     letter-spacing: 0.02em;
     color: #000000;
     height: 40px;
-    background-color: #F5F6FB;
+    background-color: #f5f6fb;
   }
 
   .ant-table-thead tr {
