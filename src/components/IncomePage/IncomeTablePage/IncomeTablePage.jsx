@@ -1,17 +1,32 @@
 import { Table, Space, Button } from 'antd';
 import { ReactComponent as DeleteBtn } from '../../../images/deleteTable.svg';
 import { TableContainer } from 'components/ExpensesPage/ExpensesPage.styled';
+import { useTransactions } from 'hooks/useTransactions';
+import { useDispatch } from 'react-redux';
+import {
+  delTransaction,
+  getMonthStatsIncomes,
+} from 'redux/transactions/operations';
 
 const { Column } = Table;
 
 export const IncomeTablePage = () => {
+  const { transactions } = useTransactions();
+  const dispatch = useDispatch();
+  const onClick = id => {
+    dispatch(delTransaction(id))
+      .unwrap()
+      .then(() => {
+        dispatch(getMonthStatsIncomes());
+      });
+  };
   return (
     <TableContainer>
       <Table
-        //   dataSource={data}
-        // scroll={{
-        //   y: 340,
-        // }}
+        dataSource={transactions.incomes}
+        scroll={{
+          y: 340,
+        }}
         layout="inline"
         pagination={false}
         size={'large'}
@@ -41,7 +56,11 @@ export const IncomeTablePage = () => {
             >
               <p>{record.amount}.00 UAH</p>
               <Button style={{ marginRight: '47px' }}>
-                <DeleteBtn />
+                <DeleteBtn
+                  onClick={() => {
+                    onClick(record._id);
+                  }}
+                />
               </Button>
             </Space>
           )}

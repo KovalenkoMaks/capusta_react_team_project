@@ -4,6 +4,7 @@ import { incomesCategories } from 'redux/transactions/operations';
 // import { useLocation } from 'react-router';
 import { useEffect } from 'react';
 import { useTransactions } from 'hooks/useTransactions';
+import Summary from 'components/Summary/Summary';
 
 export const IncomePage = () => {
   //   const location = useLocation();
@@ -13,5 +14,10 @@ export const IncomePage = () => {
     if (categories.incomes.length > 0) return;
     dispatch(incomesCategories());
   }, [categories.incomes.length, dispatch]);
-  return <IncomeTablePage />;
+  return (
+    <>
+      <IncomeTablePage />
+      <Summary />
+    </>
+  );
 };
