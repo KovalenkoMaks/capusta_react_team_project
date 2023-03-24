@@ -69,12 +69,16 @@ export const BalanceContainer = styled.div`
 
 export const ExpensCont = styled.div`
   position: relative;
-  max-width: 1098px;
   margin: 0 auto;
 
   @media screen and (min-width: 1280px) {
     max-width: 1098px;
   }
+`;
+
+export const Navigations = styled.div`
+  position: absolute;
+  bottom: 0;
 `;
 
 export const Link = styled(NavLink)`
@@ -157,26 +161,95 @@ export const FormContainer = styled.div`
 
 export const TableContainer = styled.div`
   margin-top: 60px;
-  width: 746px;
-  height: 384px;
-  overflow: hidden;
+  overflow-x: hidden;
 
-  .ant-table {
+  table {
+    border-collapse: collapse; /* optional */
   }
 
-  .ant-table-thead tr th {
-    text-transform: uppercase;
-    font-style: normal;
+  thead,
+  tbody {
+    border: 0;
+    padding: 0;
+  }
+
+  .tHead {
+    background-color: #f5f6fb;
+    border-radius: 20px 20px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .tHead .dell {
+    width: 20px;
+  }
+
+  .tHead th {
     font-weight: 700;
     font-size: 12px;
     line-height: 14px;
     letter-spacing: 0.02em;
-    color: #000000;
+    text-transform: uppercase;
+  }
+
+  tr {
+    display: flex;
     height: 40px;
+    border: 2px solid #f5f6fb;
+    width: 746px;
+    background-color: #fff;
+    padding: 11px 46px 11px 20px;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  tbody {
+    display: block;
+    height: 360px;
+    width: 746px;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    border: 2px solid #f5f6fb;
+  }
+
+  /* Chrome, Safari and Opera */
+  tbody::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  tbody::-webkit-scrollbar-track {
     background-color: #f5f6fb;
   }
 
-  .ant-table-thead tr {
-    border-radius: 20px;
+  tbody::-webkit-scrollbar-thumb {
+    background-color: #f57828;
+    border-radius: 10px;
+    border: 0px solid #ffffff;
+    height: 130px;
   }
+
+  td {
+  }
+`;
+
+export const TabletDesctopWrapper = styled.div`
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+
+  @media (min-width: 768px) {
+    overflow: inherit;
+    opacity: 1;
+    pointer-events: inherit;
+  }
+`;
+
+export const NavMobileCont = styled.div`
+@media (min-width: 768px) {
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
 `;
