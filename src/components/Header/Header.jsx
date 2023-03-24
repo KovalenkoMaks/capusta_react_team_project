@@ -9,7 +9,7 @@ const {isLoggedIn} = useAuth();
   return(
     <>
     <Container>
-    <Link to="/"  alt="homepage">
+    <Link to="/home/expenses"  alt="homepage">
 <LogoIcon/>
 </Link>
 {isLoggedIn && (

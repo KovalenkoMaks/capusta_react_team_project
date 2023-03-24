@@ -9,10 +9,12 @@ export const TablePage = () => {
   return (
     <TableContainer>
       <Table
+
         dataSource={transactions}
         scroll={{
           y: 340,
         }}
+
         layout="inline"
         pagination={false}
         size={'large'}
