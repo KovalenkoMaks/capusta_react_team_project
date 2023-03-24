@@ -22,7 +22,7 @@ export const SummaryContainer = styled.div`
     z-index: 2;
     top: 0;
     left: 0;
-    transform: translate(853px, 268px);
+     transform: translate(853px, 268px);
   }
 `;
 
