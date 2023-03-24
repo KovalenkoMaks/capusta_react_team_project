@@ -1,0 +1,100 @@
+@media screen and (min-width: 320px) {
+  .background {
+    z-index: 1000;
+    position: absolute;
+    text-align: center;
+    z-index: 100;
+    width: 285px;
+    height: 170px;
+    padding: 35px;
+    color: #52555f;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    background-color: #ffffff;
+    border-radius: 30px;
+    transform: translate(50%, -38%);
+    top: 50%;
+    right: 50%;
+    box-shadow: 10px 10px 30px rgba(82, 85, 95, 0.4);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .background {
+    width: 380px;
+    height: 194px;
+    padding: 45px;
+  }
+}
+
+@media screen and (min-width: 270px) {
+  .yesBtn,
+  .noBtn {
+    margin-top: 20px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 20px;
+    padding: 10px 30px;
+    border-radius: 20px;
+    outline: transparent;
+    border: 2px solid #f5f6fb;
+    background-color: #ffffff;
+    color: #1f1f1f;
+  }
+}
+@media screen and (min-width: 768px) {
+  .yesBtn,
+  .noBtn {
+    padding: 15px 50px;
+  }
+}
+@media screen and (min-width: 270px) {
+  .noBtn:focus,
+  .yesBtn:focus,
+  .yesBtn:hover,
+  .noBtn:hover {
+    color: #ffffff;
+    background-color: #ff751d;
+    transition: 0.4s;
+    outline: transparent;
+    border: 2px solid #ffffff;
+  }
+
+  .yesBtn {
+    margin-right: 15px;
+  }
+
+  .closeBtn:hover {
+    background-color: #f5f6fb;
+  }
+
+  .closeBtn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    border-radius: 30px;
+    outline: transparent;
+    border: none;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    transform: translate(-7px, 6px);
+    background-color: transparent;
+  }
+  .backdrop {
+    position: fixed;
+    z-index: 110;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    width: 100%;
+    height: 100vh;
+    transition: opacity 500ms ease-out 0.2s, visibility 500ms ease-out;
+  }
+}
