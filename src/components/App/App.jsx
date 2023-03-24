@@ -4,11 +4,12 @@ import { RestrictedRoute } from 'components/utils/RestrictedRout';
 import Layout from 'pages/Layout/Layout';
 import { lazy, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { getAllUserData, getMonthStats, refresh } from 'redux/auth/operations';
 import SharedLayout from 'pages/SharedLayout/SharedLayout';
+import { NotFound } from 'components/NotFound/NotFound';
 
-// const Home = lazy(() => import('pages/Home/Home'));
 const LogIn = lazy(() => import('components/logIn/Login'));
 const Registration = lazy(() =>
   import('components/registrations/Registrations')
@@ -18,8 +19,7 @@ const Registration = lazy(() =>
 // бо тут теж є частинки, які не треба перерендерювати (я про Expenses i Income)
 const Expenses = lazy(() => import('pages/Expenses/Expenses'));
 const Income = lazy(() => import('pages/Income/Income'));
-const Report = lazy(() => import('pages/Report/Report'));
-// const ReportView = lazy(() => import('pages/ReportView'));
+const Reports = lazy(() => import('pages/Reports/Reports'));
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -37,35 +37,41 @@ export const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        {/* <Route
-          index
-          element={<PrivateRoute component={Home} redirectTo={'/login'} />}
-        /> */}
+        <Route index element={<Navigate to="/home/expenses" />} />
+
+        <Route path="/home" element={<SharedLayout />}>
+          <Route path="" element={<Navigate to="/home/expenses" />} />
+          <Route
+            path="expenses"
+            element={
+              <PrivateRoute component={Expenses} redirectTo={'/login'} />
+            }
+          />
+          <Route
+            path="income"
+            element={<PrivateRoute component={Income} redirectTo={'/login'} />}
+          />
+        </Route>
+        <Route
+          path="reports"
+          element={<PrivateRoute component={Reports} redirectTo={'/login'} />}
+        />
         <Route
           path="/login"
           element={
             <RestrictedRoute component={LogIn} redirectTo={'/home/expenses'} />
           }
         />
-        <Route path="/registration" element={<Registration />} />
-        <Route path="/home" element={<SharedLayout />}>
-          <Route
-            path="expenses"
-            element={<PrivateRoute component={Expenses} redirectTo={'/login'} />}
-          />
-          {/* <Route path="expenses" element={<Expenses />} /> */}
-          {/* <Route
-            path="/report"
-            element={<PrivateRoute component={Report} redirectTo={'/'} />}
-          /> */}
-          {/* <Route path="report" element={<Report />} /> */}
-          {/* <Route
-          path="/reports"
-          element={<PrivateRoute component={ReportView} redirectTo={'/'} />}
-        /> */}
-          {/* <Route path="reports" element={<ReportView />} /> */}
-          <Route path="income" element={<Income />} />
-        </Route>
+        <Route
+          path="/registration"
+          element={
+            <RestrictedRoute
+              component={Registration}
+              redirectTo={'/home/expenses'}
+            />
+          }
+        />
+        <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
   );
