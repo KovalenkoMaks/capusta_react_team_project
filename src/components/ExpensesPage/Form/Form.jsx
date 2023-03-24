@@ -66,7 +66,7 @@ export const InputForm = () => {
                       })
                     }
                     onBlur={handleBlur}
-                    defaultValue={dayjs()}
+                    placeholder={dayjs().format(dateFormat)}
                     format={dateFormat}
                     bordered={false}
                     suffixIcon={calendarIcon}

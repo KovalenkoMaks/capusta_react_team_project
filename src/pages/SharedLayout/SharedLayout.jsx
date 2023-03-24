@@ -4,18 +4,24 @@ import { NavigationLinks } from 'components/ExpensesPage/NavigationLinks/Navigat
 import { Outlet } from 'react-router';
 import { Suspense } from 'react';
 import { Loader } from 'components/Loader/Loader';
-import { InputForm} from 'components/ExpensesPage/Form/Form';
+import { InputForm } from 'components/ExpensesPage/Form/Form';
 import { FormWrapper } from 'components/ExpensesPage/ExpensesPage.styled';
+import { TabletDesctopWrapper } from 'components/ExpensesPage/ExpensesPage.styled';
+import { NavMobile } from 'components/Mobile/NavMobile';
 
 const SharedLayout = () => {
   return (
     <ExpensCont>
+      <NavMobile/>
       <Balance />
       <NavigationLinks />
       <FormWrapper>
-        <InputForm />
-        <Suspense fallback={<Loader/>}>
-        <Outlet />
+        <TabletDesctopWrapper>
+          <InputForm />
+        </TabletDesctopWrapper>
+
+        <Suspense fallback={<Loader />}>
+          <Outlet />
         </Suspense>
       </FormWrapper>
     </ExpensCont>

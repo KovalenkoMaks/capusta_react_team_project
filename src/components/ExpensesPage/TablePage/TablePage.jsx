@@ -1,55 +1,58 @@
-import { Table, Space, Button } from 'antd';
 import { useTransactions } from 'hooks/useTransactions';
 import { ReactComponent as DeleteBtn } from '../../../images/deleteTable.svg';
 import { TableContainer } from '../ExpensesPage.styled';
-const { Column } = Table;
 
 export const TablePage = () => {
   const { transactions } = useTransactions();
   return (
     <TableContainer>
-      <Table
-
-        dataSource={transactions}
-        scroll={{
-          y: 340,
-        }}
-
-        layout="inline"
-        pagination={false}
-        size={'large'}
-      >
-        <Column title="Date" dataIndex="date" key="date" width="130px" />
-        <Column
-          title="Descrition"
-          dataIndex="description"
-          key="description"
-          ellipsis="true"
-          width="188px"
-        />
-        <Column
-          title="category"
-          dataIndex="category"
-          key="category"
-          width="116px"
-        />
-        <Column
-          title="sum"
-          dataIndex="amount"
-          key="amount"
-          render={(_, record) => (
-            <Space
-              size="middle"
-              style={{ display: 'flex', justifyContent: 'space-between' }}
-            >
-              <p>{record.amount}.00 UAH</p>
-              <Button style={{ marginRight: '47px' }}>
-                <DeleteBtn />
-              </Button>
-            </Space>
-          )}
-        />
-      </Table>
+      <table>
+        <thead>
+          <tr className="tHead">
+            <th className='thDate'>Date</th>
+            <th>Description</th>
+            <th>category</th>
+            <th>Sum</th>
+            <th className='dell'></th>
+          </tr>
+        </thead>
+        <tbody>
+          {transactions.length === 0
+            ? [...Array(21)].map((_, index) => (
+                <tr key={index}>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              ))
+            : [
+                ...transactions.map(transaction => (
+                  <tr key={transaction._id}>
+                    <td className="date">{transaction.date}</td>
+                    <td className="decs">{transaction.description}</td>
+                    <td className="categ">{transaction.category}</td>
+                    <td className="amount">{transaction.amount}.00 UAH</td>
+                    <td className="del">
+                      <button type="button">{<DeleteBtn />}</button>
+                    </td>
+                  </tr>
+                )),
+                ...[...Array(Math.max(0, 21 - transactions.length))].map(
+                  (_, index) => (
+                    <tr key={`empty-${index}`}>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                  )
+                ),
+              ]}
+        </tbody>
+      </table>
     </TableContainer>
   );
 };
