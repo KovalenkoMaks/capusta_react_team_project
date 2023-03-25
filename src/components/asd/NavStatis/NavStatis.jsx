@@ -110,9 +110,8 @@ export const NavStatis = () => {
           </div>
         </Link>
         <div className={Style.infoForUserBalance}>
-          {/* {widthScreen <= 768 && <ReportsBalance />} */}
-          {/* {widthScreen > 768 && <RepNewLastBalance />} */}
-          <Balance />
+          {widthScreen <= 768 && <Balance />}
+          {widthScreen > 768 && <Balance />}
         </div>
         <div className={Style.month_switch}>
           <p className={Style.month_switchText}>Current period:</p>

@@ -12,7 +12,7 @@ export const Balance = () => {
   const [showModal, setShowModal] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const isFisrtSignIn = useSelector(getIsFisrtSignIn);
-
+  // console.log(isFisrtSignIn);
   const dispatch = useDispatch();
   const [balance, setBalance] = useState();
   const balanceEl = useSelector(getStartBalance);
