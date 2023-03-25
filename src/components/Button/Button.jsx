@@ -9,7 +9,7 @@ export default function Button({
   backgroundColor,
   border,
   textColor,
-
+  filter,
 }){
 
   return (
@@ -22,6 +22,7 @@ export default function Button({
         backgroundColor={backgroundColor}
         border={border}
         textColor={textColor}
+        filter ={filter}
       >{text}</StyledBtn>
     </>
   );

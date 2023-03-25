@@ -224,7 +224,7 @@ export const TableContainer = styled.div`
   }
 
   tbody::-webkit-scrollbar-track {
-    background-color: #f5f6fb;
+    background-color: #FF751D;
   }
 
   tbody::-webkit-scrollbar-thumb {
@@ -257,3 +257,10 @@ export const NavMobileCont = styled.div`
     pointer-events: none;
   }
 `;
+export const TableWrapper = styled.div`
+  display: block;
+  @media screen and (min-width: 1280px) {
+    display: flex;
+  }
+`;
+

@@ -2,7 +2,8 @@ import { Formik, Field, Form } from 'formik';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { logIn } from 'redux/auth/operations';
-import { ReactComponent as GoogleIcon } from 'images/google.svg';
+import GoogleLogin from 'components/GoogleLogin/GoogleLogin';
+import Button from 'components/Button/Button';
 import { DivEl } from './Login.styled';
 
 const LogIn = () => {
@@ -14,15 +15,11 @@ const LogIn = () => {
   const handleSubmit = async (values, { resetForm }) => {
     dispath(logIn(values));
   };
+
   return (
     <DivEl>
       <p>You can log in with your Google Account:</p>
-      <a href="https://www.google.com/">
-        <span>
-          <GoogleIcon />
-        </span>
-        Google
-      </a>
+      <GoogleLogin />
       <p>Or log in using an email and password, after registering:</p>
       <Formik initialValues={initialValues} onSubmit={handleSubmit}>
         <Form>
@@ -49,8 +46,26 @@ const LogIn = () => {
             />
           </label>
           <div>
-            <button type="submit">LOG IN</button>
-            <Link to={'/registration'}>Registration</Link>
+            <Button
+              text="Log in"
+              textColor="#fff"
+              type="submit"
+              width="116px"
+              backgroundColor="#FF751D"
+              border="none"
+              filter="drop-shadow(1px 3px 5px rgba(255, 107, 8, 0.35))"
+            />
+            <Link to={'/registration'}>
+              <Button
+                text="Registration"
+                textColor="#52555F"
+                type="button"
+                width="116px"
+                backgroundColor="#F5F6FB"
+                border="2px solid #F6F7FC"
+                filter="drop-shadow(1px 3px 5px rgba(82, 85, 95, 0.15))"
+              ></Button>
+            </Link>
           </div>
         </Form>
       </Formik>

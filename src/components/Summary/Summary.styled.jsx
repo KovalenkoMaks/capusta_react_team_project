@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 
 export const SummaryContainer = styled.div`
+  position: relative;
   display: none;
   width: 213px;
   height: 266px;
@@ -10,23 +11,20 @@ export const SummaryContainer = styled.div`
   background-color: #f5f6fb;
 
   @media screen and (min-width: 768px) {
-    display: block;
-    position: absolute;
-    z-index: 2;
-    left: 0;
-    bottom: 0;
-    transform: translate(30px, 318px);
+    display:block;
+    margin-top: 82px;
+    margin-left: -40px;
   }
   @media screen and (min-width: 1280px) {
-    position: absolute;
-    z-index: 2;
-    top: 0;
-    left: 0;
-    transform: translate(853px, 268px);
+    margin-top: 60px;
+    margin-left: 74px;
+
+
   }
 `;
 
 export const Header = styled.div`
+  position: -webkit-sticky;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -41,6 +39,18 @@ export const SummaryTable = styled.table`
   background-color: #f5f6fb;
   border-collapse: collapse;
   width: 100%;
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #FF751D;
+  }
+  /* &::-webkit-scrollbar {
+  width: 10px;
+  background-color: #FF751D;
+} */
 `;
 export const TableTbody = styled.tbody`
   border-left: none;
