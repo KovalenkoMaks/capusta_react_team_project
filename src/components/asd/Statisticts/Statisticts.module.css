@@ -1,0 +1,8 @@
+.statisticsWrapper {
+  max-width: 1034px;
+  margin-left: auto;
+  margin-right: auto;
+
+  border-radius: 0px 30px 30px 30px;
+  position: relative;
+}

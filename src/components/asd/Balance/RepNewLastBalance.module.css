@@ -1,0 +1,271 @@
+/*@media screen and (min-width: 320px)  and (max-width: 767px) @media screen and (max-width: 767px)
+@media screen and (min-width: 768px)  and (max-width: 1279px) /*  */
+/* @media screen and (min-width: 768px)  and (max-width: 1279px)  
+@media screen and (min-width: 1280px) */
+
+/*------------------------------------------------*/
+@media screen and (min-width: 270px) {
+  .form {
+    /* background-image: url(../../images/background/bkgd_desktop.png); */
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    padding-left: 32px;
+    padding-right: 32px;
+    text-align: center;
+
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .form {
+    margin-top: 104px;
+    justify-content: center;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .form {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: normal;
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .form {
+    flex-direction: row;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media screen and (min-width: 270px) and (max-width: 767px) {
+  .label {
+    display: flex;
+    color: #52555f;
+    font-family: Roboto;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: 0.02em;
+    text-align: center;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .label {
+    margin-right: 20px;
+  }
+}
+
+.mobInputWraper {
+  display: flex;
+}
+
+@media screen and (min-width: 270px) {
+  .inputWraper {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    align-items: center;
+    background-color: transparent;
+    border: 2px solid #ffffff;
+    width: 125px;
+    color: rgba(0, 0, 0, 1);
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    text-align: center;
+  }
+}
+
+.button {
+  background-color: transparent;
+  width: 125px;
+  border: 2px solid #ffffff;
+  border-radius: 16px;
+  color: #52555f;
+  font-size: 12px;
+  line-height: 1.17;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 6px;
+  padding-right: 6px;
+  margin-left: 16px;
+}
+
+@media screen and (max-width: 767px) {
+  .inputWraper {
+    border-bottom-left-radius: 16px;
+    border-top-left-radius: 16px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .inputWraper {
+    border-radius: 16px;
+  }
+}
+
+@media screen and (min-width: 270px) {
+  .input {
+    border: none;
+    background-color: transparent;
+    width: 70px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+
+    outline: none;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+  }
+}
+
+@media screen and (min-width: 270px) and (max-width: 767px) {
+  .button {
+    background-color: transparent;
+    width: 125px;
+    border-bottom-right-radius: 16px;
+    border-top-right-radius: 16px;
+    border: 2px solid #ffffff;
+
+    color: #52555f;
+
+    font-size: 12px;
+    line-height: 1.17;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 6px;
+    padding-right: 6px;
+    transition: 0.3s;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .button {
+    background-color: transparent;
+    width: 125px;
+    border: 2px solid #ffffff;
+    border-radius: 16px;
+    color: #52555f;
+    font-size: 12px;
+    line-height: 1.17;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 6px;
+    padding-right: 6px;
+    margin-left: 16px;
+    transition: 0.3s;
+  }
+}
+
+/* .button:hover {
+  color: #ffffff;
+  background-color: #ed7200;
+  border: 2px solid #ed7200;
+}
+.button:disabled {
+  background-color: #52555f;
+  color: #ffffff;
+} */
+
+.button:hover:enabled {
+  color: white;
+  cursor: pointer;
+  background-color: #fa6b12;
+  border: 2px solid;
+}
+
+.button:disabled {
+  cursor: auto;
+  background-color: #f2f5fc;
+
+  color: #bcbec5;
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .reports_form {
+    background-image: url(../../../images/backHomePage.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .reports_form {
+    align-items: flex-start;
+    justify-content: center;
+    margin-bottom: 0px;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .reports_label {
+    display: flex;
+    color: #52555f;
+    font-family: Roboto;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: 0.02em;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .reports_inputWraper {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    align-items: center;
+    background-color: transparent;
+    border: 2px solid #ffffff;
+    border-radius: 16px;
+    width: 183px;
+    height: 44px;
+    margin-top: 8px;
+    color: rgba(0, 0, 0, 1);
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .reports_input {
+    border: none;
+    background-color: transparent;
+    width: 70px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    outline: none;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+  }
+}

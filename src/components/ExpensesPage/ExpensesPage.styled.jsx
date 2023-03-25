@@ -1,4 +1,6 @@
 import { NavLink } from 'react-router-dom';
+import img from '../../images/backHomePage.svg';
+
 const { default: styled } = require('@emotion/styled');
 
 export const BalanceContainer = styled.div`
@@ -70,7 +72,9 @@ export const BalanceContainer = styled.div`
 export const ExpensCont = styled.div`
   position: relative;
   margin: 0 auto;
-
+  width: 1280px;
+  height: 850px;
+  background-image: url(${img});
   @media screen and (min-width: 1280px) {
     max-width: 1098px;
   }

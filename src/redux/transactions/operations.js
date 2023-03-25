@@ -98,3 +98,18 @@ export const getMonthStatsIncomes = createAsyncThunk(
     }
   }
 );
+export const getDataTransaction = createAsyncThunk(
+  '/transaction/period-data',
+  async (date, { rejectWithValue }) => {
+    try {
+      const result = await axios.get('/transaction/period-data', {
+        params: {
+          date: date,
+        },
+      });
+      return result.data;
+    } catch (error) {
+      return rejectWithValue(error.response.data);
+    }
+  }
+);

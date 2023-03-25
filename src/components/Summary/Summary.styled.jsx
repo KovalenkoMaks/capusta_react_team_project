@@ -4,7 +4,7 @@ export const SummaryContainer = styled.div`
   display: none;
   width: 213px;
   height: 266px;
-  overflow: hidden;
+  overflow: auto;
   border-radius: 20px 20px 20px 0;
   text-transform: uppercase;
   background-color: #f5f6fb;
@@ -17,12 +17,12 @@ export const SummaryContainer = styled.div`
     bottom: 0;
     transform: translate(30px, 318px);
   }
-  @media screen and (min-width: 1280px){
+  @media screen and (min-width: 1280px) {
     position: absolute;
     z-index: 2;
     top: 0;
     left: 0;
-     transform: translate(853px, 268px);
+    transform: translate(853px, 268px);
   }
 `;
 
@@ -45,12 +45,12 @@ export const SummaryTable = styled.table`
 export const TableTbody = styled.tbody`
   border-left: none;
 `;
-export const MonthTd = styled.tbody`
+export const MonthTd = styled.td`
   font-size: 12px;
   line-height: 1.16;
   letter-spacing: 0.04em;
 `;
-export const ValueTd = styled.tbody`
+export const ValueTd = styled.td`
   font-size: 12px;
   line-height: 1.16;
   letter-spacing: 0.04em;

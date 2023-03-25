@@ -1,0 +1,129 @@
+.item_spend {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+  height: 122px;
+  width: 95px;
+  /* margin-right: 5px;
+  margin-left: 5px; */
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.item_spend:hover div {
+  background-color: #ffdac0;
+}
+
+.item_spend:focus div {
+  background-color: #ffdac0;
+}
+
+/* .item_spend:active div {
+  background-color: #ffdac0;
+} */
+
+.item_spend:hover svg {
+  fill: #ff751d;
+}
+
+.item_spend:focus svg {
+  fill: #ff751d;
+}
+
+/* .item_spend:active svg {
+  fill: #ff751d;
+} */
+
+.item_backgroundSvg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  background-color: #f5f6fb;
+  border-radius: 20px;
+  width: 52px;
+  height: 46px;
+  z-index: 0;
+
+  /*   position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  background-color: #ffdac0;
+  border-radius: 20px;
+  width: 52px;
+  height: 46px;
+  z-index: 0; */
+}
+
+.item_backgroundSvgActive {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  background-color: #ffdac0;
+  border-radius: 20px;
+  width: 52px;
+  height: 46px;
+  z-index: 0;
+}
+
+.item_spendSvg {
+  z-index: 10;
+}
+
+.item_spendSvgActive {
+  fill: #ff751d;
+  z-index: 10;
+}
+
+.item_text {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.1;
+  color: #52555f;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  /* margin-bottom: 6px; */
+}
+
+.positionTr {
+  position: relative;
+}
+/* position: absolute;
+top: 0px;
+left: 0px; */
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .positionTr {
+    border-bottom: 1px solid #e0e5eb;
+  }
+}
+
+.active {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+  height: 122px;
+  width: 95px;
+  /* margin-right: 5px;
+  margin-left: 5px; */
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.active:hover div {
+  background-color: #ffdac0;
+}
+
+.active:hover svg {
+  fill: #ff751d;
+  position: relative;
+}

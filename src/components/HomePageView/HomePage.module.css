@@ -1,10 +1,4 @@
 @media screen and (min-width: 320px) {
-    .background {
-        width: 320px;
-        height: 856px;
-        background-image: url('../../images/backgroundMobile.svg ');
-    }
-
     .title {
         padding-top: 80px;
         padding-left: 17px;
@@ -41,12 +35,6 @@
 }
 
 @media screen and (min-width: 768px) {
-    .background {
-        width: 768px;
-        height: 1024px;
-        background-image: url('../../images/backgroundTablet.svg');
-    }
-
     .title {
         padding-top: 115px;
         padding-left: 162px;
@@ -79,12 +67,6 @@
 }
 
 @media screen and (min-width: 1280px) {
-    .background {
-        width: 1280px;
-        height: 850px;
-        background-image: url('../../images/backgroundHome.svg');
-    }
-
     .title {
         padding-top: 362px;
         padding-left: 229px;
