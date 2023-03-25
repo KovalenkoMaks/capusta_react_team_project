@@ -5,7 +5,6 @@ import { useDispatch } from 'react-redux';
 import { expenseCategories } from 'redux/transactions/operations';
 // import { useLocation } from 'react-router';
 import { useTransactions } from 'hooks/useTransactions';
-import Summary from 'components/Summary/Summary';
 
 export const ExpensesPage = () => {
   // const location = useLocation();
@@ -19,7 +18,6 @@ export const ExpensesPage = () => {
   return (
     <>
       <TablePage />
-      <Summary />
     </>
   );
 };

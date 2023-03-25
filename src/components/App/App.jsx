@@ -15,10 +15,10 @@ import {
 } from 'redux/transactions/operations';
 // import Report from 'pages/Report/Report';
 
-const LogIn = lazy(() => import('components/logIn/Login'));
+const LogIn = lazy(() => import('components/logIn/LogIn'));
 const Registration = lazy(() =>
   import('components/registrations/Registrations')
-);
+); 
 
 // це треба буде переробити і теж зробити Suspense i Outlet
 // бо тут теж є частинки, які не треба перерендерювати (я про Expenses i Income)
