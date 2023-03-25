@@ -1,16 +1,8 @@
 const { default: styled } = require('@emotion/styled');
 
 export const DivEl = styled.div`
-  button {
-    width: 116px;
-    height: 44px;
-    filter: drop-shadow(1px 3px 5px rgba(255, 107, 8, 0.35));
-    border-radius: 16px;
-    background-color: rgba(255, 107, 8);
-    color: white;
-  }
-  /* display: flex; */
-  @media screen and (min-width: 320px) {
+
+@media screen and (min-width: 320px) {
     position: absolute;
     z-index: 3;
     top: 255px;
@@ -77,18 +69,11 @@ export const DivEl = styled.div`
     gap: 8px;
     justify-content: center;
     margin-top: 20px;
-    a {
-      margin-bottom: 0;
-      width: 116px;
-      height: 44px;
-      filter: drop-shadow(1px 3px 5px rgba(255, 107, 8, 0.35));
-      border-radius: 16px;
-      /* background-color: rgba(255, 107, 8); */
-      /* color: white; */
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      //
+    @media screen and (min-width: 768px) {
+      Button{
+        width: 122px;
+      }
+      gap: 14px;
     }
   }
   input {
@@ -96,6 +81,7 @@ export const DivEl = styled.div`
     height: 52px;
     border-radius: 30px;
     padding: 17px 19px;
+    border: none;
 
     @media screen and (min-width: 768px) {
       width: 259px;

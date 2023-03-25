@@ -1,9 +1,9 @@
-import { InputForm } from "components/ExpensesPage/Form/Form";
+// import { InputForm } from "components/ExpensesPage/Form/Form";
 
-const Mobile = () => {
-    return (
-<></>
-    )
-}
+// const Mobile = () => {
+//     return (
+// <></>
+//     )
+// }
 
-export default Mobile;
+// export default Mobile;
