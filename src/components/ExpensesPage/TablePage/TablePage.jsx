@@ -5,7 +5,8 @@ import {
   getMonthStatsExpenses,
 } from 'redux/transactions/operations';
 import { ReactComponent as DeleteBtn } from '../../../images/deleteTable.svg';
-import { TableContainer } from '../ExpensesPage.styled';
+import { TableContainer, TableWrapper } from '../ExpensesPage.styled';
+import Summary from 'components/Summary/Summary';
 
 export const TablePage = () => {
   const dispatch = useDispatch();
@@ -18,6 +19,7 @@ export const TablePage = () => {
   };
   const { transactions } = useTransactions();
   return (
+    <TableWrapper>
     <TableContainer>
       <table>
         <thead>
@@ -74,5 +76,7 @@ export const TablePage = () => {
         </tbody>
       </table>
     </TableContainer>
+    <Summary/>
+    </TableWrapper>
   );
 };

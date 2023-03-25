@@ -1,15 +1,7 @@
-const { default: styled } = require('@emotion/styled');
+// const { default: styled } = require('@emotion/styled');
+import styled from '@emotion/styled';
 
 export const DivEl = styled.div`
-  button {
-    width: 116px;
-    height: 44px;
-    filter: drop-shadow(1px 3px 5px rgba(255, 107, 8, 0.35));
-    border-radius: 16px;
-    background-color: rgba(255, 107, 8);
-    color: white;
-  }
-  /* display: flex; */
   @media screen and (min-width: 320px) {
     position: absolute;
     z-index: 3;
@@ -26,6 +18,8 @@ export const DivEl = styled.div`
     letter-spacing: 0.04em;
     padding: 40px 20px;
     p {
+      margin-right: auto;
+      margin-left: auto;
       width: 238px;
     }
   }
@@ -59,6 +53,9 @@ export const DivEl = styled.div`
     }
   }
   p {
+    text-align: start;
+    margin-right: 0px;
+    margin-left: 0px;
     margin-bottom: 16px;
   }
   a {
@@ -70,18 +67,12 @@ export const DivEl = styled.div`
     display: flex;
     gap: 8px;
     justify-content: center;
-    a {
-      margin-bottom: 0;
-      width: 116px;
-      height: 44px;
-      filter: drop-shadow(1px 3px 5px rgba(255, 107, 8, 0.35));
-      border-radius: 16px;
-      /* background-color: rgba(255, 107, 8); */
-      /* color: white; */
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      //
+    margin-top: 20px;
+    @media screen and (min-width: 768px) {
+      Button {
+        width: 122px;
+      }
+      gap: 14px;
     }
   }
   input {
@@ -89,6 +80,7 @@ export const DivEl = styled.div`
     height: 52px;
     border-radius: 30px;
     padding: 17px 19px;
+    border: none;
 
     @media screen and (min-width: 768px) {
       width: 259px;

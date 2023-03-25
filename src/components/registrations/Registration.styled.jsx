@@ -1,4 +1,6 @@
-const { default: styled } = require('@emotion/styled');
+import styled from '@emotion/styled';
+
+// const { default: styled } = require('@emotion/styled');
 
 export const DivEl = styled.div`
   button {

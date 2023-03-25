@@ -24,7 +24,7 @@ const Registration = lazy(() =>
 // бо тут теж є частинки, які не треба перерендерювати (я про Expenses i Income)
 const Expenses = lazy(() => import('pages/Expenses/Expenses'));
 const Income = lazy(() => import('pages/Income/Income'));
-const Report = lazy(() => import('pages/Report/Report'));
+const Reports = lazy(() => import('pages/Reports/Reports'));
 export const App = () => {
   const dispatch = useDispatch();
 
@@ -61,7 +61,7 @@ export const App = () => {
         </Route>
         <Route
           path="reports"
-          element={<PrivateRoute component={Report} redirectTo={'/login'} />}
+          element={<PrivateRoute component={Reports} redirectTo={'/login'} />}
         />
         <Route
           path="/login"

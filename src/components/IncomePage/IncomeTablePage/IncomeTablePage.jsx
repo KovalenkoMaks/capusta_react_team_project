@@ -1,12 +1,13 @@
 import { Table, Space, Button } from 'antd';
 import { ReactComponent as DeleteBtn } from '../../../images/deleteTable.svg';
-import { TableContainer } from 'components/ExpensesPage/ExpensesPage.styled';
+import { TableContainer, TableWrapper } from 'components/ExpensesPage/ExpensesPage.styled';
 import { useTransactions } from 'hooks/useTransactions';
 import { useDispatch } from 'react-redux';
 import {
   delTransaction,
   getMonthStatsIncomes,
 } from 'redux/transactions/operations';
+import Summary from 'components/Summary/Summary';
 
 const { Column } = Table;
 
@@ -21,6 +22,7 @@ export const IncomeTablePage = () => {
       });
   };
   return (
+    <TableWrapper>
     <TableContainer>
       <Table
         dataSource={transactions.incomes}
@@ -67,5 +69,7 @@ export const IncomeTablePage = () => {
         />
       </Table>
     </TableContainer>
+    <Summary/>
+    </TableWrapper>
   );
 };

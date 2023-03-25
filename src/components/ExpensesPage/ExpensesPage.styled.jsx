@@ -223,11 +223,11 @@ export const TableContainer = styled.div`
   }
 
   tbody::-webkit-scrollbar-track {
-    background-color: #f5f6fb;
+    background-color: #FF751D;
   }
 
   tbody::-webkit-scrollbar-thumb {
-    background-color: #f57828;
+    background-color: #ff751d;
     border-radius: 10px;
     border: 0px solid #ffffff;
     height: 130px;
@@ -250,9 +250,16 @@ export const TabletDesctopWrapper = styled.div`
 `;
 
 export const NavMobileCont = styled.div`
-@media (min-width: 768px) {
-  overflow: hidden;
-  opacity: 0;
-  pointer-events: none;
-}
+  @media (min-width: 768px) {
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+  }
 `;
+export const TableWrapper = styled.div`
+  display: block;
+  @media screen and (min-width: 1280px) {
+    display: flex;
+  }
+`;
+

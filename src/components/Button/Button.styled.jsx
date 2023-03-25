@@ -20,6 +20,7 @@ export const StyledBtn = styled.button`
   border: ${props => props.border};
   background-color: ${setBackgroundColor};
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  filter: ${props => props.filter};
   cursor: pointer;
 
     &:hover {

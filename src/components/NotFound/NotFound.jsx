@@ -13,7 +13,7 @@ export const NotFound = () => {
         width="150px"
         disabled={false}
         onClick={null}
-        backgroundColor='#f57828'
+        backgroundColor='#FF751D'
         border='none'
         textColor='#fff'
         text={
