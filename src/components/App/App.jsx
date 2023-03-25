@@ -13,6 +13,7 @@ import {
   getMonthStatsExpenses,
   getMonthStatsIncomes,
 } from 'redux/transactions/operations';
+// import Report from 'pages/Report/Report';
 
 const LogIn = lazy(() => import('components/logIn/Login'));
 const Registration = lazy(() =>
@@ -23,7 +24,7 @@ const Registration = lazy(() =>
 // бо тут теж є частинки, які не треба перерендерювати (я про Expenses i Income)
 const Expenses = lazy(() => import('pages/Expenses/Expenses'));
 const Income = lazy(() => import('pages/Income/Income'));
-const Reports = lazy(() => import('pages/Reports/Reports'));
+const Report = lazy(() => import('pages/Report/Report'));
 export const App = () => {
   const dispatch = useDispatch();
 
@@ -34,6 +35,7 @@ export const App = () => {
         dispatch(getAllUserData());
         dispatch(getMonthStatsExpenses());
         dispatch(getMonthStatsIncomes());
+        // dispatch(getDataTransaction());
       })
       .catch(console.log);
   }, [dispatch]);
@@ -45,8 +47,7 @@ export const App = () => {
 
         <Route path="/home" element={<SharedLayout />}>
           <Route path="" element={<Navigate to="/home/expenses" />} />
-          <Route path="" element={<Navigate to="/home/expenses" />} />
-          {/* <Route path="" element={<Navigate to="/home/expenses"/>} /> */}
+          {/* <Route path="" element={<Navigate to="/home/expenses" />} /> */}
           <Route
             path="expenses"
             element={
@@ -60,7 +61,7 @@ export const App = () => {
         </Route>
         <Route
           path="reports"
-          element={<PrivateRoute component={Reports} redirectTo={'/login'} />}
+          element={<PrivateRoute component={Report} redirectTo={'/login'} />}
         />
         <Route
           path="/login"

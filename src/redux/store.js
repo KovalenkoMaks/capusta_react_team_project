@@ -1,12 +1,5 @@
-import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
-import transactionsReducer from './transaction/transactions-slice';
-import authReducer from './auth/auth-slice';
-import storage from 'redux-persist/lib/storage';
-import categoriesReducer from './categories/catrgories-slice';
-import reportsReducer from './reports/reports-slice';
-import dateReducer from './date/date-slice';
-//--------------------------------------------------------------------------//
-
+import { configureStore } from '@reduxjs/toolkit';
+import { authSlice } from './auth/authSlice';
 import {
   persistStore,
   persistReducer,
@@ -17,37 +10,28 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+import { transactionsSlice } from './transactions/transactionsSlice';
 
-const persistConfigAuth = {
-  key: 'auth',
+const authPersistConfig = {
+  key: 'userAuth',
   storage,
-  whitelist: ['accessToken', 'refreshToken', 'sid', 'userData'],
+  whitelist: ['sid', 'refreshToken'],
 };
 
-// const persistConfigTransaction= {
-//   key: 'transaction',
-//   storage,
-//   whitelist: ['accessToken', 'refreshToken', 'sid', 'userData'],
-// };
-
-const store = configureStore({
+export const store = configureStore({
   reducer: {
-    auth: persistReducer(persistConfigAuth, authReducer),
-    transactions: transactionsReducer,
-    categories: categoriesReducer,
-    reports: reportsReducer,
-    date: dateReducer,
+    // auth: authSlice.reducer,
+    auth: persistReducer(authPersistConfig, authSlice.reducer),
+    transactions: transactionsSlice.reducer,
   },
-
-  middleware: getDefaultMiddleware({
-    serializableCheck: {
-      ignoreActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-    },
-  }),
+  middleware: getDefaultMiddleware => [
+    ...getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
+  ],
 });
 
-const persistor = persistStore(store);
-
-export { store, persistor };
-
-// const persistedReducer = persistedReducer(persistConfig, authReducer);
+export const persistor = persistStore(store);

@@ -5,13 +5,12 @@ import {
   XAxis,
   CartesianGrid,
   YAxis,
-  ResponsiveContainer
+  ResponsiveContainer,
 } from 'recharts';
 
 // import s from './Chart.styled.css';
 
 export default class Chart extends Component {
-
   constructor(props) {
     super(props);
 
@@ -21,38 +20,46 @@ export default class Chart extends Component {
         {
           name: null,
           price: null,
-          currency: null
+          currency: null,
         },
         ...props.data,
         {
           name: null,
           price: null,
-          currency: null
-        }
-      ]
+          currency: null,
+        },
+      ],
     };
   }
 
-  RenderCustomizedLabel = (props) => {
+  RenderCustomizedLabel = props => {
     const { x, y, width, index, data, isMobile } = props;
     const element = data[index];
 
     if (!element.name && !element.price && !element.currency) {
-      return "";
+      return '';
     }
 
     if (isMobile) {
       let text = `${element.price} ${element.currency}`;
       return (
         <g>
-          <text x={x + (element.name.length * 3.5)} y={y - 10} fill="#000" textAnchor="middle" dominantBaseline="middle">
-            {element.name}
-          </text>
-          <text x={width - (text.length * 3)}
+          <text
+            x={x + element.name.length * 3.5}
             y={y - 10}
             fill="#000"
             textAnchor="middle"
-            dominantBaseline="middle">
+            dominantBaseline="middle"
+          >
+            {element.name}
+          </text>
+          <text
+            x={width - text.length * 3}
+            y={y - 10}
+            fill="#000"
+            textAnchor="middle"
+            dominantBaseline="middle"
+          >
             {text}
           </text>
         </g>
@@ -60,7 +67,13 @@ export default class Chart extends Component {
     }
 
     return (
-      <text x={x + width / 2} y={y - 10} fill="#000" textAnchor="middle" dominantBaseline="middle">
+      <text
+        x={x + width / 2}
+        y={y - 10}
+        fill="#000"
+        textAnchor="middle"
+        dominantBaseline="middle"
+      >
         {element.price} {element.currency}
       </text>
     );
@@ -72,12 +85,12 @@ export default class Chart extends Component {
       v = -v;
     }
 
-    if (width === 0 && height === 0 || v === tlr) {
-      return "";
-    };
+    if ((width === 0 && height === 0) || v === tlr) {
+      return '';
+    }
 
     if (!width || !height) {
-      return "";
+      return '';
     }
 
     let h = `${width - (blr + brr)}`;
@@ -97,13 +110,25 @@ export default class Chart extends Component {
       z`;
   };
 
-  TriangleBar = (props) => {
+  TriangleBar = props => {
     const { fill, x, y, width, height, isMobile } = props;
 
     if (isMobile) {
-      return <path d={this.RoundedRectData(x, y, width, height, 0, 10, 10, 0)} stroke="none" fill={fill} />;
+      return (
+        <path
+          d={this.RoundedRectData(x, y, width, height, 0, 10, 10, 0)}
+          stroke="none"
+          fill={fill}
+        />
+      );
     }
-    return <path d={this.RoundedRectData(x, y, width, height, 10, 10, 0, 0)} stroke="none" fill={fill} />;
+    return (
+      <path
+        d={this.RoundedRectData(x, y, width, height, 10, 10, 0, 0)}
+        stroke="none"
+        fill={fill}
+      />
+    );
   };
 
   isMobile(width) {
@@ -136,9 +161,13 @@ export default class Chart extends Component {
             dataKey="price"
             fill="rgb(255 176 88)"
             shape={<this.TriangleBar isMobile={this.state.isMobile} />}
-            label={<this.RenderCustomizedLabel isMobile={this.state.isMobile} data={this.state.data} />}
-          >
-          </Bar>
+            label={
+              <this.RenderCustomizedLabel
+                isMobile={this.state.isMobile}
+                data={this.state.data}
+              />
+            }
+          ></Bar>
         </>
       );
     } else {
@@ -150,8 +179,8 @@ export default class Chart extends Component {
             dataKey="price"
             fill="rgb(255 176 88)"
             shape={<this.TriangleBar isMobile={this.state.isMobile} />}
-            label={<this.RenderCustomizedLabel data={this.state.data} />}>
-          </Bar>
+            label={<this.RenderCustomizedLabel data={this.state.data} />}
+          ></Bar>
         </>
       );
     }
@@ -173,7 +202,6 @@ export default class Chart extends Component {
           </BarChart>
         </ResponsiveContainer>
       </div>
-
     );
   }
 }

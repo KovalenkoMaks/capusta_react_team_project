@@ -1,10 +1,10 @@
-import { ReportPage } from "components/ReportPage/ReportPage";
+import { ReportPage } from 'components/ReportPage/ReportPage';
 
 const Report = () => {
-    return (
-        <>
-            <ReportPage />
-        </>
-    )
-}
+  return (
+    <>
+      <ReportPage />
+    </>
+  );
+};
 export default Report;

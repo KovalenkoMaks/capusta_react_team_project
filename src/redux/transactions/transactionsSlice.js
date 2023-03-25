@@ -4,6 +4,7 @@ import {
   addAnExpense,
   addAnIncome,
   expenseCategories,
+  getDataTransaction,
   getMonthStatsExpenses,
   getMonthStatsIncomes,
   incomesCategories,
@@ -16,6 +17,10 @@ export const transactionsSlice = createSlice({
     transactions: { expenses: [], incomes: [] },
     monthsStats: { expenses: {}, incomes: {} },
     categories: { expenses: [], incomes: [] },
+    dataTransaction: {
+      expenses: { expenseTotal: '', expenseData: {} },
+      incomes: [],
+    },
   },
   reducers: {},
   extraReducers: builder =>
@@ -70,7 +75,23 @@ export const transactionsSlice = createSlice({
       .addCase(addAnIncome.fulfilled, (state, action) => {
         // state.categories = action.payload;
       })
-      .addCase(addAnIncome.rejected, (state, action) => {}),
+      .addCase(addAnIncome.rejected, (state, action) => {})
+
+      //getDataTransaction
+      //     dataTransaction: {
+      //   expenses: { expenseTotal: '', expenseData: {} },
+      //   incomes: [],
+      // },
+      .addCase(getDataTransaction.pending, (state, action) => {})
+      .addCase(getDataTransaction.fulfilled, (state, action) => {
+        // console.log(action.payload);
+        state.dataTransaction.incomes = action.payload.incomes;
+        state.dataTransaction.expenses.expenseTotal =
+          action.payload.expenses.expenseTotal;
+        state.dataTransaction.expenses.expenseData =
+          action.payload.expenses.expensesData;
+      })
+      .addCase(getDataTransaction.rejected, (state, action) => {}),
 });
 // newBalance: 4877;
 // transaction:

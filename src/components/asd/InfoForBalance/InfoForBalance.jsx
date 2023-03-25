@@ -1,13 +1,9 @@
-import { useSelector } from 'react-redux';
+import { useTransactions } from 'hooks/useTransactions';
 import Style from './InfiForBalance.module.css';
-import {
-  incomeSelector,
-  expensesSelector,
-} from 'redux/reports/reports-selector';
 
 export const InfoForBalance = () => {
-  const income = useSelector(incomeSelector);
-  const expenses = useSelector(expensesSelector);
+  const { income } = useTransactions();
+  const { expenses } = useTransactions();
 
   return (
     <table className={Style.tablet_cont}>
