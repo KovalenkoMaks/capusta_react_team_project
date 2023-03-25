@@ -52,6 +52,7 @@ export const InputForm = () => {
     let date = new Date(value.date.toString());
     date = format(date, 'yyyy-MM-dd');
     query.date = date;
+    query.amount = Number(query.amount);
     resetForm();
     if (location.pathname === '/home/expenses') {
       dispatch(addAnExpense(query))
