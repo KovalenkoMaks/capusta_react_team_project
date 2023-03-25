@@ -97,7 +97,7 @@ export const NavStatis = () => {
   return (
     <>
       <div className={Style.topСontainer}>
-        <Link className={Style.button_goHome} to="/main">
+        <Link className={Style.button_goHome} to="/">
           <div className={Style.button_goHomeArrow}>
             <Icons
               name="long-arrow-left"

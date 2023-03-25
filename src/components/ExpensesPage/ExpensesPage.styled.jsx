@@ -228,7 +228,7 @@ export const TableContainer = styled.div`
   }
 
   tbody::-webkit-scrollbar-thumb {
-    background-color: rgb(255, 117, 29);
+    background-color: #ff751d;
     border-radius: 10px;
     border: 0px solid #ffffff;
     height: 130px;
@@ -251,11 +251,11 @@ export const TabletDesctopWrapper = styled.div`
 `;
 
 export const NavMobileCont = styled.div`
-@media (min-width: 768px) {
-  overflow: hidden;
-  opacity: 0;
-  pointer-events: none;
-}
+  @media (min-width: 768px) {
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+  }
 `;
 export const TableWrapper = styled.div`
   display: block;
