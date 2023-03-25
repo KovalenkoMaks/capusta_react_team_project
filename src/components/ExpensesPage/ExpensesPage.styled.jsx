@@ -224,11 +224,11 @@ export const TableContainer = styled.div`
   }
 
   tbody::-webkit-scrollbar-track {
-    background-color: #f5f6fb;
+    background-color: #FF751D;
   }
 
   tbody::-webkit-scrollbar-thumb {
-    background-color: #f57828;
+    background-color: rgb(255, 117, 29);
     border-radius: 10px;
     border: 0px solid #ffffff;
     height: 130px;
