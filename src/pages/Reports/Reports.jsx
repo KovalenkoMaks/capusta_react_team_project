@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 const Reports = () => {
   return (
     <>
-      <div>I am Reports page</div>
+      <div>Iam Reports page</div>
+
       <Link
         to="/"
         style={{

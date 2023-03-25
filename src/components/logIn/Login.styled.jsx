@@ -1,8 +1,8 @@
-const { default: styled } = require('@emotion/styled');
+// const { default: styled } = require('@emotion/styled');
+import styled from '@emotion/styled';
 
 export const DivEl = styled.div`
-
-@media screen and (min-width: 320px) {
+  @media screen and (min-width: 320px) {
     position: absolute;
     z-index: 3;
     top: 255px;
@@ -30,7 +30,6 @@ export const DivEl = styled.div`
     left: 22%;
     height: 552px;
     padding: 56px 84px;
-
   }
 
   @media screen and (min-width: 1280px) {
@@ -70,7 +69,7 @@ export const DivEl = styled.div`
     justify-content: center;
     margin-top: 20px;
     @media screen and (min-width: 768px) {
-      Button{
+      Button {
         width: 122px;
       }
       gap: 14px;
