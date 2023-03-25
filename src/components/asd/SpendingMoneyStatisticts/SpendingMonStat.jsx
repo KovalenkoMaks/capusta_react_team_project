@@ -1,10 +1,8 @@
 import Style from './SpendingMonStat.module.css';
 import { Icons } from '../Icons/Icons';
-// import { useSelector } from 'react-redux';
 import { ReportsItemsCard } from '../ReportsItemsCard/ReportsItemsCard';
-// import { getSuccessToken } from 'redux/auth/auth-selectors';
 
-//-------------------------------------------------------------------------------//
+
 export const SpendingMoneyStatisticts = ({
   handelClickOnCategory,
   handelArrow,
@@ -13,7 +11,6 @@ export const SpendingMoneyStatisticts = ({
   exCate,
   inCate,
 }) => {
-  // console.log(inCate[1][1]);
   return (
     <>
       <div className={Style.spend_stat}>
@@ -55,7 +52,6 @@ export const SpendingMoneyStatisticts = ({
               <tbody className={Style.list_spend}>
                 {!!exCate.length ? (
                   exCate.map((item, i) => {
-                    // console.log(i, item);
                     return (
                       <ReportsItemsCard
                         id={i}
@@ -84,14 +80,14 @@ export const SpendingMoneyStatisticts = ({
             <table>
               <tbody className={Style.list_spend}>
                 {!!inCate.length ? (
-                  inCate[1].map((item, i) => {
+                  inCate.map((item, i) => {
                     return (
                       <ReportsItemsCard
                         id={i}
                         key={i}
-                        total={item[1]}
-                        category={item[0]}
                         currentItem={currentId}
+                        total={item[1].total}
+                        category={item[0]}
                         item={item}
                         handelClickOnCategory={handelClickOnCategory}
                       />

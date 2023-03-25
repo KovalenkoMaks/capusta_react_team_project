@@ -4,12 +4,11 @@ import React from 'react';
 import { getDataTransaction } from 'redux/transactions/operations';
 import { useDispatch } from 'react-redux';
 import { Icons } from '../../asd/Icons/Icons';
-// import { RepNewLastBalance } from '../Balance/RepNewLastBalance';
-// import { ReportsBalance } from '../Balance/ReportsBalance';
 import { useState } from 'react';
 import { monthMas } from '../Month/Month';
 import { useEffect } from 'react';
-import { Balance } from '../Balance/Balance';
+import { Balance } from 'components/ExpensesPage/Balance/Balance';
+
 
 export const NavStatis = () => {
   const [dateNow, setDateNow] = useState(null);
@@ -97,7 +96,7 @@ export const NavStatis = () => {
   return (
     <>
       <div className={Style.topСontainer}>
-        <Link className={Style.button_goHome} to="/main">
+        <Link className={Style.button_goHome} to="/home">
           <div className={Style.button_goHomeArrow}>
             <Icons
               name="long-arrow-left"

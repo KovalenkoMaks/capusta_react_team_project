@@ -4,3 +4,5 @@ export const selectIsRefreshing = state => state.auth.isRefreshing;
 export const selectAccessToken = state => state.auth.isRefreshing;
 export const selectSid = state => state.auth.sid;
 export const selectBalance = state => state.auth.user.balance;
+export const getStartBalance = state => state.auth.user.balance;
+export const getIsFisrtSignIn = state => state.auth.isFisrtSignIn;

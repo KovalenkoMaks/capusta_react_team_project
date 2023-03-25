@@ -81,8 +81,7 @@ export const ExpensCont = styled.div`
 `;
 
 export const Navigations = styled.div`
-  position: absolute;
-  bottom: 0;
+
 `;
 
 export const Link = styled(NavLink)`
