@@ -26,6 +26,8 @@ export const DivEl = styled.div`
     letter-spacing: 0.04em;
     padding: 40px 20px;
     p {
+      margin-right: auto;
+      margin-left: auto;
       width: 238px;
     }
   }
@@ -36,6 +38,7 @@ export const DivEl = styled.div`
     left: 22%;
     height: 552px;
     padding: 56px 84px;
+
   }
 
   @media screen and (min-width: 1280px) {
@@ -59,6 +62,9 @@ export const DivEl = styled.div`
     }
   }
   p {
+    text-align: start;
+    margin-right: 0px;
+    margin-left: 0px;
     margin-bottom: 16px;
   }
   a {
@@ -70,6 +76,7 @@ export const DivEl = styled.div`
     display: flex;
     gap: 8px;
     justify-content: center;
+    margin-top: 20px;
     a {
       margin-bottom: 0;
       width: 116px;

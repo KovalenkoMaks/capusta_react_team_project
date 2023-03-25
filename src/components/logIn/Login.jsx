@@ -2,8 +2,8 @@ import { Formik, Field, Form } from 'formik';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { logIn } from 'redux/auth/operations';
-import { ReactComponent as GoogleIcon } from 'images/google.svg';
-import { DivEl } from './Login.styled';
+import { DivEl } from './LogIn.styled';
+import GoogleLogin from 'components/GoogleLogin/GoogleLogin';
 
 const LogIn = () => {
   const dispath = useDispatch();
@@ -14,15 +14,11 @@ const LogIn = () => {
   const handleSubmit = async (values, { resetForm }) => {
     dispath(logIn(values));
   };
+
   return (
     <DivEl>
       <p>You can log in with your Google Account:</p>
-      <a href="https://www.google.com/">
-        <span>
-          <GoogleIcon />
-        </span>
-        Google
-      </a>
+      <GoogleLogin/>
       <p>Or log in using an email and password, after registering:</p>
       <Formik initialValues={initialValues} onSubmit={handleSubmit}>
         <Form>
