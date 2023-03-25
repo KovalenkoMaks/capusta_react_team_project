@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { googleLogout, useGoogleLogin } from '@react-oauth/google';
+import { useGoogleLogin } from '@react-oauth/google';
 import { ReactComponent as GoogleIcon } from 'images/google.svg';
 import {SignButton} from './GoogleLogin.styled';
 import axios from 'axios';
-
+// import { googleLogout, useGoogleLogin } from '@react-oauth/google';
 
 function GoogleLogin() {
     const [ user, setUser ] = useState([]);
@@ -34,10 +34,10 @@ function GoogleLogin() {
     );
 
     // log out function to log the user out of google and set the profile array to null
-    const logOut = () => {
-        googleLogout();
-        setProfile(null);
-    };
+    // const logOut = () => {
+    //     googleLogout();
+    //     setProfile(null);
+    // };
      console.log(profile);
     return (
         <div>
