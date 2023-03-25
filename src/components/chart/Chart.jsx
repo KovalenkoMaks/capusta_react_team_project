@@ -13,7 +13,6 @@ import {
 export default class Chart extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       isMobile: this.isMobile(window.innerWidth),
       data: [
@@ -22,7 +21,7 @@ export default class Chart extends Component {
           price: null,
           currency: null,
         },
-        ...props.data,
+        ...this.mapData(props.data),
         {
           name: null,
           price: null,
@@ -39,43 +38,43 @@ export default class Chart extends Component {
     if (!element.name && !element.price && !element.currency) {
       return '';
     }
+    let text = `${element.price} ${element.currency}`;
 
-    if (isMobile) {
-      let text = `${element.price} ${element.currency}`;
+    if (!isMobile) {
       return (
-        <g>
-          <text
-            x={x + element.name.length * 3.5}
-            y={y - 10}
-            fill="#000"
-            textAnchor="middle"
-            dominantBaseline="middle"
-          >
-            {element.name}
-          </text>
-          <text
-            x={width - text.length * 3}
-            y={y - 10}
-            fill="#000"
-            textAnchor="middle"
-            dominantBaseline="middle"
-          >
-            {text}
-          </text>
-        </g>
+        <text
+          x={x + width / 2}
+          y={y - 10}
+          fill="#000"
+          textAnchor="middle"
+          dominantBaseline="middle"
+        >
+          {text}
+        </text>
       );
     }
 
     return (
-      <text
-        x={x + width / 2}
-        y={y - 10}
-        fill="#000"
-        textAnchor="middle"
-        dominantBaseline="middle"
-      >
-        {element.price} {element.currency}
-      </text>
+      <g>
+        <text
+          x={x + element.name.length * 3.5}
+          y={y - 10}
+          fill="#000"
+          textAnchor="middle"
+          dominantBaseline="middle"
+        >
+          {element.name}
+        </text>
+        <text
+          x={width - text.length * 3}
+          y={y - 10}
+          fill="#000"
+          textAnchor="middle"
+          dominantBaseline="middle"
+        >
+          {text}
+        </text>
+      </g>
     );
   };
 
@@ -85,11 +84,7 @@ export default class Chart extends Component {
       v = -v;
     }
 
-    if ((width === 0 && height === 0) || v === tlr) {
-      return '';
-    }
-
-    if (!width || !height) {
+    if (!width || !height || (width === 0 && height === 0) || v === tlr) {
       return '';
     }
 
@@ -113,18 +108,14 @@ export default class Chart extends Component {
   TriangleBar = props => {
     const { fill, x, y, width, height, isMobile } = props;
 
+    let dValue = this.RoundedRectData(x, y, width, height, 10, 10, 0, 0);
     if (isMobile) {
-      return (
-        <path
-          d={this.RoundedRectData(x, y, width, height, 0, 10, 10, 0)}
-          stroke="none"
-          fill={fill}
-        />
-      );
+      dValue = this.RoundedRectData(x, y, width, height, 0, 10, 10, 0);
     }
+
     return (
       <path
-        d={this.RoundedRectData(x, y, width, height, 10, 10, 0, 0)}
+        d={dValue}
         stroke="none"
         fill={fill}
       />
@@ -139,6 +130,41 @@ export default class Chart extends Component {
     this.setState({ isMobile: this.isMobile(window.innerWidth) });
   };
 
+  mapData = (arg) => {
+    let result = [];
+    if (!arg || !arg?.length) {
+      return result;
+    }
+
+    Object.entries(arg[1]).filter(it => it[0] !== 'total').forEach(elem => {
+      result.push({
+        name: elem[0],
+        price: elem[1],
+        currency: 'UAH',
+      });
+    });
+    return result;
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      isMobile: this.isMobile(window.innerWidth),
+      data: [
+        {
+          name: null,
+          price: null,
+          currency: null,
+        },
+        ...this.mapData(nextProps.data),
+        {
+          name: null,
+          price: null,
+          currency: null,
+        },
+      ],
+    });
+  }
+
   componentDidMount() {
     window.addEventListener('resize', this.updateDimensions);
   }
@@ -148,39 +174,22 @@ export default class Chart extends Component {
   }
 
   render() {
-    let chartBody;
+    let chartAxis;
+    const barSize = this.state.isMobile ? 30 : 40;
 
     if (this.state.isMobile) {
-      chartBody = (
+      chartAxis = (
         <>
           <CartesianGrid strokeDasharray="1" horizontal={false} />
           <XAxis type="number" hide={true} />
           <YAxis type="category" dataKey="name" hide={true} />
-          <Bar
-            barSize={30}
-            dataKey="price"
-            fill="rgb(255 176 88)"
-            shape={<this.TriangleBar isMobile={this.state.isMobile} />}
-            label={
-              <this.RenderCustomizedLabel
-                isMobile={this.state.isMobile}
-                data={this.state.data}
-              />
-            }
-          ></Bar>
         </>
       );
     } else {
-      chartBody = (
+      chartAxis = (
         <>
           <CartesianGrid strokeDasharray="1" vertical={false} />
           <XAxis dataKey="name" />
-          <Bar
-            dataKey="price"
-            fill="rgb(255 176 88)"
-            shape={<this.TriangleBar isMobile={this.state.isMobile} />}
-            label={<this.RenderCustomizedLabel data={this.state.data} />}
-          ></Bar>
         </>
       );
     }
@@ -198,7 +207,15 @@ export default class Chart extends Component {
             }}
             layout={this.state.isMobile ? 'vertical' : 'horizontal'}
           >
-            {chartBody}
+            {chartAxis}
+            <Bar
+              barSize={barSize}
+              dataKey="price"
+              fill="rgb(255 176 88)"
+              shape={<this.TriangleBar isMobile={this.state.isMobile} />}
+              label={<this.RenderCustomizedLabel data={this.state.data} isMobile={this.state.isMobile} />}
+            >
+            </Bar>
           </BarChart>
         </ResponsiveContainer>
       </div>

@@ -1,5 +1,4 @@
 import { Balance } from 'components/ExpensesPage/Balance/Balance';
-import { ExpensCont } from 'components/ExpensesPage/ExpensesPage.styled';
 import { NavigationLinks } from 'components/ExpensesPage/NavigationLinks/NavigationLinks';
 import { Outlet } from 'react-router';
 import { Suspense } from 'react';
@@ -11,8 +10,8 @@ import { NavMobile } from 'components/Mobile/NavMobile';
 
 const SharedLayout = () => {
   return (
-    <ExpensCont>
-      <NavMobile/>
+    <div>
+      <NavMobile />
       <Balance />
       <NavigationLinks />
       <FormWrapper>
@@ -24,7 +23,7 @@ const SharedLayout = () => {
           <Outlet />
         </Suspense>
       </FormWrapper>
-    </ExpensCont>
+    </div>
   );
 };
 
