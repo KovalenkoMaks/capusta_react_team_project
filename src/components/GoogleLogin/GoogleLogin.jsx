@@ -4,6 +4,7 @@ import { ReactComponent as GoogleIcon } from 'images/google.svg';
 import {SignButton} from './GoogleLogin.styled';
 import axios from 'axios';
 
+
 function GoogleLogin() {
     const [ user, setUser ] = useState([]);
     const [ profile, setProfile ] = useState([]);

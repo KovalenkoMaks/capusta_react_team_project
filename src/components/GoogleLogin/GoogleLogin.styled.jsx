@@ -15,7 +15,10 @@ export const SignButton = styled.header`
   color: #000000;
   background: #F6F7FB;
   border-radius: 26px;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  filter: drop-shadow(1px 2px 3px rgba(170, 178, 197, 0.2));
   cursor: pointer;
+
   &:hover {
    transform: scale(0.9);}
 `;
