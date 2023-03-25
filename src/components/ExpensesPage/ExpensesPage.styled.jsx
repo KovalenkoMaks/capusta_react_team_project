@@ -257,3 +257,10 @@ export const NavMobileCont = styled.div`
   pointer-events: none;
 }
 `;
+export const TableWrapper = styled.div`
+  display: block;
+  @media screen and (min-width: 1280px) {
+    display: flex;
+  }
+`;
+
