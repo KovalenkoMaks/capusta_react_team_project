@@ -7,31 +7,20 @@ import { newBalance } from 'redux/transactions/operations';
 import { ReactComponent as Reports } from '../../../images/bar_chart.svg';
 import { BalanceContainer } from '../ExpensesPage.styled';
 import { Link } from 'react-router-dom';
-import BalanceModal from './BalanceModal';
-import { useState } from 'react';
 
 export const Balance = () => {
   const { transactions } = useTransactions();
   const { balance, isRefreshing } = useAuth();
   const [promptClose, setPromptClose] = useState(true);
   let disabled = !(transactions.incomes.length === 0 && balance === 0);
-  // console.log(balance === 0);
   const dispatch = useDispatch();
-  // console.log(!disabled);
+
   const onSubmit = (value, { resetForm }) => {
     // console.log(value);
     dispatch(newBalance(value));
     resetForm();
-    if (disabled) {
-      setPromptClose(prev => !prev);
-    }
   };
-
   const showReport = !window.location.href.endsWith('reports');
-
-  const toggleWindow = () => {
-    setPromptClose(prev => !prev);
-  };
 
   return (
     <BalanceContainer>
@@ -63,10 +52,12 @@ export const Balance = () => {
                   />
                 )}
               </Field>
+
               {!isRefreshing && promptClose && !disabled && (
                 <BalanceModal onClose={toggleWindow} />
               )}
               {!disabled ? (
+
                 <Button type="text" htmlType="submit" className="button">
                   Confirm
                 </Button>
