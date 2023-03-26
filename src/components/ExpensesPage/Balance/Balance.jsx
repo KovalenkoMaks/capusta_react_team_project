@@ -7,10 +7,16 @@ import { newBalance } from 'redux/transactions/operations';
 import { ReactComponent as Reports } from '../../../images/bar_chart.svg';
 import { BalanceContainer } from '../ExpensesPage.styled';
 import { Link } from 'react-router-dom';
+import { Notification } from 'components/Notification/Notification';
+import { useState } from 'react';
 
 export const Balance = () => {
   const { transactions } = useTransactions();
   const { balance } = useAuth();
+  const [setPromptClose, setClosePrompt] = useState(true);
+  const toggleWindow = () => {
+    setClosePrompt(setClosePrompt => !setClosePrompt);
+  };
 
   let disabled = transactions.incomes.length === 0 && balance === 0;
 
@@ -25,9 +31,13 @@ export const Balance = () => {
       <div>
         <Typography level={5} className="title">
           Balance:
+          
         </Typography>
+        
         <Formik initialValues={{ newBalance: '' }} onSubmit={onSubmit}>
           {({ values, handleChange, handleBlur, handleSubmit }) => (
+            <>
+            {setPromptClose && <Notification onClose={toggleWindow} />}
             <Form onSubmit={handleSubmit}>
               <Field name="newBalance">
                 {({ field }) => (
@@ -48,8 +58,10 @@ export const Balance = () => {
                 </Button>
               ) : null}
             </Form>
+            </>
           )}
         </Formik>
+        
       </div>
 
       <Button type="text" className="reports">
