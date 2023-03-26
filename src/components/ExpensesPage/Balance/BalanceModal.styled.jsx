@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Modal = styled.div`
   position: absolute;
-  top: 63px;
+  top: 235px;
   z-index: 15;
   max-width: 280px;
   box-sizing: border-box;
@@ -15,6 +15,11 @@ export const Modal = styled.div`
   display: flex;
   flex-direction: column;
   cursor: pointer;
+
+  @media screen and (min-width: 768px) {
+    top: 63px;
+  }
+
   &:before {
     content: '';
     position: absolute;
