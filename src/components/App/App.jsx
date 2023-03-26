@@ -7,13 +7,13 @@ import { lazy, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { Navigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { getAllUserData, refresh } from 'redux/auth/operations';
+import { refresh } from 'redux/auth/operations';
 import SharedLayout from 'pages/SharedLayout/SharedLayout';
 import { NotFound } from 'components/NotFound/NotFound';
-import {
-  getMonthStatsExpenses,
-  getMonthStatsIncomes,
-} from 'redux/transactions/operations';
+// import {
+//   getMonthStatsExpenses,
+//   getMonthStatsIncomes,
+// } from 'redux/transactions/operations';
 // import Report from 'pages/Report/Report';
 
 const Registration = lazy(() =>
