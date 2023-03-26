@@ -15,10 +15,6 @@ import { ToastContainer } from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.css';
 
-const Registration = lazy(() =>
-  import('components/registrations/Registrations')
-);
-
 // це треба буде переробити і теж зробити Suspense i Outlet
 // бо тут теж є частинки, які не треба перерендерювати (я про Expenses i Income)
 const Expenses = lazy(() => import('pages/Expenses/Expenses'));

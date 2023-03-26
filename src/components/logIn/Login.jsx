@@ -18,6 +18,7 @@ const LogIn = () => {
     password: '',
   };
   const handleSubmit = async (event, formik) => {
+    event.preventDefault();
     const btn = event.nativeEvent.submitter.id;
     console.log(formik.values);
 

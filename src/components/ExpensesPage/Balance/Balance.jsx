@@ -14,9 +14,10 @@ export const Balance = () => {
   const { transactions } = useTransactions();
   const { balance, isRefreshing } = useAuth();
   const [promptClose, setPromptClose] = useState(true);
-  let disabled = transactions.incomes.length === 0 && balance === 0;
+  let disabled = !(transactions.incomes.length === 0 && balance === 0);
+  // console.log(balance === 0);
   const dispatch = useDispatch();
-
+  // console.log(!disabled);
   const onSubmit = (value, { resetForm }) => {
     // console.log(value);
     dispatch(newBalance(value));
@@ -58,13 +59,14 @@ export const Balance = () => {
                     onBlur={handleBlur}
                     className="input"
                     // disabled={!disabled}
-                    readOnly={!disabled}
+                    readOnly={disabled}
                   />
                 )}
               </Field>
-                  {!isRefreshing && promptClose && balance === 0 && !disabled && (<BalanceModal onClose={toggleWindow}/>)}
-
-              {disabled ? (
+              {!isRefreshing && promptClose && !disabled && (
+                <BalanceModal onClose={toggleWindow} />
+              )}
+              {!disabled ? (
                 <Button type="text" htmlType="submit" className="button">
                   Confirm
                 </Button>
