@@ -40,14 +40,15 @@ export const SummaryTable = styled.table`
   border-collapse: collapse;
   width: 100%;
   overflow-y: scroll;
-  &::-webkit-scrollbar {
+  /* &::-webkit-scrollbar {
     width: 10px;
+    background: #FF751D;
   }
 
   &::-webkit-scrollbar-track {
     background: #FF751D;
   }
-  /* &::-webkit-scrollbar {
+  &::-webkit-scrollbar-thumb {
   width: 10px;
   background-color: #FF751D;
 } */
