@@ -37,7 +37,8 @@ export const Balance = () => {
                     // value={values.name}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    disabled={!disabled}
+                    // disabled={!disabled}
+                    readOnly={!disabled}
                   />
                 )}
               </Field>

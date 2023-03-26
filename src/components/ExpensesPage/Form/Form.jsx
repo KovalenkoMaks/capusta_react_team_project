@@ -54,7 +54,6 @@ export const InputForm = () => {
     query.date = date;
     query.amount = Number(query.amount);
     query.amount = Number(query.amount.toFixed(0));
-    console.log(query.amount);
     resetForm();
     if (location.pathname === '/home/expenses') {
       dispatch(addAnExpense(query))
