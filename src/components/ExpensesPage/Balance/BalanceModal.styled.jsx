@@ -14,6 +14,7 @@ export const Modal = styled.div`
   border-radius: 30px;
   display: flex;
   flex-direction: column;
+  align-items: center;
   cursor: pointer;
 
   @media screen and (min-width: 768px) {
@@ -39,6 +40,7 @@ export const Title = styled.h2`
   line-height: 1.43;
   margin-bottom: 20px;
   color: #ffffff;
+  text-align: center;
 `;
 
 export const Text = styled.p`
@@ -51,8 +53,8 @@ export const Text = styled.p`
 export const ClickOnMe = styled.p`
   color: #ffffff;
   font-weight: 400;
-  font-size: 8px;
+  font-size: 10px;
   line-height: 1.33;
   position: absolute;
-  bottom: 5px;
+  bottom: 3px;
 `;

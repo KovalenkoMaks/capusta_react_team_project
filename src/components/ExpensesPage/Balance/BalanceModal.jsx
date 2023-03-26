@@ -13,7 +13,7 @@ const BalanceModal = ({ onClose }) => {
         Hello! To get started, enter the current balance of your account!
       </Title>
       <Text>You can't spend money until you have it :) </Text>
-      <ClickOnMe>Click on me to close</ClickOnMe>
+      <ClickOnMe>click on me to close</ClickOnMe>
     </Modal>
   );
 };
