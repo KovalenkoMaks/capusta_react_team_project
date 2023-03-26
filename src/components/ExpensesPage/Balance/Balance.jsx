@@ -62,7 +62,7 @@ export const Balance = () => {
                   />
                 )}
               </Field>
-                  {!isRefreshing && promptClose && balance === 0 && (<BalanceModal onClose={toggleWindow}/>)}
+                  {!isRefreshing && promptClose && balance === 0 && !disabled && (<BalanceModal onClose={toggleWindow}/>)}
 
               {disabled ? (
                 <Button type="text" htmlType="submit" className="button">
