@@ -34,16 +34,16 @@ export const InputForm = () => {
   let items = [];
   location.pathname === '/home/expenses'
     ? (items = categories.expenses.map(e => {
-        return { value: e, label: e };
-      }))
+      return { value: e, label: e };
+    }))
     : (items = categories.incomes.map(e => {
-        return { value: e, label: e };
-      }));
+      return { value: e, label: e };
+    }));
 
   const initialValues = {
     description: '',
     amount: '',
-    date: '',
+    date: dayjs(),
     category: '',
   };
 
