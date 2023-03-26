@@ -41,10 +41,10 @@ export default function UserMenu() {
   };
   return (
     <>
-      <UserAvatarContainer>{user.email[0]}</UserAvatarContainer>
+      <UserAvatarContainer>{user.email[0].toUpperCase()}</UserAvatarContainer>
 
       <UserNameContainer>
-        <UserName>{user.email}</UserName>
+        <UserName>{user.email.split('@')[0].charAt(0).toUpperCase() + user.email.split('@')[0].slice(1)}</UserName>
       </UserNameContainer>
 
       <LogOutTextBtn type="button" onClick={handleClick}>
