@@ -10,11 +10,11 @@ import { Link } from 'react-router-dom';
 
 export const Balance = () => {
   const { transactions } = useTransactions();
-  const { balance } = useAuth();
-
-  let disabled = transactions.incomes.length === 0 && balance === 0;
-
+  const { balance, isRefreshing } = useAuth();
+  const [promptClose, setPromptClose] = useState(true);
+  let disabled = !(transactions.incomes.length === 0 && balance === 0);
   const dispatch = useDispatch();
+
   const onSubmit = (value, { resetForm }) => {
     // console.log(value);
     dispatch(newBalance(value));
@@ -48,11 +48,16 @@ export const Balance = () => {
                     onBlur={handleBlur}
                     className="input"
                     // disabled={!disabled}
-                    readOnly={!disabled}
+                    readOnly={disabled}
                   />
                 )}
               </Field>
-              {disabled ? (
+
+              {!isRefreshing && promptClose && !disabled && (
+                <BalanceModal onClose={toggleWindow} />
+              )}
+              {!disabled ? (
+
                 <Button type="text" htmlType="submit" className="button">
                   Confirm
                 </Button>

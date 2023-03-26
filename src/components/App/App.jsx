@@ -15,10 +15,6 @@ import { ToastContainer } from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.css';
 
-const Registration = lazy(() =>
-  import('components/registrations/Registrations')
-);
-
 // це треба буде переробити і теж зробити Suspense i Outlet
 // бо тут теж є частинки, які не треба перерендерювати (я про Expenses i Income)
 const Expenses = lazy(() => import('pages/Expenses/Expenses'));
@@ -41,7 +37,7 @@ export const App = () => {
 
           <Route path="/home" element={<SharedLayout />}>
             <Route path="" element={<Navigate to="/home/expenses" />} />
-              <Route
+            <Route
               path="expenses"
               element={
                 <PrivateRoute component={Expenses} redirectTo={'/login'} />
@@ -59,20 +55,13 @@ export const App = () => {
             element={<PrivateRoute component={Reports} redirectTo={'/login'} />}
           />
           {isSmallScreen && (
-          <Route
-            path="transaction"
-            element={<PrivateRoute component={Mobile} redirectTo={'/login'} />}
-          />
-        )}
-        <Route
-            path="/registration"
-            element={
-              <RestrictedRoute
-                component={Registration}
-                redirectTo={'/home/expenses'}
-              />
-            }
-          />
+            <Route
+              path="transaction"
+              element={
+                <PrivateRoute component={Mobile} redirectTo={'/login'} />
+              }
+            />
+          )}
           <Route path="*" element={<NotFound />} />
         </Route>
         <Route
