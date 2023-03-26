@@ -29,15 +29,15 @@ export const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(refresh())
-      .unwrap()
-      .then(() => {
-        dispatch(getAllUserData());
-        dispatch(getMonthStatsExpenses());
-        dispatch(getMonthStatsIncomes());
-        // dispatch(getDataTransaction());
-      })
-      .catch(console.log);
+    dispatch(refresh());
+    // .unwrap()
+    // .then(() => {
+    //   dispatch(getAllUserData());
+    //   dispatch(getMonthStatsExpenses());
+    //   dispatch(getMonthStatsIncomes());
+    //   // dispatch(getDataTransaction());
+    // })
+    // .catch(console.log);
   }, [dispatch]);
 
   return (
