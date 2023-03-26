@@ -33,7 +33,6 @@ export const TablePage = () => {
       });
   };
   const { transactions } = useTransactions();
-  console.log(transactions.expenses);
   const reversedArr = [...transactions.expenses].reverse();
   // data.reverse();
   // console.log(reversedArr);

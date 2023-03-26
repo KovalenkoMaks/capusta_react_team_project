@@ -11,7 +11,8 @@ import { Link } from 'react-router-dom';
 export const Balance = () => {
   const { transactions } = useTransactions();
   const { balance } = useAuth();
-  let disabled = transactions.length === 0 && balance === 0;
+
+  let disabled = transactions.incomes.length === 0 && balance === 0;
 
   const dispatch = useDispatch();
   const onSubmit = (value, { resetForm }) => {
@@ -51,7 +52,9 @@ export const Balance = () => {
       </div>
 
       <Button type="text" className="reports">
-        <Link to='/reports'>Reports <Reports /></Link>
+        <Link to="/reports">
+          Reports <Reports />
+        </Link>
       </Button>
     </BalanceContainer>
   );
