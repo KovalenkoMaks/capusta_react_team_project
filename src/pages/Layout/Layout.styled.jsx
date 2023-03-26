@@ -23,7 +23,8 @@ export const MainContainer = styled.div`
   max-width: 1280px;
   min-width: 320px;
   background-image: url(${img});
-
+  height: 100%;
+  
   @media screen and (min-width: 320px) {
     // background-image: url(${mobile});
   }
