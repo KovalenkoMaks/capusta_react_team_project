@@ -16,6 +16,7 @@ export const authSlice = createSlice({
     accessToken: '',
     sid: '',
     refreshToken: '',
+    registration: 'false',
   },
   reducers: {},
   extraReducers: builder =>
@@ -26,7 +27,8 @@ export const authSlice = createSlice({
         return state;
       })
       .addCase(register.fulfilled, (state, action) => {
-        return state;
+        state.registration = true;
+        // return state;
       })
       .addCase(register.rejected, (state, action) => {
         return state;
@@ -42,6 +44,7 @@ export const authSlice = createSlice({
         state.accessToken = action.payload.accessToken;
         state.refreshToken = action.payload.refreshToken;
         state.sid = action.payload.sid;
+        state.registration = false;
       })
       .addCase(logIn.rejected, (state, action) => {})
 

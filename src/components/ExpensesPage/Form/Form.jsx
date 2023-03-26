@@ -17,6 +17,7 @@ import {
 } from 'redux/transactions/operations';
 import { useLocation } from 'react-router-dom';
 import { FieldEl } from './Form.styled';
+// import * as Yup from 'yup';
 
 dayjs.extend(customParseFormat);
 
@@ -68,6 +69,11 @@ export const InputForm = () => {
         });
     }
   };
+  // const validationSchema = Yup.object().shape({
+  //   amount: Yup.string()
+  //     .required('Required')
+  //     .matches(/^\d+(\.\d{1,2})?$/, 'Invalid amount'),
+  // });
   return (
     <FormContainer>
       <div style={{ display: 'flex' }}>
@@ -79,6 +85,8 @@ export const InputForm = () => {
             handleSubmit,
             setFieldValue,
             resetForm,
+            errors,
+            touched,
           }) => (
             <Form
               onSubmit={handleSubmit}
@@ -144,6 +152,7 @@ export const InputForm = () => {
                   />
                 )}
               </Field>
+
               <Button
                 type="primary"
                 htmlType="submit"

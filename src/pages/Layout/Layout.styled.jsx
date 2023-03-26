@@ -5,7 +5,6 @@ import img from '../../images/backHomePage.svg';
 import styled from '@emotion/styled';
 
 export const ContentContainer = styled.div`
-  
   @media screen and (min-width: 1280px) {
     padding: 40px 120px 80px 120px;
   }
@@ -20,11 +19,11 @@ export const ContentContainer = styled.div`
 `;
 
 export const MainContainer = styled.div`
-  max-width: 1280px;
+  /* max-width: 1280px; */
   min-width: 320px;
   background-image: url(${img});
   height: 100%;
-  
+
   @media screen and (min-width: 320px) {
     // background-image: url(${mobile});
   }
@@ -43,5 +42,3 @@ export const MainContainer = styled.div`
     // background-image: url(${home});
   }
 `;
-
-
