@@ -20,9 +20,11 @@ export const Balance = () => {
     dispatch(newBalance(value));
     resetForm();
   };
+  const showReport = !window.location.href.endsWith("reports");
+
   return (
     <BalanceContainer>
-      <div>
+      <div className="centered-container">
         <Typography level={5} className="title">
           Balance:
         </Typography>
@@ -51,12 +53,14 @@ export const Balance = () => {
           )}
         </Formik>
       </div>
+      {
+        showReport ? <div className='report-btn'>
+          <Button type="text" className="reports">
+            <Link to='/reports'>Reports <Reports /></Link>
+          </Button>
+        </div> : null
+      }
 
-      <Button type="text" className="reports">
-        <Link to="/reports">
-          Reports <Reports />
-        </Link>
-      </Button>
     </BalanceContainer>
   );
 };
