@@ -1,15 +1,25 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-
+import { toast } from 'react-toastify';
+const notifySuccess = text =>
+  toast.success(text, {
+    theme: 'colored',
+  });
+const notifyError = text => {
+  toast.error(text, {
+    theme: 'colored',
+  });
+};
+const notifyWarn = text => {
+  toast.warn(text, {
+    theme: 'colored',
+  });
+};
 export const newBalance = createAsyncThunk(
   '/user/balance',
   async (userData, thunkAPI) => {
     try {
       const res = await axios.patch('/user/balance', userData);
-      // thunkAPI.dispatch(summary())
-      // console.log(res.data);
-      // setAuthHeader(res.data.accessToken);
-      // console.log(res.data);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -43,8 +53,10 @@ export const addAnExpense = createAsyncThunk(
   async (userData, thunkAPI) => {
     try {
       const res = await axios.post('/transaction/expense', userData);
+      notifySuccess('Expense added!');
       return res.data;
     } catch (error) {
+      notifyError('Something went wrong');
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -54,9 +66,12 @@ export const addAnIncome = createAsyncThunk(
   async (userData, thunkAPI) => {
     try {
       const res = await axios.post('/transaction/income', userData);
+      notifySuccess('Income added!');
       getMonthStatsIncomes();
       return res.data;
     } catch (error) {
+      notifyError('Something went wrong');
+
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -66,8 +81,11 @@ export const delTransaction = createAsyncThunk(
   async (userData, thunkAPI) => {
     try {
       const res = await axios.delete(`/transaction/${userData}`);
+      notifyWarn('Deleted!');
       return res.data;
     } catch (error) {
+      notifyError('Something went wrong');
+
       return thunkAPI.rejectWithValue(error.message);
     }
   }

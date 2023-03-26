@@ -6,6 +6,7 @@ import {
   selectAccessToken,
   selectSid,
   selectBalance,
+  selectRegistration,
 } from '../redux/auth/authSelectors';
 export const useAuth = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
@@ -14,6 +15,8 @@ export const useAuth = () => {
   const accessToken = useSelector(selectAccessToken);
   const sid = useSelector(selectSid);
   const balance = useSelector(selectBalance);
+  const registration = useSelector(selectRegistration);
+
   return {
     isLoggedIn,
     user,
@@ -21,6 +24,7 @@ export const useAuth = () => {
     accessToken,
     sid,
     balance,
+    registration,
   };
 };
 
