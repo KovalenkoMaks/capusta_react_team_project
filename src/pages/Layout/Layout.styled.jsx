@@ -22,7 +22,7 @@ margin-right: auto;
 `;
 
 export const MainContainer = styled.div`
-  // max-width: 1280px;
+  /* max-width: 1280px; */
   min-width: 320px;
   background-image: url(${img});
   height: 100%;

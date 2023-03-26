@@ -11,11 +11,9 @@ import { refresh } from 'redux/auth/operations';
 import SharedLayout from 'pages/SharedLayout/SharedLayout';
 import { NotFound } from 'components/NotFound/NotFound';
 import { useIsSmallScreen } from 'hooks/useIsSmallScreen';
-// import {
-//   getMonthStatsExpenses,
-//   getMonthStatsIncomes,
-// } from 'redux/transactions/operations';
-// import Report from 'pages/Report/Report';
+import { ToastContainer } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css';
 
 const Registration = lazy(() =>
   import('components/registrations/Registrations')
@@ -33,61 +31,58 @@ export const App = () => {
 
   useEffect(() => {
     dispatch(refresh());
-    // .unwrap()
-    // .then(() => {
-    //   dispatch(getAllUserData());
-    //   dispatch(getMonthStatsExpenses());
-    //   dispatch(getMonthStatsIncomes());
-    //   // dispatch(getDataTransaction());
-    // })
-    // .catch(console.log);
   }, [dispatch]);
 
   return (
-    <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<Navigate to="/home/expenses" />} />
+    <>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Navigate to="/home/expenses" />} />
 
-        <Route path="/home" element={<SharedLayout />}>
-          <Route path="" element={<Navigate to="/home/expenses" />} />
+          <Route path="/home" element={<SharedLayout />}>
+            <Route path="" element={<Navigate to="/home/expenses" />} />
+              <Route
+              path="expenses"
+              element={
+                <PrivateRoute component={Expenses} redirectTo={'/login'} />
+              }
+            />
+            <Route
+              path="income"
+              element={
+                <PrivateRoute component={Income} redirectTo={'/login'} />
+              }
+            />
+          </Route>
           <Route
-            path="expenses"
-            element={
-              <PrivateRoute component={Expenses} redirectTo={'/login'} />
-            }
+            path="reports"
+            element={<PrivateRoute component={Reports} redirectTo={'/login'} />}
           />
-          <Route
-            path="income"
-            element={<PrivateRoute component={Income} redirectTo={'/login'} />}
-          />
-        </Route>
-        <Route
-          path="reports"
-          element={<PrivateRoute component={Reports} redirectTo={'/login'} />}
-        />
-        {isSmallScreen && (
+          {isSmallScreen && (
           <Route
             path="transaction"
             element={<PrivateRoute component={Mobile} redirectTo={'/login'} />}
           />
         )}
         <Route
-          path="/registration"
+            path="/registration"
+            element={
+              <RestrictedRoute
+                component={Registration}
+                redirectTo={'/home/expenses'}
+              />
+            }
+          />
+          <Route path="*" element={<NotFound />} />
+        </Route>
+        <Route
+          path="/login"
           element={
-            <RestrictedRoute
-              component={Registration}
-              redirectTo={'/home/expenses'}
-            />
+            <RestrictedRoute component={LogIn} redirectTo={'/home/expenses'} />
           }
         />
-        <Route path="*" element={<NotFound />} />
-      </Route>
-      <Route
-        path="/login"
-        element={
-          <RestrictedRoute component={LogIn} redirectTo={'/home/expenses'} />
-        }
-      />
-    </Routes>
+      </Routes>
+      <ToastContainer autoClose={1500} />
+    </>
   );
 };

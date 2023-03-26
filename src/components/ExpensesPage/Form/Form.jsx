@@ -16,6 +16,8 @@ import {
   getMonthStatsIncomes,
 } from 'redux/transactions/operations';
 import { useLocation } from 'react-router-dom';
+import { FieldEl } from './Form.styled';
+// import * as Yup from 'yup';
 import Button from 'components/Button/Button';
 import { useIsSmallScreen } from 'hooks/useIsSmallScreen';
 
@@ -24,7 +26,6 @@ dayjs.extend(customParseFormat);
 const dateFormat = 'DD.MM.YYYY';
 const calendarIcon = <Calendar />;
 const calculatorIcon = <Calculator />;
-const { Option } = Select;
 
 export const InputForm = () => {
   const location = useLocation();
@@ -48,7 +49,7 @@ export const InputForm = () => {
     description: '',
     amount: '',
     date: dayjs(),
-    category: '',
+    category: 'Select category',
   };
 
   const onSubmit = (value, { resetForm }) => {
@@ -74,6 +75,11 @@ export const InputForm = () => {
         });
     }
   };
+  // const validationSchema = Yup.object().shape({
+  //   amount: Yup.string()
+  //     .required('Required')
+  //     .matches(/^\d+(\.\d{1,2})?$/, 'Invalid amount'),
+  // });
   return (
     <FormContainer>
       <div style={{ display: 'flex' }}>
@@ -85,6 +91,8 @@ export const InputForm = () => {
             handleSubmit,
             setFieldValue,
             resetForm,
+            errors,
+            touched,
           }) => (
             <Form onSubmit={handleSubmit} className="formmm">
               {!isSmallScreen && <Field name="date">
@@ -99,8 +107,9 @@ export const InputForm = () => {
                         },
                       })
                     }
+                    defaultValue={initialValues.date.toDate()}
+                    placeholder={initialValues.date.format('YYYY-MM-DD')}
                     onBlur={handleBlur}
-                    placeholder={dayjs().format(dateFormat)}
                     format={dateFormat}
                     bordered={false}
                     suffixIcon={calendarIcon}
@@ -123,24 +132,19 @@ export const InputForm = () => {
                   />
                 )}
               </Field>
-
-              <Field
-                name="category"
-                className="category"
-                as={Select}
-                defaultValue="Select a value"
-                onChange={value => setFieldValue('category', value)}
-                // value={values.dropBox}
-              >
-                {items.map(({ value, label }) => (
-                  <Option key={value} value={value}>
-                    {label}
-                  </Option>
-                ))}
-                <Option value="" disabled style={{ display: 'none' }}>
-                  Product category
-                </Option>
-              </Field>
+              <div style={{ width: '165px' }}>
+                <FieldEl
+                  style={{
+                    width: 200,
+                  }}
+                  name="category"
+                  as={Select}
+                  placeholder={initialValues.category}
+                  onChange={value => setFieldValue('category', value)}
+                  options={items}
+                  className='category'
+                ></FieldEl>
+              </div>
               {isSmallScreen && <Field name="date">
                 {({ field }) => (
                   <DatePicker
