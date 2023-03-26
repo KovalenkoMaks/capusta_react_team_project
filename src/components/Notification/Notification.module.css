@@ -1,5 +1,5 @@
 .commentBubble {
-  position: relative;
+  position: absolute;
   padding: 23px;
   width: 282px;
   height: auto;
