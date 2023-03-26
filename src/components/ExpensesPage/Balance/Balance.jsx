@@ -20,19 +20,21 @@ export const Balance = () => {
     dispatch(newBalance(value));
     resetForm();
   };
-  const showReport = !window.location.href.endsWith("reports");
+  const showReport = !window.location.href.endsWith('reports');
 
   return (
     <BalanceContainer>
-      <Button type="text" className="reports">
-        <Link to="/reports">
-          Reports <Reports />
-        </Link>
-      </Button>
+      {showReport ? (
+        <Button type="text" className="reports">
+          <Link to="/reports">
+            Reports <Reports />
+          </Link>
+        </Button>
+      ) : null}
+      <Typography level={5} className="title">
+        Balance:
+      </Typography>
       <div>
-        <Typography level={5} className="title">
-          Balance:
-        </Typography>
         <Formik initialValues={{ newBalance: '' }} onSubmit={onSubmit}>
           {({ values, handleChange, handleBlur, handleSubmit }) => (
             <Form onSubmit={handleSubmit}>
@@ -44,8 +46,7 @@ export const Balance = () => {
                     // value={values.name}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    
-                    className='input'
+                    className="input"
                     // disabled={!disabled}
                     readOnly={!disabled}
                   />

@@ -10,6 +10,7 @@ import { useDispatch } from 'react-redux';
 import { refresh } from 'redux/auth/operations';
 import SharedLayout from 'pages/SharedLayout/SharedLayout';
 import { NotFound } from 'components/NotFound/NotFound';
+import { useIsSmallScreen } from 'hooks/useIsSmallScreen';
 // import {
 //   getMonthStatsExpenses,
 //   getMonthStatsIncomes,
@@ -25,8 +26,10 @@ const Registration = lazy(() =>
 const Expenses = lazy(() => import('pages/Expenses/Expenses'));
 const Income = lazy(() => import('pages/Income/Income'));
 const Reports = lazy(() => import('pages/Report/Report'));
+const Mobile = lazy(() => import('components/Mobile/Mobile'));
 export const App = () => {
   const dispatch = useDispatch();
+  const isSmallScreen = useIsSmallScreen();
 
   useEffect(() => {
     dispatch(refresh());
@@ -62,6 +65,12 @@ export const App = () => {
           path="reports"
           element={<PrivateRoute component={Reports} redirectTo={'/login'} />}
         />
+        {isSmallScreen && (
+          <Route
+            path="transaction"
+            element={<PrivateRoute component={Mobile} redirectTo={'/login'} />}
+          />
+        )}
         <Route
           path="/registration"
           element={

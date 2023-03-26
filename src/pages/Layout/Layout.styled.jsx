@@ -5,26 +5,28 @@ import img from '../../images/backHomePage.svg';
 import styled from '@emotion/styled';
 
 export const ContentContainer = styled.div`
-  
+max-width: 320px;
+padding: 40px 20px 52px 20px;
+margin-left: auto;
+margin-right: auto;
+
+
+  @media screen and (min-width: 767.9px) {
+    padding: 40px 32px 80px 32px;
+    max-width: 768px;
+  }
   @media screen and (min-width: 1280px) {
     padding: 40px 120px 80px 120px;
-  }
-
-  @media screen and (min-width: 768px) {
-    padding: 40px 20px 80px 20px;
-  }
-
-  @media screen and (min-width: 320px) {
-    padding: 40px 20px 0px 20px;
+    max-width: 1280px;
   }
 `;
 
 export const MainContainer = styled.div`
-  max-width: 1280px;
+  // max-width: 1280px;
   min-width: 320px;
   background-image: url(${img});
   height: 100%;
-  
+
   @media screen and (min-width: 320px) {
     // background-image: url(${mobile});
   }
@@ -43,5 +45,3 @@ export const MainContainer = styled.div`
     // background-image: url(${home});
   }
 `;
-
-

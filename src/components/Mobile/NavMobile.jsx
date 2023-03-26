@@ -5,7 +5,7 @@ import { NavMobileCont } from "components/ExpensesPage/ExpensesPage.styled"
 export const NavMobile = () => {
     return (
         <NavMobileCont>
-            <Link to=''><Arrow/>Create transaction</Link>
+            <Link to='/transaction'><Arrow/>Create transaction</Link>
         </NavMobileCont>
     )
 }

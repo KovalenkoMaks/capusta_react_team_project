@@ -38,6 +38,10 @@ export const BalanceContainer = styled.div`
       top: -4px;
     }
 
+    @media screen and (min-width: 1280px) {
+      right: -34px;
+    }
+
     a {
       color: rgba(82, 85, 95, 0.7);
       display: flex;
@@ -46,37 +50,35 @@ export const BalanceContainer = styled.div`
     }
   }
 
+  .title {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.02em;
+    color: rgba(82, 85, 95, 0.7);
+    margin-bottom: 8px;
+    margin-top: 32px;
+
+    @media screen and (min-width: 768px) {
+      margin-bottom: 0;
+      margin-right: 20px;
+      margin-top: 0;
+    }
+  }
+
   div {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    margin-top: 32px;
 
     @media screen and (min-width: 768px) {
       flex-wrap: nowrap;
       justify-content: unset;
       align-items: center;
-      margin-top: 0;
     }
 
-    .title {
-      font-weight: 500;
-      font-size: 12px;
-      line-height: 14px;
-      letter-spacing: 0.02em;
-      color: rgba(82, 85, 95, 0.7);
-      margin-bottom: 8px;
-
-      @media screen and (min-width: 768px) {
-        margin-bottom: 0;
-        margin-right: 20px;
-      }
-    }
-
-    .ant-input-disabled {
-      background-color: transparent;
-      cursor: default;
-      border-color: #ffffff;
+    form {
+      display: flex;
     }
 
     .input {
@@ -88,6 +90,7 @@ export const BalanceContainer = styled.div`
       line-height: 14px;
       border: 2px solid #ffffff;
       padding: 12px 20px 12px 12px;
+      background-color: transparent;
       @media screen and (max-width: 767.99px) {
         border-right: 1px solid #ffffff;
       }
@@ -111,8 +114,10 @@ export const BalanceContainer = styled.div`
       border-color: #ffac77;
     }
 
-    form {
-      display: flex;
+    .ant-input-disabled {
+      background-color: transparent;
+      cursor: default;
+      border-color: #ffffff;
     }
 
     .button {
@@ -142,7 +147,7 @@ export const BalanceContainer = styled.div`
 
 export const ExpensCont = styled.div`
   margin: 0 auto;
-  @media screen and (max-width: 767.9px) {
+  @media screen and (min-width: 768px) {
     max-width: 704px;
   }
 
@@ -150,6 +155,7 @@ export const ExpensCont = styled.div`
   @media screen and (min-width: 1280px) {
     max-width: 1098px;
     height: 850px;
+    margin-left: -29px;
   }
 `;
 
@@ -224,8 +230,13 @@ export const FormContainer = styled.div`
   .formmm {
     display: flex;
     align-items: center;
-    justify-content: center;
+    margin-top: 16px;
     flex-wrap: wrap;
+
+    @media screen and (min-width: 768px) {
+      justify-content: center;
+      margin-top: 0;
+    }
 
     @media screen and (min-width: 1280px) {
       flex-wrap: nowrap;
@@ -233,17 +244,24 @@ export const FormContainer = styled.div`
   }
 
   .productdesc {
+    width: 280px;
+    border: 2px solid #ffffff;
+    border-radius: 14px 14px 0 0;
+    padding: 9px 21px;
+    height: 44px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.02em;
+    color: #c7ccdc;
+    background-color: transparent;
+
     @media screen and (min-width: 768px) {
       width: 184px;
       border-radius: 14px 0 0 0;
-      border: 2px solid #f5f6fb;
       padding: 9px 19px;
-      font-weight: 400;
-      font-size: 12px;
-      line-height: 14px;
-      letter-spacing: 0.02em;
-      height: 44px;
       margin-left: 15px;
+      border: 2px solid #f5f6fb;
     }
 
     @media screen and (min-width: 1280px) {
@@ -263,17 +281,29 @@ export const FormContainer = styled.div`
   }
 
   .calc {
-    width: 110px;
+    width: 140px;
     gap: 12px;
     justify-content: flex-end;
     height: 44px;
-    border-radius: 0 14px 14px 0;
+    border-radius: 22px;
     margin-left: -2px;
-    border: 2px solid #f5f6fb;
+    border: 2px solid #fff;
+    background-color: transparent;
+    padding: 0 11px 0 11px;
 
     &:hover,
     &:focus {
       border-color: #ffac77;
+    }
+
+    @media screen and (min-width: 768px) {
+      width: 110px;
+      gap: 12px;
+      justify-content: flex-end;
+      height: 44px;
+      border-radius: 0 14px 14px 0;
+      margin-left: -2px;
+      border: 2px solid #f5f6fb;
     }
 
     @media screen and (min-width: 1280px) {
@@ -282,29 +312,57 @@ export const FormContainer = styled.div`
       height: 40px;
     }
   }
+  @media screen and (max-width: 767.9px) {
+    .ant-input-affix-wrapper .ant-input-suffix {
+      margin-inline-start: 0;
+      padding-inline-start: 10px;
+      border-left: 2px solid #ffffff;
+    }
+
+    .ant-input-affix-wrapper .ant-input {
+      background-color: transparent;
+
+      &::placeholder {
+        text-align: right;
+      }
+    }
+  }
 
   .category .ant-select-selector {
-    width: 186px;
+    width: 280px;
     font-weight: 400;
     font-size: 12px;
     line-height: 14px;
     letter-spacing: 0.02em;
     display: flex;
-    gap: 24px;
     align-items: center;
-    justify-content: center;
-    border: 2px solid #f5f6fb;
+    border: 2px solid #ffffff;
+    background-color: transparent;
     color: #c7ccdc;
-    border-radius: 0;
+    border-radius: 0 0 14px 14px;
     height: 44px;
-    margin-left: -2px;
+    margin-top: -2px;
+    padding: 0px 20px;
     transition: all 0.2s;
     z-index: 1;
-    // border-color: #ffac77;
+
+    @media screen and (min-width: 768px) {
+      width: 186px;
+      border: 2px solid #f5f6fb;
+      border-radius: 0;
+      margin-left: -2px;
+      margin-top: 0;
+    }
 
     @media screen and (min-width: 1280px) {
       width: 169px;
       height: 40px;
+    }
+  }
+
+  .category {
+    @media screen and (max-width: 767.9px) {
+      margin-bottom: 32px;
     }
   }
 
@@ -319,10 +377,15 @@ export const FormContainer = styled.div`
   }
 
   .btncont {
-    margin-top: 32px;
+    margin-top: 82px;
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 20px;
+
+    @media screen and (min-width: 768px) {
+      margin-top: 32px;
+      gap: 15px;
+    }
 
     @media screen and (min-width: 1280px) {
       margin-top: 0;
@@ -368,7 +431,7 @@ export const TableContainer = styled.div`
   }
 
   tbody::-webkit-scrollbar-track {
-    background-color: #FF751D;
+    background-color: #f5f6fb;
   }
 
   tbody::-webkit-scrollbar-thumb {
@@ -380,7 +443,7 @@ export const TableContainer = styled.div`
 `;
 
 export const NavMobileCont = styled.div`
-  margin-top: 16px;
+  margin-top: -24px;
 
   a {
     display: flex;
@@ -395,8 +458,8 @@ export const NavMobileCont = styled.div`
     color: #000;
 
     svg {
-      height: 18px;
-      width: 18px;
+      height: 9px;
+      width: 14px;
     }
   }
 `;
@@ -459,12 +522,12 @@ export const MobTable = styled.div`
   }
 
   .incomeMobAmount {
-        font-weight: 700;
+    font-weight: 700;
     font-size: 12px;
     line-height: 14px;
     text-align: right;
     letter-spacing: 0.04em;
-    color: #407946
+    color: #407946;
   }
 `;
 
@@ -536,8 +599,8 @@ export const THeadEl = styled.thead`
 `;
 
 export const BodyTrEl = styled.tr`
-      display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
   font-weight: 400;
   font-size: 12px;
   line-height: 14px;
@@ -553,8 +616,6 @@ export const BodyTrEl = styled.tr`
   .date {
     text-transform: uppercase;
     width: 68px;
-
-
   }
 
   .decs {
@@ -583,7 +644,7 @@ export const BodyTrEl = styled.tr`
     color: #e7192e;
     text-align: right;
     font-weight: 700;
-    
+
     margin-right: 41px;
 
     @media screen and (min-width: 1280px) {
@@ -592,7 +653,7 @@ export const BodyTrEl = styled.tr`
     }
   }
 
-    .incomeAmount {
+  .incomeAmount {
     width: 104px;
     margin-left: auto;
     color: #407946;
@@ -616,12 +677,10 @@ export const BodyTrEl = styled.tr`
       padding: 7px;
       transition: background-color 250ms ease-in-out;
       border-radius: 50%;
-      
-
 
       &:hover,
       &:focus {
-        background-color: #F5F6FB;
+        background-color: #f5f6fb;
       }
     }
   }
@@ -633,4 +692,3 @@ export const TableWrapper = styled.div`
     display: flex;
   }
 `;
-

@@ -9,8 +9,8 @@ body {
   height: 100vh;
   color: #52555f;
   background-color: #F2F5FC;
-  max-width: max-content;
-  margin: auto;
+  /* max-width: max-content; */
+  /* margin: auto; */
 }
 
 body div#root {
@@ -93,4 +93,8 @@ background-color: #ff914a;
 .ant-select:not(.ant-select-disabled):not(.ant-select-customize-input):not(.ant-pagination-size-changer):hover .ant-select-selector {
   border-color: #ffac77;
 
+}
+
+.ant-picker-dropdown {
+  left: 17px;
 }

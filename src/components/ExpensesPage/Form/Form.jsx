@@ -17,6 +17,7 @@ import {
 } from 'redux/transactions/operations';
 import { useLocation } from 'react-router-dom';
 import Button from 'components/Button/Button';
+import { useIsSmallScreen } from 'hooks/useIsSmallScreen';
 
 dayjs.extend(customParseFormat);
 
@@ -29,6 +30,7 @@ export const InputForm = () => {
   const location = useLocation();
   const dispatch = useDispatch();
   const { categories } = useTransactions();
+  const isSmallScreen = useIsSmallScreen();
   // console.log(categories.expenses);
   // console.log(categories.incomes);
   // });
@@ -85,7 +87,7 @@ export const InputForm = () => {
             resetForm,
           }) => (
             <Form onSubmit={handleSubmit} className="formmm">
-              <Field name="date">
+              {!isSmallScreen && <Field name="date">
                 {({ field }) => (
                   <DatePicker
                     {...field}
@@ -105,10 +107,11 @@ export const InputForm = () => {
                     size="middle"
                     name="date"
                     label="date"
-                    style={{ paddingLeft: '0' }}
+                    style={{ paddingLeft: '0', width: '100%', maxWidth: '120px' }}
+                    
                   />
                 )}
-              </Field>
+              </Field>}
               <Field name="description">
                 {({ field }) => (
                   <Input
@@ -138,6 +141,31 @@ export const InputForm = () => {
                   Product category
                 </Option>
               </Field>
+              {isSmallScreen && <Field name="date">
+                {({ field }) => (
+                  <DatePicker
+                    {...field}
+                    onChange={date =>
+                      handleChange({
+                        target: {
+                          name: 'date',
+                          value: date,
+                        },
+                      })
+                    }
+                    onBlur={handleBlur}
+                    placeholder={dayjs().format(dateFormat)}
+                    format={dateFormat}
+                    bordered={false}
+                    suffixIcon={calendarIcon}
+                    size="middle"
+                    name="date"
+                    label="date"
+                    style={{ paddingLeft: '0', width: '100%', maxWidth: '120px', marginRight: '20px' }}
+                    
+                  />
+                )}
+              </Field>}
 
               <Field name="amount">
                 {({ field }) => (
