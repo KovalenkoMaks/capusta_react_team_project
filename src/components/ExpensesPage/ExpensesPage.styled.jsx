@@ -22,6 +22,7 @@ export const BalanceContainer = styled.div`
     justify-content: center;
     margin-bottom: 8px;
     margin-left: 0;
+    margin-top: 0;
   }
 
   .reports {

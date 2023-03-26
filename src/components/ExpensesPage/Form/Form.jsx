@@ -134,9 +134,6 @@ export const InputForm = () => {
               </Field>
               <div style={{ width: '165px' }}>
                 <FieldEl
-                  style={{
-                    width: 200,
-                  }}
                   name="category"
                   as={Select}
                   placeholder={initialValues.category}
