@@ -24,7 +24,7 @@ export const SummaryContainer = styled.div`
 `;
 
 export const Header = styled.div`
-  position: -webkit-sticky;
+  position: sticky;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -39,8 +39,7 @@ export const SummaryTable = styled.table`
   background-color: #f5f6fb;
   border-collapse: collapse;
   width: 100%;
-  overflow-y: scroll;
-  /* &::-webkit-scrollbar {
+  &::-webkit-scrollbar {
     width: 10px;
     background: #FF751D;
   }
@@ -51,7 +50,7 @@ export const SummaryTable = styled.table`
   &::-webkit-scrollbar-thumb {
   width: 10px;
   background-color: #FF751D;
-} */
+}
 `;
 export const TableTbody = styled.tbody`
   border-left: none;
