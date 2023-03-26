@@ -16,6 +16,7 @@ import {
   getMonthStatsIncomes,
 } from 'redux/transactions/operations';
 import { useLocation } from 'react-router-dom';
+import { FieldEl } from './Form.styled';
 
 dayjs.extend(customParseFormat);
 
@@ -27,10 +28,7 @@ export const InputForm = () => {
   const location = useLocation();
   const dispatch = useDispatch();
   const { categories } = useTransactions();
-  // console.log(categories.expenses);
-  // console.log(categories.incomes);
-  // });
-  // location.pathname === '/home/expenses';
+
   let items = [];
   location.pathname === '/home/expenses'
     ? (items = categories.expenses.map(e => {
@@ -44,7 +42,7 @@ export const InputForm = () => {
     description: '',
     amount: '',
     date: dayjs(),
-    category: '',
+    category: 'Select category',
   };
 
   const onSubmit = (value, { resetForm }) => {
@@ -86,7 +84,7 @@ export const InputForm = () => {
               onSubmit={handleSubmit}
               style={{ display: 'flex', alignItems: 'center' }}
             >
-              <Field name="date">
+              <Field name="date" style={{ color: 'red' }}>
                 {({ field }) => (
                   <DatePicker
                     {...field}
@@ -98,8 +96,9 @@ export const InputForm = () => {
                         },
                       })
                     }
+                    defaultValue={initialValues.date.toDate()}
+                    placeholder={initialValues.date.format('YYYY-MM-DD')}
                     onBlur={handleBlur}
-                    placeholder={dayjs().format(dateFormat)}
                     format={dateFormat}
                     bordered={false}
                     suffixIcon={calendarIcon}
@@ -121,17 +120,16 @@ export const InputForm = () => {
                 )}
               </Field>
               <div style={{ width: '165px' }}>
-                <Field
+                <FieldEl
                   style={{
                     width: 200,
                   }}
                   name="category"
                   as={Select}
-                  placeholder="Select a value"
+                  placeholder={initialValues.category}
                   onChange={value => setFieldValue('category', value)}
-                  // value={values.dropBox}
                   options={items}
-                ></Field>
+                ></FieldEl>
               </div>
               <Field name="amount">
                 {({ field }) => (
