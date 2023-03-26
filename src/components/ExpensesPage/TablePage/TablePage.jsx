@@ -12,12 +12,20 @@ import { useState } from 'react';
 
 export const TablePage = () => {
   const [modal, setModal] = useState(false);
+  const [id, setId] = useState('');
+
   const closeModal = () => {
     setModal(false);
   };
 
+  const handleClick = id => {
+    setModal(true);
+    setId(id);
+  };
   const dispatch = useDispatch();
-  const deleteTransaction = id => {
+
+  const deleteTransaction = () => {
+    setModal(false);
     dispatch(delTransaction(id))
       .unwrap()
       .then(() => {
@@ -28,7 +36,7 @@ export const TablePage = () => {
   console.log(transactions.expenses);
   const reversedArr = [...transactions.expenses].reverse();
   // data.reverse();
-  console.log(reversedArr);
+  // console.log(reversedArr);
   return (
     <>
       <TableWrapper>
@@ -67,7 +75,7 @@ export const TablePage = () => {
                           <button
                             type="button"
                             onClick={() => {
-                              deleteTransaction(transaction._id);
+                              handleClick(transaction._id);
                             }}
                           >
                             {<DeleteBtn />}
@@ -92,12 +100,14 @@ export const TablePage = () => {
         </TableContainer>
         <Summary />
       </TableWrapper>
-      <ConfirmModal
-        onClick={closeModal}
-        text="Are you sure?"
-        handleConfirm={deleteTransaction(value)}
-        handleCancel={() => setModal(prevState => !prevState)}
-      />
+      {modal && (
+        <ConfirmModal
+          onClick={closeModal}
+          text="Are you sure?"
+          handleConfirm={() => deleteTransaction()}
+          handleCancel={() => setModal(prevState => !prevState)}
+        />
+      )}
     </>
   );
 };

@@ -15,7 +15,6 @@ export default function ConfirmModal({
   text,
   handleConfirm,
   handleCancel,
-  value,
 }) {
   return createPortal(
     <Overlay>
@@ -29,7 +28,7 @@ export default function ConfirmModal({
             width="125px"
             backgroundColor="#FF751D"
             border="none"
-            onClick={() => handleConfirm(value)}
+            onClick={handleConfirm}
           />
           <Button
             text="No"
