@@ -16,6 +16,8 @@ export const DivEl = styled.div`
 
   @media screen and (min-width: 768px) {
     max-width: 768px;
+    padding-left: 32px;
+    padding-right: 32px;
     width: 768px;
     height:1024px;
     background-image: url(${tablet});

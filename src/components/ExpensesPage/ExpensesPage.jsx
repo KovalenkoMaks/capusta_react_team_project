@@ -19,7 +19,7 @@ export const ExpensesPage = () => {
   return (
     <>
       <TablePage />
-      <Summary />
+      {/* <Summary /> */}
     </>
   );
 };

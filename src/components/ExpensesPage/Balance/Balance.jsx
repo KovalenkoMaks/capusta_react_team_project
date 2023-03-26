@@ -21,6 +21,11 @@ export const Balance = () => {
   };
   return (
     <BalanceContainer>
+      <Button type="text" className="reports">
+        <Link to="/reports">
+          Reports <Reports />
+        </Link>
+      </Button>
       <div>
         <Typography level={5} className="title">
           Balance:
@@ -37,6 +42,7 @@ export const Balance = () => {
                     onChange={handleChange}
                     onBlur={handleBlur}
                     disabled={!disabled}
+                    className='input'
                   />
                 )}
               </Field>
@@ -44,15 +50,20 @@ export const Balance = () => {
                 <Button type="text" htmlType="submit" className="button">
                   Confirm
                 </Button>
-              ) : null}
+              ) : (
+                <Button
+                  type="text"
+                  htmlType="submit"
+                  disabled
+                  className="button"
+                >
+                  Confirm
+                </Button>
+              )}
             </Form>
           )}
         </Formik>
       </div>
-
-      <Button type="text" className="reports">
-        <Link to='/reports'>Reports <Reports /></Link>
-      </Button>
     </BalanceContainer>
   );
 };

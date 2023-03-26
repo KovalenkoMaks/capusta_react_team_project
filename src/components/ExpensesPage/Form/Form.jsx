@@ -1,6 +1,6 @@
 import { ReactComponent as Calendar } from '../../../images/calendar.svg';
 import { ReactComponent as Calculator } from '../../../images/calculator.svg';
-import { DatePicker, Input, Button } from 'antd';
+import { DatePicker, Input } from 'antd';
 import { Field, Form, Formik } from 'formik';
 import { FormContainer } from '../ExpensesPage.styled';
 import dayjs from 'dayjs';
@@ -16,12 +16,14 @@ import {
   getMonthStatsIncomes,
 } from 'redux/transactions/operations';
 import { useLocation } from 'react-router-dom';
+import Button from 'components/Button/Button';
 
 dayjs.extend(customParseFormat);
 
 const dateFormat = 'DD.MM.YYYY';
 const calendarIcon = <Calendar />;
 const calculatorIcon = <Calculator />;
+const { Option } = Select;
 
 export const InputForm = () => {
   const location = useLocation();
@@ -81,10 +83,7 @@ export const InputForm = () => {
             setFieldValue,
             resetForm,
           }) => (
-            <Form
-              onSubmit={handleSubmit}
-              style={{ display: 'flex', alignItems: 'center' }}
-            >
+            <Form onSubmit={handleSubmit} className="formmm">
               <Field name="date">
                 {({ field }) => (
                   <DatePicker
@@ -105,6 +104,7 @@ export const InputForm = () => {
                     size="middle"
                     name="date"
                     label="date"
+                    style={{ paddingLeft: '0' }}
                   />
                 )}
               </Field>
@@ -119,19 +119,25 @@ export const InputForm = () => {
                   />
                 )}
               </Field>
-              <div style={{ width: '165px' }}>
-                <Field
-                  style={{
-                    width: 200,
-                  }}
-                  name="category"
-                  as={Select}
-                  placeholder="Select a value"
-                  onChange={value => setFieldValue('category', value)}
-                  // value={values.dropBox}
-                  options={items}
-                ></Field>
-              </div>
+
+              <Field
+                name="category"
+                className="category"
+                as={Select}
+                defaultValue="Select a value"
+                onChange={value => setFieldValue('category', value)}
+                // value={values.dropBox}
+              >
+                {items.map(({ value, label }) => (
+                  <Option key={value} value={value}>
+                    {label}
+                  </Option>
+                ))}
+                <Option value="" disabled style={{ display: 'none' }}>
+                  Product category
+                </Option>
+              </Field>
+
               <Field name="amount">
                 {({ field }) => (
                   <Input
@@ -141,29 +147,35 @@ export const InputForm = () => {
                     suffix={calculatorIcon}
                     placeholder="0,00"
                     className="calc"
-                    style={{ marginRight: '32px' }}
                   />
                 )}
               </Field>
-              <Button
-                type="primary"
-                htmlType="submit"
-                style={{
-                  marginRight: '16px',
-                  width: '136px',
-                  height: '44px',
-                  backgroundColor: '#FF751D',
-                }}
-                className="submitBtn"
-              >
-                Input
-              </Button>
-              <Button
-                style={{ width: '136px', height: '44px' }}
-                onClick={() => resetForm()}
-              >
-                Clear
-              </Button>
+              <div className="btncont">
+                <Button
+                  type="submit"
+                  width="125px"
+                  disabled={false}
+                  onClick={null}
+                  backgroundColor="#FF751D"
+                  border="none"
+                  textColor="#fff"
+                  className="submitBtn"
+                  text='Input'
+                >
+                </Button>
+                <Button
+                  type='button'
+                  width="125px"
+                  disabled={false}
+                  onClick={() => resetForm()}
+                  backgroundColor="transparent"
+                  border='2px solid #F6F7FC'
+                  textColor='#52555F'
+                  text='Clear'
+                >
+                  Clear
+                </Button>
+              </div>
             </Form>
           )}
         </Formik>

@@ -1,9 +1,11 @@
-import { InputForm } from "components/ExpensesPage/Form/Form";
+import { InputForm } from 'components/ExpensesPage/Form/Form';
 
 const Mobile = () => {
-    return (
-<></>
-    )
-}
+  return (
+    <>
+      <InputForm />
+    </>
+  );
+};
 
 export default Mobile;

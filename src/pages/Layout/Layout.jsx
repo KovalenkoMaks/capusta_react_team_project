@@ -10,14 +10,16 @@ import { DivEl } from './Layout.styled';
 
 const Layout = () => {
   return (
-    <DivEl>
+    <>
       <Header />
-      <Suspense fallback={<Loader />}>
-        {/* <HomePageView /> */}
-        <Outlet />
-        {/* <ReportView /> */}
-      </Suspense>
-    </DivEl>
+      <DivEl>
+        <Suspense fallback={<Loader />}>
+          {/* <HomePageView /> */}
+          <Outlet />
+          {/* <ReportView /> */}
+        </Suspense>
+      </DivEl>
+    </>
   );
 };
 
