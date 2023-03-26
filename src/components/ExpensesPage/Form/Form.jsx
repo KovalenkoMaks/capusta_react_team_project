@@ -34,11 +34,11 @@ export const InputForm = () => {
   let items = [];
   location.pathname === '/home/expenses'
     ? (items = categories.expenses.map(e => {
-      return { value: e, label: e };
-    }))
+        return { value: e, label: e };
+      }))
     : (items = categories.incomes.map(e => {
-      return { value: e, label: e };
-    }));
+        return { value: e, label: e };
+      }));
 
   const initialValues = {
     description: '',
@@ -53,6 +53,7 @@ export const InputForm = () => {
     date = format(date, 'yyyy-MM-dd');
     query.date = date;
     query.amount = Number(query.amount);
+    query.amount = Number(query.amount.toFixed(0));
     resetForm();
     if (location.pathname === '/home/expenses') {
       dispatch(addAnExpense(query))
