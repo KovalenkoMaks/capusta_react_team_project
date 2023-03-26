@@ -1,9 +1,4 @@
 @media screen and (min-width: 320px) {
-    .title {
-        padding-top: 80px;
-        padding-left: 17px;
-    }
-
     .titleWord {
         margin: 0;
         font-size: 51px;
@@ -35,11 +30,6 @@
 }
 
 @media screen and (min-width: 768px) {
-    .title {
-        padding-top: 115px;
-        padding-left: 162px;
-    }
-
     .titleWord {
         margin: 0;
         font-size: 87px;
@@ -67,11 +57,6 @@
 }
 
 @media screen and (min-width: 1280px) {
-    .title {
-        padding-top: 362px;
-        padding-left: 229px;
-    }
-
     .titleWord {
         margin: 0;
         padding: 0;

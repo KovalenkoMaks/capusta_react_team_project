@@ -1,10 +1,8 @@
-import { ReportPage } from 'components/ReportPage/ReportPage';
+import { Statisticts } from 'components/asd/Statisticts/Statisticts'
 
 const Report = () => {
   return (
-    <>
-      <ReportPage />
-    </>
+    <Statisticts />
   );
 };
 export default Report;

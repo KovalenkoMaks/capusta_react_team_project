@@ -4,11 +4,22 @@ import img from '../../images/backHomePage.svg';
 const { default: styled } = require('@emotion/styled');
 
 export const BalanceContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  .centered-container{
+    
+  }
+  .report-btn{
+    width: 50%;
+    justify-content: right;
+  }
+  
+
   div {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 40px;
+    // padding-top: 40px;
 
     .title {
       margin-right: 20px;
@@ -56,9 +67,6 @@ export const BalanceContainer = styled.div`
     font-size: 12px;
     line-height: 14px;
     letter-spacing: 0.04em;
-    position: absolute;
-    right: 0;
-    top: 47px;
   }
 
   .reports a {
@@ -258,6 +266,7 @@ export const NavMobileCont = styled.div`
 `;
 export const TableWrapper = styled.div`
   display: block;
+  justify-content: space-around;
   @media screen and (min-width: 1280px) {
     display: flex;
   }

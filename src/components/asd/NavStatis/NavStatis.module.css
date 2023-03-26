@@ -22,9 +22,6 @@ p {
     align-items: center;
     justify-content: space-between;
     margin-bottom: 32px;
-    padding-right: 32px;
-    padding-left: 32px;
-    padding-top: 40px;
   }
 }
 
@@ -34,9 +31,6 @@ p {
     align-items: center;
     justify-content: space-between;
     margin-bottom: 32px;
-    padding-right: 123px;
-    padding-left: 123px;
-    padding-top: 40px;
     position: relative;
     z-index: 1;
   }

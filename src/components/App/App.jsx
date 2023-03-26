@@ -2,6 +2,7 @@ import '../../../node_modules/modern-normalize/modern-normalize.css';
 import { PrivateRoute } from 'components/utils/PrivateRoute';
 import { RestrictedRoute } from 'components/utils/RestrictedRout';
 import Layout from 'pages/Layout/Layout';
+import LogIn from 'components/logIn/Login';
 import { lazy, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { Navigate } from 'react-router-dom';
@@ -15,7 +16,6 @@ import {
 } from 'redux/transactions/operations';
 // import Report from 'pages/Report/Report';
 
-const LogIn = lazy(() => import('components/logIn/Login'));
 const Registration = lazy(() =>
   import('components/registrations/Registrations')
 );
@@ -24,7 +24,7 @@ const Registration = lazy(() =>
 // бо тут теж є частинки, які не треба перерендерювати (я про Expenses i Income)
 const Expenses = lazy(() => import('pages/Expenses/Expenses'));
 const Income = lazy(() => import('pages/Income/Income'));
-const Reports = lazy(() => import('pages/Reports/Reports'));
+const Reports = lazy(() => import('pages/Report/Report'));
 export const App = () => {
   const dispatch = useDispatch();
 
@@ -64,12 +64,6 @@ export const App = () => {
           element={<PrivateRoute component={Reports} redirectTo={'/login'} />}
         />
         <Route
-          path="/login"
-          element={
-            <RestrictedRoute component={LogIn} redirectTo={'/home/expenses'} />
-          }
-        />
-        <Route
           path="/registration"
           element={
             <RestrictedRoute
@@ -80,6 +74,12 @@ export const App = () => {
         />
         <Route path="*" element={<NotFound />} />
       </Route>
+      <Route
+        path="/login"
+        element={
+          <RestrictedRoute component={LogIn} redirectTo={'/home/expenses'} />
+        }
+      />
     </Routes>
   );
 };

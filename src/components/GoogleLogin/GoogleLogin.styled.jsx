@@ -6,7 +6,6 @@ export const SignButton = styled.header`
   justify-content: center;
   gap: 9px;
   width: 120px;
-  margin-bottom: 32px;
   padding: 10px 18px;
   font-weight: 500;
   font-size: 14px;
