@@ -1,6 +1,6 @@
 import { ReactComponent as Calendar } from '../../../images/calendar.svg';
 import { ReactComponent as Calculator } from '../../../images/calculator.svg';
-import { DatePicker, Input, Button } from 'antd';
+import { DatePicker, Input } from 'antd';
 import { Field, Form, Formik } from 'formik';
 import { FormContainer } from '../ExpensesPage.styled';
 import dayjs from 'dayjs';
@@ -18,6 +18,8 @@ import {
 import { useLocation } from 'react-router-dom';
 import { FieldEl } from './Form.styled';
 // import * as Yup from 'yup';
+import Button from 'components/Button/Button';
+import { useIsSmallScreen } from 'hooks/useIsSmallScreen';
 
 dayjs.extend(customParseFormat);
 
@@ -29,7 +31,11 @@ export const InputForm = () => {
   const location = useLocation();
   const dispatch = useDispatch();
   const { categories } = useTransactions();
-
+  const isSmallScreen = useIsSmallScreen();
+  // console.log(categories.expenses);
+  // console.log(categories.incomes);
+  // });
+  // location.pathname === '/home/expenses';
   let items = [];
   location.pathname === '/home/expenses'
     ? (items = categories.expenses.map(e => {
@@ -88,11 +94,8 @@ export const InputForm = () => {
             errors,
             touched,
           }) => (
-            <Form
-              onSubmit={handleSubmit}
-              style={{ display: 'flex', alignItems: 'center' }}
-            >
-              <Field name="date" style={{ color: 'red' }}>
+            <Form onSubmit={handleSubmit} className="formmm">
+              {!isSmallScreen && <Field name="date">
                 {({ field }) => (
                   <DatePicker
                     {...field}
@@ -113,9 +116,11 @@ export const InputForm = () => {
                     size="middle"
                     name="date"
                     label="date"
+                    style={{ paddingLeft: '0', width: '100%', maxWidth: '120px' }}
+                    
                   />
                 )}
-              </Field>
+              </Field>}
               <Field name="description">
                 {({ field }) => (
                   <Input
@@ -129,16 +134,40 @@ export const InputForm = () => {
               </Field>
               <div style={{ width: '165px' }}>
                 <FieldEl
-                  style={{
-                    width: 200,
-                  }}
                   name="category"
                   as={Select}
                   placeholder={initialValues.category}
                   onChange={value => setFieldValue('category', value)}
                   options={items}
+                  className='category'
                 ></FieldEl>
               </div>
+              {isSmallScreen && <Field name="date">
+                {({ field }) => (
+                  <DatePicker
+                    {...field}
+                    onChange={date =>
+                      handleChange({
+                        target: {
+                          name: 'date',
+                          value: date,
+                        },
+                      })
+                    }
+                    onBlur={handleBlur}
+                    placeholder={dayjs().format(dateFormat)}
+                    format={dateFormat}
+                    bordered={false}
+                    suffixIcon={calendarIcon}
+                    size="middle"
+                    name="date"
+                    label="date"
+                    style={{ paddingLeft: '0', width: '100%', maxWidth: '120px', marginRight: '20px' }}
+                    
+                  />
+                )}
+              </Field>}
+
               <Field name="amount">
                 {({ field }) => (
                   <Input
@@ -148,30 +177,35 @@ export const InputForm = () => {
                     suffix={calculatorIcon}
                     placeholder="0,00"
                     className="calc"
-                    style={{ marginRight: '32px' }}
                   />
                 )}
               </Field>
-
-              <Button
-                type="primary"
-                htmlType="submit"
-                style={{
-                  marginRight: '16px',
-                  width: '136px',
-                  height: '44px',
-                  backgroundColor: '#FF751D',
-                }}
-                className="submitBtn"
-              >
-                Input
-              </Button>
-              <Button
-                style={{ width: '136px', height: '44px' }}
-                onClick={() => resetForm()}
-              >
-                Clear
-              </Button>
+              <div className="btncont">
+                <Button
+                  type="submit"
+                  width="125px"
+                  disabled={false}
+                  onClick={null}
+                  backgroundColor="#FF751D"
+                  border="none"
+                  textColor="#fff"
+                  className="submitBtn"
+                  text='Input'
+                >
+                </Button>
+                <Button
+                  type='button'
+                  width="125px"
+                  disabled={false}
+                  onClick={() => resetForm()}
+                  backgroundColor="transparent"
+                  border='2px solid #F6F7FC'
+                  textColor='#52555F'
+                  text='Clear'
+                >
+                  Clear
+                </Button>
+              </div>
             </Form>
           )}
         </Formik>

@@ -20,14 +20,21 @@ export const Balance = () => {
     dispatch(newBalance(value));
     resetForm();
   };
-  const showReport = !window.location.href.endsWith("reports");
+  const showReport = !window.location.href.endsWith('reports');
 
   return (
     <BalanceContainer>
-      <div className="centered-container">
-        <Typography level={5} className="title">
-          Balance:
-        </Typography>
+      {showReport ? (
+        <Button type="text" className="reports">
+          <Link to="/reports">
+            Reports <Reports />
+          </Link>
+        </Button>
+      ) : null}
+      <Typography level={5} className="title">
+        Balance:
+      </Typography>
+      <div>
         <Formik initialValues={{ newBalance: '' }} onSubmit={onSubmit}>
           {({ values, handleChange, handleBlur, handleSubmit }) => (
             <Form onSubmit={handleSubmit}>
@@ -39,6 +46,7 @@ export const Balance = () => {
                     // value={values.name}
                     onChange={handleChange}
                     onBlur={handleBlur}
+                    className="input"
                     // disabled={!disabled}
                     readOnly={!disabled}
                   />
@@ -48,19 +56,20 @@ export const Balance = () => {
                 <Button type="text" htmlType="submit" className="button">
                   Confirm
                 </Button>
-              ) : null}
+              ) : (
+                <Button
+                  type="text"
+                  htmlType="submit"
+                  disabled
+                  className="button"
+                >
+                  Confirm
+                </Button>
+              )}
             </Form>
           )}
         </Formik>
       </div>
-      {
-        showReport ? <div className='report-btn'>
-          <Button type="text" className="reports">
-            <Link to='/reports'>Reports <Reports /></Link>
-          </Button>
-        </div> : null
-      }
-
     </BalanceContainer>
   );
 };
