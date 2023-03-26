@@ -41,7 +41,7 @@ export const App = () => {
 
           <Route path="/home" element={<SharedLayout />}>
             <Route path="" element={<Navigate to="/home/expenses" />} />
-              <Route
+            <Route
               path="expenses"
               element={
                 <PrivateRoute component={Expenses} redirectTo={'/login'} />
@@ -59,12 +59,14 @@ export const App = () => {
             element={<PrivateRoute component={Reports} redirectTo={'/login'} />}
           />
           {isSmallScreen && (
-          <Route
-            path="transaction"
-            element={<PrivateRoute component={Mobile} redirectTo={'/login'} />}
-          />
-        )}
-        <Route
+            <Route
+              path="transaction"
+              element={
+                <PrivateRoute component={Mobile} redirectTo={'/login'} />
+              }
+            />
+          )}
+          {/* <Route
             path="/registration"
             element={
               <RestrictedRoute
@@ -72,7 +74,7 @@ export const App = () => {
                 redirectTo={'/home/expenses'}
               />
             }
-          />
+          /> */}
           <Route path="*" element={<NotFound />} />
         </Route>
         <Route
