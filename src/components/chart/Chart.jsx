@@ -54,6 +54,11 @@ export default class Chart extends Component {
       );
     }
 
+    let detainsX = width - text.length * 3;
+    if (detainsX < 150) {
+      detainsX = 150;
+    }
+
     return (
       <g>
         <text
@@ -66,7 +71,7 @@ export default class Chart extends Component {
           {element.name}
         </text>
         <text
-          x={width - text.length * 3}
+          x={detainsX}
           y={y - 10}
           fill="#000"
           textAnchor="middle"
@@ -123,7 +128,7 @@ export default class Chart extends Component {
   };
 
   isMobile(width) {
-    return width < 900;
+    return width <= 320;
   }
 
   updateDimensions = () => {
@@ -176,6 +181,7 @@ export default class Chart extends Component {
   render() {
     let chartAxis;
     const barSize = this.state.isMobile ? 30 : 40;
+    const height = this.state.isMobile ? 470 : 420;
 
     if (this.state.isMobile) {
       chartAxis = (
@@ -195,7 +201,7 @@ export default class Chart extends Component {
     }
 
     return (
-      <div style={{ width: '100%', height: '500px' }}>
+      <div style={{ width: '100%', height: `${height}px`, background: 'white' }}>
         <ResponsiveContainer>
           <BarChart
             data={this.state.data}
