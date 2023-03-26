@@ -5,8 +5,8 @@
   align-items: center;
   justify-content: space-between;
   list-style: none;
-  height: 122px;
-  width: 95px;
+  height: 106px;
+  /* width: 95px; */
   /* margin-right: 5px;
   margin-left: 5px; */
   margin-top: 20px;
@@ -95,6 +95,7 @@
 .positionTr {
   position: relative;
 }
+
 /* position: absolute;
 top: 0px;
 left: 0px; */
@@ -111,8 +112,8 @@ left: 0px; */
   align-items: center;
   justify-content: space-between;
   list-style: none;
-  height: 122px;
-  width: 95px;
+  height: 106px;
+  /* width: 74px; */
   /* margin-right: 5px;
   margin-left: 5px; */
   margin-top: 20px;

@@ -1,16 +1,14 @@
 // const { default: styled } = require('@emotion/styled');
 import styled from '@emotion/styled';
-import mobile from '../../images/backgroundMobile.svg';
+import mobile from '../../images/mobile-home.png';
 import tablet from '../../images/backgroundTablet.svg';
 import home from '../../images/backgroundHome.svg';
 
 export const LoginContainer = styled.div`
-  max-width: 480px;
-  margin-left: auto;
-  margin-right: auto;
-  width: 320px;
-  height: 856px;
-  background-image: url(${mobile});
+  min-width: 320px;
+  background: url(${mobile}) no-repeat;
+  background-size: cover;
+  background-size: 100% 100%;
 
   @media screen and (min-width: 768px) {
     max-width: 768px;
@@ -36,9 +34,16 @@ export const LoginBody = styled.div`
     padding-right: 20px;
     width: 100%;
     height: 100%;
+    padding-bottom: 80px;
+
+    @media screen and (max-width: 1280px) {
+      flex-direction: column;
+    }
 `;
 
 export const DivEl = styled.div`
+  box-shadow: 5px 10px 20px rgba(170, 178, 197, 0.4);
+
   @media screen and (min-width: 320px) { 
     max-width: 280px;
     height: 496px;
@@ -76,9 +81,7 @@ export const DivEl = styled.div`
   }
 
   @media screen and (min-width: 768px) {
-    
     max-width: 426px;
-    
     height: 552px;
     padding: 56px 84px;
   }
@@ -88,8 +91,6 @@ export const DivEl = styled.div`
     left: 60%;
   }
 
-  //
-  box-shadow: 5px 10px 20px rgba(170, 178, 197, 0.4);
   Form {
     display: flex;
     flex-direction: column;

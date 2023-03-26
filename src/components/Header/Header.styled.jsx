@@ -3,17 +3,17 @@ import styled from '@emotion/styled';
 export const Container = styled.header`
   max-width: 767px;
   padding: 12px 20px;
-  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   background-color: #FFFFFF;
+  width: 100%;
 
   @media (min-width: 768px){
     max-width: 1280px;
     padding: 10px 32px;
   }
   @media (min-width: 1280px) {
-    max-width: 1980px;
+    max-width: 1280px;
     padding: 10px 16px;
   }
 `;

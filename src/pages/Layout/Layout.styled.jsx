@@ -1,47 +1,34 @@
-import mobile from '../../images/backgroundMobile.svg';
-import tablet from '../../images/backgroundTablet.svg';
-import home from '../../images/backgroundHome.svg';
-import img from '../../images/backHomePage.svg';
+import imgHome from '../../images/backHomePage.png';
+import imgTablet from '../../images/backTabletPage.png';
+import imgMobile from '../../images/backMobilePage.svg';
 import styled from '@emotion/styled';
 
 export const ContentContainer = styled.div`
-  
-  @media screen and (min-width: 1280px) {
-    padding: 40px 120px 80px 120px;
+  width: 100%;
+  max-width:1280px;
+
+  @media screen and (min-width: 320px) {
+    padding: 16px 20px 52px 20px;
+    min-width: 320px;
+    background-image: url(${imgMobile});
+    background-size: cover;
+    background-size: 100% 100%;
   }
 
   @media screen and (min-width: 768px) {
-    padding: 40px 20px 80px 20px;
+    /* height: 1234px; */
+    width: 768px;
+    padding: 40px 91px 80px 91px;
+    background: url(${imgTablet});
+    background-size: cover;
+    background-size: 100% 100%;
   }
-
-  @media screen and (min-width: 320px) {
-    padding: 40px 20px 0px 20px;
-  }
-`;
-
-export const MainContainer = styled.div`
-  max-width: 1280px;
-  min-width: 320px;
-  background-image: url(${img});
-  height: 100%;
   
-  @media screen and (min-width: 320px) {
-    // background-image: url(${mobile});
-  }
-
-  @media screen and (min-width: 768px) {
-    // max-width: 768px;
-    // width: 768px;
-    // height:1024px;
-    // background-image: url(${tablet});
-  }
-
   @media screen and (min-width: 1280px) {
-    // max-width: 1280px;
-    // width: 1280px;
-    // height: 850px;
-    // background-image: url(${home});
+    padding: 40px 123px 80px 123px;
+    width: 1280px;
+    background: url(${imgHome}) no-repeat;
+    background-size: cover;
+    background-size: 100% 100%;
   }
 `;
-
-

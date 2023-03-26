@@ -6,15 +6,13 @@ body {
   font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  height: 100vh;
   color: #52555f;
-  background-color: #F2F5FC;
-  max-width: max-content;
-  margin: auto;
 }
 
 body div#root {
-  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 h1,
