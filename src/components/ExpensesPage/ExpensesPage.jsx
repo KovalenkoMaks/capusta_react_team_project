@@ -2,10 +2,14 @@ import { TablePage } from './TablePage/TablePage';
 
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { expenseCategories } from 'redux/transactions/operations';
+import {
+  expenseCategories,
+  getMonthStatsExpenses,
+  getMonthStatsIncomes,
+} from 'redux/transactions/operations';
 // import { useLocation } from 'react-router';
 import { useTransactions } from 'hooks/useTransactions';
-import Summary from 'components/Summary/Summary';
+import { getAllUserData } from 'redux/auth/operations';
 
 export const ExpensesPage = () => {
   // const location = useLocation();
@@ -13,13 +17,20 @@ export const ExpensesPage = () => {
   const { categories } = useTransactions();
   useEffect(() => {
     if (categories.expenses.length > 0) return;
-    dispatch(expenseCategories());
+    dispatch(expenseCategories())
+      .unwrap()
+      .then(() => {
+        dispatch(getAllUserData());
+        dispatch(getMonthStatsExpenses());
+        dispatch(getMonthStatsIncomes());
+        // dispatch(getDataTransaction());
+      })
+      .catch(console.log);
   }, [categories.expenses.length, dispatch]);
 
   return (
     <>
       <TablePage />
-      {/* <Summary /> */}
     </>
   );
 };

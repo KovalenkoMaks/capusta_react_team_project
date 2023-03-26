@@ -45,7 +45,7 @@ export const InputForm = () => {
   const initialValues = {
     description: '',
     amount: '',
-    date: '',
+    date: dayjs(),
     category: '',
   };
 
@@ -55,6 +55,7 @@ export const InputForm = () => {
     date = format(date, 'yyyy-MM-dd');
     query.date = date;
     query.amount = Number(query.amount);
+    query.amount = Number(query.amount.toFixed(0));
     resetForm();
     if (location.pathname === '/home/expenses') {
       dispatch(addAnExpense(query))

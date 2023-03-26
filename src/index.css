@@ -9,6 +9,12 @@ body {
   height: 100vh;
   color: #52555f;
   background-color: #F2F5FC;
+  max-width: max-content;
+  margin: auto;
+}
+
+body div#root {
+  height: 100%;
 }
 
 h1,

@@ -368,7 +368,7 @@ export const TableContainer = styled.div`
   }
 
   tbody::-webkit-scrollbar-track {
-    background-color: #f5f6fb;
+    background-color: #FF751D;
   }
 
   tbody::-webkit-scrollbar-thumb {
@@ -626,3 +626,11 @@ export const BodyTrEl = styled.tr`
     }
   }
 `;
+export const TableWrapper = styled.div`
+  display: block;
+  justify-content: space-around;
+  @media screen and (min-width: 1280px) {
+    display: flex;
+  }
+`;
+

@@ -11,7 +11,8 @@ import { Link } from 'react-router-dom';
 export const Balance = () => {
   const { transactions } = useTransactions();
   const { balance } = useAuth();
-  let disabled = transactions.length === 0 && balance === 0;
+
+  let disabled = transactions.incomes.length === 0 && balance === 0;
 
   const dispatch = useDispatch();
   const onSubmit = (value, { resetForm }) => {
@@ -19,6 +20,8 @@ export const Balance = () => {
     dispatch(newBalance(value));
     resetForm();
   };
+  const showReport = !window.location.href.endsWith("reports");
+
   return (
     <BalanceContainer>
       <Button type="text" className="reports">
@@ -41,8 +44,10 @@ export const Balance = () => {
                     // value={values.name}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    disabled={!disabled}
+                    
                     className='input'
+                    // disabled={!disabled}
+                    readOnly={!disabled}
                   />
                 )}
               </Field>

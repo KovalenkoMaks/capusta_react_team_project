@@ -1,22 +1,46 @@
-const { default: styled } = require('@emotion/styled');
+// const { default: styled } = require('@emotion/styled');
+import styled from '@emotion/styled';
+import mobile from '../../images/backgroundMobile.svg';
+import tablet from '../../images/backgroundTablet.svg';
+import home from '../../images/backgroundHome.svg';
+
+export const LoginContainer = styled.div`
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 320px;
+  height: 856px;
+  background-image: url(${mobile});
+
+  @media screen and (min-width: 768px) {
+    max-width: 768px;
+    width: 768px;
+    height:1024px;
+    background-image: url(${tablet});
+  }
+
+  @media screen and (min-width: 1280px) {
+    max-width: 1280px;
+    width: 1280px;
+    height: 850px;
+    background-image: url(${home});
+  }
+`;
+
+export const LoginBody = styled.div`
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 100%;
+    height: 100%;
+`;
 
 export const DivEl = styled.div`
-  button {
-    width: 116px;
-    height: 44px;
-    filter: drop-shadow(1px 3px 5px rgba(255, 107, 8, 0.35));
-    border-radius: 16px;
-    background-color: rgba(255, 107, 8);
-    color: white;
-  }
-  /* display: flex; */
-  @media screen and (min-width: 320px) {
-    position: absolute;
-    z-index: 3;
-    top: 255px;
+  @media screen and (min-width: 320px) { 
     max-width: 280px;
-    /* left: 7%;
-    right: 7%; */
     height: 496px;
     background-color: #fff;
     border-radius: 30px;
@@ -24,16 +48,37 @@ export const DivEl = styled.div`
     line-height: 14px;
     text-align: center;
     letter-spacing: 0.04em;
-    padding: 40px 20px;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
     p {
-      width: 238px;
+      min-width:222px;
+      text-align: center;
+      padding-left: 29px;
+      padding-right: 29px;
+    }
+
+    .login-form {
+      display: flex;
+      flex-direction: column;
+      padding-left: 20px;
+      padding-right: 20px;
+      
+      p {
+        text-align: start;
+        padding-left: unset;
+        padding-right: unset;
+      }
     }
   }
 
   @media screen and (min-width: 768px) {
-    top: 317px;
+    
     max-width: 426px;
-    left: 22%;
+    
     height: 552px;
     padding: 56px 84px;
   }
@@ -58,9 +103,6 @@ export const DivEl = styled.div`
       margin-bottom: 12px;
     }
   }
-  p {
-    margin-bottom: 16px;
-  }
   a {
     display: block;
     margin-bottom: 32px;
@@ -70,18 +112,12 @@ export const DivEl = styled.div`
     display: flex;
     gap: 8px;
     justify-content: center;
-    a {
-      margin-bottom: 0;
-      width: 116px;
-      height: 44px;
-      filter: drop-shadow(1px 3px 5px rgba(255, 107, 8, 0.35));
-      border-radius: 16px;
-      /* background-color: rgba(255, 107, 8); */
-      /* color: white; */
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      //
+    margin-top: 20px;
+    @media screen and (min-width: 768px) {
+      Button {
+        width: 122px;
+      }
+      gap: 14px;
     }
   }
   input {
@@ -89,6 +125,7 @@ export const DivEl = styled.div`
     height: 52px;
     border-radius: 30px;
     padding: 17px 19px;
+    border: none;
 
     @media screen and (min-width: 768px) {
       width: 259px;

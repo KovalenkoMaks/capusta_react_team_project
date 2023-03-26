@@ -1,6 +1,5 @@
 import Style from './ReportsItemsCard.module.css';
 import { Icons } from '../Icons/IconsForListStatisticts';
-// import { useTransactions } from 'hooks/useTransactions';
 
 export const ReportsItemsCard = ({
   total,
@@ -10,9 +9,6 @@ export const ReportsItemsCard = ({
   handelClickOnCategory,
   currentItem,
 }) => {
-  // const { categories } = useTransactions();
-  // console.log(categories);
-  // console.log(category);
   const active = Number(currentItem) === Number(id);
 
   return (

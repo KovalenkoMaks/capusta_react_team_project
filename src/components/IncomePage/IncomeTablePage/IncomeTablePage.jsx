@@ -1,5 +1,5 @@
 import { ReactComponent as DeleteBtn } from '../../../images/deleteTable.svg';
-import { TableContainer, MobTable, TBodyEl, THeadEl, BodyTrEl } from 'components/ExpensesPage/ExpensesPage.styled';
+import { TableContainer, TableWrapper , MobTable, TBodyEl, THeadEl, BodyTrEl } from 'components/ExpensesPage/ExpensesPage.styled';
 import { useTransactions } from 'hooks/useTransactions';
 import { useDispatch } from 'react-redux';
 import {
@@ -7,26 +7,47 @@ import {
   getMonthStatsIncomes,
 } from 'redux/transactions/operations';
 import { useIsSmallScreen } from 'hooks/useIsSmallScreen';
+import Summary from 'components/Summary/Summary';
+import ConfirmModal from 'components/ConfirmModal/ConfirmModal';
+import { useState } from 'react';
 
 export const IncomeTablePage = () => {
+
+  const [modal, setModal] = useState(false);
+  const [id, setId] = useState('');
   const { transactions } = useTransactions();
   const isSmallScreen = useIsSmallScreen();
   const dispatch = useDispatch();
-  const deleteTransaction = id => {
+
+  const deleteTransaction = () => {
+    setModal(false);
     dispatch(delTransaction(id))
       .unwrap()
       .then(() => {
         dispatch(getMonthStatsIncomes());
       });
   };
+
+  const closeModal = () => {
+    setModal(false);
+  };
+
+  const handleClick = id => {
+    setModal(true);
+    setId(id);
+  };
+
+  const reversedArr = [...transactions.incomes].reverse();
+
   return (
     <>
+    <TableWrapper>
     {isSmallScreen ? (
       <div style={{marginTop: '60px'}}>
-        {transactions.expenses.length === 0 ? (
+        {reversedArr.length === 0 ? (
           <></>
         ) : (
-          transactions.incomes.map(transaction => (
+          reversedArr.map(transaction => (
             <MobTable key={transaction._id}>
               <div className="mobCont">
                 <p className="mobDesc">{transaction.description}</p>
@@ -62,7 +83,7 @@ export const IncomeTablePage = () => {
             </tr>
           </THeadEl>
           <TBodyEl>
-            {transactions.expenses.length === 0
+            {reversedArr.length === 0
               ? [...Array(21)].map((_, index) => (
                   <tr key={index} style={{display: 'flex'}}>
                     <td></td>
@@ -73,7 +94,7 @@ export const IncomeTablePage = () => {
                   </tr>
                 ))
               : [
-                  ...transactions.incomes.map(transaction => (
+                  ...reversedArr.map(transaction => (
                     <BodyTrEl key={transaction._id}>
                       <td className="date">{transaction.date}</td>
                       <td className="decs">{transaction.description}</td>
@@ -85,7 +106,7 @@ export const IncomeTablePage = () => {
                         <button
                           type="button"
                           onClick={() => {
-                            deleteTransaction(transaction._id);
+                            handleClick(transaction._id);
                           }}
                         >
                           {<DeleteBtn />}
@@ -94,7 +115,7 @@ export const IncomeTablePage = () => {
                     </BodyTrEl>
                   )),
                   ...[
-                    ...Array(Math.max(0, 21 - transactions.incomes.length)),
+                    ...Array(Math.max(0, 21 - reversedArr.length)),
                   ].map((_, index) => (
                     <tr key={`empty-${index}`} style={{display: 'flex'}}>
                       <td></td>
@@ -109,6 +130,16 @@ export const IncomeTablePage = () => {
         </table>
       </TableContainer>
     )}
+    <Summary/>
+    </TableWrapper>
+    {modal && (
+        <ConfirmModal
+          onClick={closeModal}
+          text="Are you sure?"
+          handleConfirm={() => deleteTransaction()}
+          handleCancel={() => setModal(prevState => !prevState)}
+        />
+      )}
   </>
   );
 };
