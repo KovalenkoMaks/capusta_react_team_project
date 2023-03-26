@@ -1,6 +1,5 @@
 import { Formik, Field, Form } from 'formik';
 import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { logIn, register } from 'redux/auth/operations';
 import GoogleLogin from 'components/GoogleLogin/GoogleLogin';
 import Button from 'components/Button/Button';
@@ -8,8 +7,6 @@ import { DivEl, LoginContainer, LoginBody } from './Login.styled';
 import HomePageView from 'components/HomePageView/HomePageView';
 import Header from 'components/Header/Header';
 import * as Yup from 'yup';
-import { toast } from 'react-toastify';
-const notifyEmail = () => toast('wrong Email');
 
 const LogIn = () => {
   const dispath = useDispatch();
