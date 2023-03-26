@@ -646,10 +646,9 @@ export const BodyTrEl = styled.tr`
     text-align: right;
     font-weight: 700;
 
-    margin-right: 41px;
+    margin-right: 38px;
 
     @media screen and (min-width: 1280px) {
-      padding-right: 43px;
       width: 147px;
     }
   }
