@@ -118,7 +118,6 @@ export const DivEl = styled.div`
     display: flex;
     gap: 8px;
     justify-content: center;
-    margin-top: 20px;
     @media screen and (min-width: 768px) {
       Button {
         width: 122px;

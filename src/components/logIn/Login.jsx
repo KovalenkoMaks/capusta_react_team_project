@@ -1,7 +1,6 @@
 import { Formik, Field, Form } from 'formik';
 import { useDispatch } from 'react-redux';
 import { logIn, register } from 'redux/auth/operations';
-import GoogleLogin from 'components/GoogleLogin/GoogleLogin';
 import Button from 'components/Button/Button';
 import { DivEl, LoginContainer, LoginBody } from './Login.styled';
 import HomePageView from 'components/HomePageView/HomePageView';
@@ -35,10 +34,8 @@ const LogIn = () => {
         <LoginBody>
           <HomePageView />
           <DivEl>
-            <p>You can log in with your Google Account:</p>
             <div className="login-form">
-              <GoogleLogin />
-              <p>Or log in using an email and password, after registering:</p>
+              <p>You can log in using an email and password, after registering:</p>
               <Formik
                 initialValues={initialValues}
                 onSubmit={handleSubmit}
