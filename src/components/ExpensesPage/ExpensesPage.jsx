@@ -10,19 +10,21 @@ import {
 // import { useLocation } from 'react-router';
 import { useTransactions } from 'hooks/useTransactions';
 import { getAllUserData } from 'redux/auth/operations';
+import { useAuth } from 'hooks/useAuth';
 
 export const ExpensesPage = () => {
   // const location = useLocation();
+  const { isRefreshing } = useAuth();
   const dispatch = useDispatch();
   const { categories } = useTransactions();
   useEffect(() => {
     if (categories.expenses.length > 0) return;
+    if (isRefreshing) return;
     dispatch(expenseCategories())
       .unwrap()
       .then(() => {
-        dispatch(getAllUserData());
+        // dispatch(getAllUserData());
         dispatch(getMonthStatsExpenses());
-        dispatch(getMonthStatsIncomes());
       })
       .catch(console.log);
   }, [categories.expenses.length, dispatch]);
