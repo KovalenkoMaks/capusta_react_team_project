@@ -294,6 +294,9 @@ export const FormContainer = styled.div`
 
     &:hover,
     &:focus {
+       .ant-input-suffix {
+        border-color: #ffac77;
+      }
       border-color: #ffac77;
     }
 
@@ -326,6 +329,8 @@ export const FormContainer = styled.div`
       &::placeholder {
         text-align: right;
       }
+
+
     }
   }
 
@@ -649,8 +654,9 @@ export const BodyTrEl = styled.tr`
     margin-right: 38px;
 
     @media screen and (min-width: 1280px) {
-      padding-right: 43px;
+      text-align: center;
       width: 147px;
+      margin-right: 9px;
     }
   }
 
@@ -660,11 +666,12 @@ export const BodyTrEl = styled.tr`
     color: #407946;
     text-align: right;
     font-weight: 700;
-    margin-right: 41px;
+    margin-right: 38px;
 
     @media screen and (min-width: 1280px) {
-      padding-right: 43px;
+      text-align: center;
       width: 147px;
+      margin-right: 9px;
     }
   }
 

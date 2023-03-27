@@ -4,16 +4,9 @@ import { logIn, register } from 'redux/auth/operations';
 import GoogleLogin from 'components/GoogleLogin/GoogleLogin';
 import Button from 'components/Button/Button';
 import { DivEl, LoginContainer, LoginBody } from './Login.styled';
-import { ReactComponent as SingleKapusta } from '../../images/singleKapusta.svg';
-import { ReactComponent as TwoKapustas } from '../../images/twoKapustas.svg';
-import { ReactComponent as ManyKapustas } from '../../images/kapustas.svg';
-import {
-  SingleKapustaBottEl,
-  SingleKapustaTopEl,
-  TwoKapustasEl,
-  ManyKapustasEl,
-} from 'components/Background/Background.styled';
+import HomePageView from 'components/HomePageView/HomePageView';
 import Header from 'components/Header/Header';
+import BgImage from 'components/BgImage/BgImage';
 import * as Yup from 'yup';
 
 const LogIn = () => {
@@ -35,19 +28,12 @@ const LogIn = () => {
     email: Yup.string().email('Invalid email').required('Required'),
   });
   return (
-    <>
-      <SingleKapustaTopEl>
-        <SingleKapusta />
-      </SingleKapustaTopEl>
-      <ManyKapustasEl><ManyKapustas/></ManyKapustasEl>
+  <>
       <Header />
+      <BgImage type="Login">
       <LoginContainer>
-        <SingleKapustaBottEl>
-          <SingleKapusta />
-        </SingleKapustaBottEl>
-
-        <TwoKapustasEl><TwoKapustas/></TwoKapustasEl>
         <LoginBody>
+          <HomePageView />
           <DivEl>
             <p>You can log in with your Google Account:</p>
             <div className="login-form">
@@ -113,6 +99,7 @@ const LogIn = () => {
           </DivEl>
         </LoginBody>
       </LoginContainer>
+    </BgImage>
     </>
   );
 };

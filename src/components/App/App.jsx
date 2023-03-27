@@ -79,15 +79,6 @@ export const App = () => {
               }
             />
           )}
-          <Route
-            path="/registration"
-            element={
-              <RestrictedRoute
-                component={Registration}
-                redirectTo={'/home/expenses'}
-              />
-            }
-          />
           <Route path="*" element={<NotFound />} />
         </Route>
         <Route

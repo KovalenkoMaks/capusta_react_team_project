@@ -1,11 +1,10 @@
 import styled from '@emotion/styled';
 
 export const ContentContainer = styled.div`
-max-width: 320px;
-padding: 40px 20px 52px 20px;
-margin-left: auto;
-margin-right: auto;
-
+  max-width: 320px;
+  padding: 40px 20px 52px 20px;
+  margin-left: auto;
+  margin-right: auto;
 
   @media screen and (min-width: 767.9px) {
     padding: 40px 32px 80px 32px;
