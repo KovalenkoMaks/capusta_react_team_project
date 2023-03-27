@@ -15,7 +15,10 @@ import { ToastContainer } from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.css';
 import { useAuth } from 'hooks/useAuth';
-import { expenseCategories } from 'redux/transactions/operations';
+import {
+  expenseCategories,
+  getMonthStatsExpenses,
+} from 'redux/transactions/operations';
 
 // це треба буде переробити і теж зробити Suspense i Outlet
 // бо тут теж є частинки, які не треба перерендерювати (я про Expenses i Income)
@@ -28,11 +31,12 @@ export const App = () => {
   const isSmallScreen = useIsSmallScreen();
   const { isLoggedIn } = useAuth();
   useEffect(() => {
+    dispatch(expenseCategories());
     if (!isLoggedIn) return;
     dispatch(refresh())
       .unwrap()
       .then(() => {
-        dispatch(expenseCategories());
+        dispatch(getMonthStatsExpenses());
         dispatch(getAllUserData());
       });
     // eslint-disable-next-line
