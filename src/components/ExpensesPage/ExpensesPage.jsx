@@ -23,7 +23,6 @@ export const ExpensesPage = () => {
         dispatch(getAllUserData());
         dispatch(getMonthStatsExpenses());
         dispatch(getMonthStatsIncomes());
-        // dispatch(getDataTransaction());
       })
       .catch(console.log);
   }, [categories.expenses.length, dispatch]);

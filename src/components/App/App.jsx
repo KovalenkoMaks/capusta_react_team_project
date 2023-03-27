@@ -7,13 +7,14 @@ import { lazy, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { Navigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { refresh } from 'redux/auth/operations';
+import { getAllUserData, refresh } from 'redux/auth/operations';
 import SharedLayout from 'pages/SharedLayout/SharedLayout';
 import { NotFound } from 'components/NotFound/NotFound';
 import { useIsSmallScreen } from 'hooks/useIsSmallScreen';
 import { ToastContainer } from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.css';
+import { useAuth } from 'hooks/useAuth';
 
 // це треба буде переробити і теж зробити Suspense i Outlet
 // бо тут теж є частинки, які не треба перерендерювати (я про Expenses i Income)
@@ -24,9 +25,14 @@ const Mobile = lazy(() => import('components/Mobile/Mobile'));
 export const App = () => {
   const dispatch = useDispatch();
   const isSmallScreen = useIsSmallScreen();
-
+  const { isLoggedIn } = useAuth();
   useEffect(() => {
-    dispatch(refresh());
+    if (!isLoggedIn) return;
+    dispatch(refresh())
+      .unwrap()
+      .then(() => {
+        dispatch(getAllUserData());
+      });
   }, [dispatch]);
 
   return (

@@ -122,7 +122,7 @@ export default class Chart extends Component {
   };
 
   isMobile(width) {
-    return width <= 320;
+    return width <= 768;
   }
 
   updateDimensions = () => {
