@@ -31,11 +31,11 @@ export const App = () => {
   const isSmallScreen = useIsSmallScreen();
   const { isLoggedIn } = useAuth();
   useEffect(() => {
-    dispatch(expenseCategories());
     if (!isLoggedIn) return;
     dispatch(refresh())
       .unwrap()
       .then(() => {
+        dispatch(expenseCategories());
         dispatch(getMonthStatsExpenses());
         dispatch(getAllUserData());
       });
