@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getAllUserData } from '../auth/operations';
+import { getAllUserData, logOut } from '../auth/operations';
 import {
   addAnExpense,
   addAnIncome,
@@ -91,13 +91,28 @@ export const transactionsSlice = createSlice({
         state.dataTransaction.expenses.expenseData =
           action.payload.expenses.expensesData;
       })
-      .addCase(getDataTransaction.rejected, (state, action) => {}),
+      .addCase(getDataTransaction.rejected, (state, action) => {})
+
+      //LogOut
+      .addCase(logOut.pending, (state, action) => {})
+      .addCase(logOut.fulfilled, (state, action) => {
+        state.transactions = { expenses: [], incomes: [] };
+        state.monthsStats = { expenses: {}, incomes: {} };
+        state.categories = { expenses: [], incomes: [] };
+        state.dataTransaction = {
+          expenses: { expenseTotal: '', expenseData: {} },
+          incomes: [],
+        };
+      })
+      .addCase(logOut.rejected, (state, action) => {}),
 });
-// newBalance: 4877;
-// transaction:
-//   amount: 123;
-//   category: 'Продукты';
-//   date: '2023-03-01';
-//   description: 'qweqweqwe';
-//   _id: '641c76da84b2992174d319c6';
+// initialState: {
+//     transactions: { expenses: [], incomes: [] },
+//     monthsStats: { expenses: {}, incomes: {} },
+//     categories: { expenses: [], incomes: [] },
+//     dataTransaction: {
+//       expenses: { expenseTotal: '', expenseData: {} },
+//       incomes: [],
+//     },
+//   },
 export default transactionsSlice.reducer;

@@ -18,7 +18,6 @@ export const Balance = () => {
   const dispatch = useDispatch();
 
   const onSubmit = (value, { resetForm }) => {
-    // console.log(value);
     dispatch(newBalance(value));
     resetForm();
     if (!disabled) {
