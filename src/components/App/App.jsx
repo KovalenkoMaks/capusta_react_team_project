@@ -33,6 +33,7 @@ export const App = () => {
       .then(() => {
         dispatch(getAllUserData());
       });
+    // eslint-disable-next-line
   }, [dispatch]);
 
   return (
