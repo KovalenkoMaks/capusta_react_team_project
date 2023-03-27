@@ -3,6 +3,7 @@ import { TablePage } from './TablePage/TablePage';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import {
+  expenseCategories,
   // expenseCategories,
   getMonthStatsExpenses,
 } from 'redux/transactions/operations';
@@ -20,7 +21,12 @@ export const ExpensesPage = () => {
   useEffect(() => {
     // if (categories.expenses.length > 0) return;
     if (isRefreshing) return;
-    dispatch(getMonthStatsExpenses());
+    dispatch(expenseCategories())
+      .unwrap()
+      .then(() => {
+        dispatch(getMonthStatsExpenses());
+      });
+
     // dispatch(expenseCategories())
     //   .unwrap()
     //   .then(() => {
