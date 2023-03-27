@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 export const SummaryContainer = styled.div`
-  position: relative;
+position: relative;
   display: none;
   width: 213px;
   height: 266px;
@@ -9,6 +9,19 @@ export const SummaryContainer = styled.div`
   border-radius: 20px 20px 20px 0;
   text-transform: uppercase;
   background-color: #f5f6fb;
+  &::-webkit-scrollbar {
+  width: 6px;
+}
+
+ &::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+&::-webkit-scrollbar-thumb {
+  background-color: #FF751D;
+  border-radius: 20px;
+}
+
 
   @media screen and (min-width: 768px) {
     display:block;
@@ -24,7 +37,8 @@ export const SummaryContainer = styled.div`
 `;
 
 export const Header = styled.div`
-  position: -webkit-sticky;
+position: sticky;
+top: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -34,23 +48,14 @@ export const Header = styled.div`
   line-height: 1.16;
   letter-spacing: 0.02em;
   border-bottom: 2px solid #ffffff;
+  background-color: #f5f6fb;
 `;
 export const SummaryTable = styled.table`
   background-color: #f5f6fb;
   border-collapse: collapse;
-  width: 100%;
-  overflow-y: scroll;
-  &::-webkit-scrollbar {
-    width: 10px;
-  }
 
-  &::-webkit-scrollbar-track {
-    background: #FF751D;
-  }
-  /* &::-webkit-scrollbar {
-  width: 10px;
-  background-color: #FF751D;
-} */
+  width: 100%;
+
 `;
 export const TableTbody = styled.tbody`
   border-left: none;
