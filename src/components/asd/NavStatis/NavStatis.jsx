@@ -9,7 +9,6 @@ import { monthMas } from '../Month/Month';
 import { useEffect } from 'react';
 import { Balance } from 'components/ExpensesPage/Balance/Balance';
 
-
 export const NavStatis = () => {
   const [dateNow, setDateNow] = useState(null);
   const [month, setMonth] = useState('');

@@ -28,12 +28,20 @@ export const BalanceContainer = styled.div`
     line-height: 14px;
     letter-spacing: 0.04em;
     padding-top: 14px;
+    a {
+      position: relative;
+      top: -10px;
+    }
 
     @media screen and (min-width: 768px) {
       position: absolute;
 
       right: -15px;
-      top: -4px;
+      top: 5px;
+      a {
+        position: relative;
+        top: -10px;
+      }
     }
 
     @media screen and (min-width: 1280px) {
@@ -227,7 +235,6 @@ export const FormWrapper = styled.div`
 `;
 
 export const FormContainer = styled.div`
-
   .formmm {
     display: flex;
     align-items: center;
@@ -294,7 +301,7 @@ export const FormContainer = styled.div`
 
     &:hover,
     &:focus {
-       .ant-input-suffix {
+      .ant-input-suffix {
         border-color: #ffac77;
       }
       border-color: #ffac77;
@@ -329,8 +336,6 @@ export const FormContainer = styled.div`
       &::placeholder {
         text-align: right;
       }
-
-
     }
   }
 

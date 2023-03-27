@@ -43,7 +43,6 @@ export const TablePage = () => {
       });
   };
   const { transactions } = useTransactions();
-  console.log(transactions);
   const isSmallScreen = useIsSmallScreen();
   const sortArr = [...transactions.expenses].reverse();
 

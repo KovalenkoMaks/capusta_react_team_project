@@ -12,14 +12,14 @@ export const InfoForBalance = () => {
           <td className={Style.td_Positoin}>
             <span className={Style.textCategory}>Expenses:</span>
 
-            <span className={Style.text_spentMoney}>- {expenses}.00 грн.</span>
+            <span className={Style.text_spentMoney}>- {expenses}.00 UAH.</span>
           </td>
         </tr>
         <tr className={Style.textEarned}>
           <td className={Style.td_Positoin}>
             <span className={Style.textCategory}>Income:</span>
 
-            <span className={Style.text_earnedMoney}>+ {income}.00 грн.</span>
+            <span className={Style.text_earnedMoney}>+ {income}.00 UAH.</span>
           </td>
         </tr>
       </tbody>
