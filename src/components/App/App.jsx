@@ -10,76 +10,91 @@ import { useDispatch } from 'react-redux';
 import { getAllUserData, refresh } from 'redux/auth/operations';
 import SharedLayout from 'pages/SharedLayout/SharedLayout';
 import { NotFound } from 'components/NotFound/NotFound';
-import {
-  getMonthStatsExpenses,
-  getMonthStatsIncomes,
-} from 'redux/transactions/operations';
-// import Report from 'pages/Report/Report';
+import { useIsSmallScreen } from 'hooks/useIsSmallScreen';
+import { ToastContainer } from 'react-toastify';
+import { Background } from 'components/Background/Background';
 
-const Registration = lazy(() =>
-  import('components/registrations/Registrations')
-);
+import 'react-toastify/dist/ReactToastify.css';
+import { useAuth } from 'hooks/useAuth';
+import {
+  expenseCategories,
+  getMonthStatsExpenses,
+} from 'redux/transactions/operations';
 
 // це треба буде переробити і теж зробити Suspense i Outlet
 // бо тут теж є частинки, які не треба перерендерювати (я про Expenses i Income)
 const Expenses = lazy(() => import('pages/Expenses/Expenses'));
 const Income = lazy(() => import('pages/Income/Income'));
 const Reports = lazy(() => import('pages/Report/Report'));
+const Mobile = lazy(() => import('components/Mobile/Mobile'));
 export const App = () => {
   const dispatch = useDispatch();
-
+  const isSmallScreen = useIsSmallScreen();
+  const { isLoggedIn } = useAuth();
   useEffect(() => {
+    if (!isLoggedIn) return;
     dispatch(refresh())
       .unwrap()
       .then(() => {
-        dispatch(getAllUserData());
+        dispatch(expenseCategories());
         dispatch(getMonthStatsExpenses());
-        dispatch(getMonthStatsIncomes());
-        // dispatch(getDataTransaction());
-      })
-      .catch(console.log);
+        dispatch(getAllUserData());
+      });
+    // eslint-disable-next-line
   }, [dispatch]);
 
   return (
-    <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<Navigate to="/home/expenses" />} />
+    <>
+      <Background />
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Navigate to="/home/expenses" />} />
 
-        <Route path="/home" element={<SharedLayout />}>
-          <Route path="" element={<Navigate to="/home/expenses" />} />
-          {/* <Route path="" element={<Navigate to="/home/expenses" />} /> */}
+          <Route path="/home" element={<SharedLayout />}>
+            <Route path="" element={<Navigate to="/home/expenses" />} />
+            <Route
+              path="expenses"
+              element={
+                <PrivateRoute component={Expenses} redirectTo={'/login'} />
+              }
+            />
+            <Route
+              path="income"
+              element={
+                <PrivateRoute component={Income} redirectTo={'/login'} />
+              }
+            />
+          </Route>
           <Route
-            path="expenses"
-            element={
-              <PrivateRoute component={Expenses} redirectTo={'/login'} />
-            }
+            path="reports"
+            element={<PrivateRoute component={Reports} redirectTo={'/login'} />}
           />
-          <Route
-            path="income"
-            element={<PrivateRoute component={Income} redirectTo={'/login'} />}
-          />
+          {isSmallScreen && (
+            <Route
+              path="expense-transaction"
+              element={
+                <PrivateRoute component={Mobile} redirectTo={'/login'} />
+              }
+            />
+          )}
+          {isSmallScreen && (
+            <Route
+              path="income-transaction"
+              element={
+                <PrivateRoute component={Mobile} redirectTo={'/login'} />
+              }
+            />
+          )}
+          <Route path="*" element={<NotFound />} />
         </Route>
         <Route
-          path="reports"
-          element={<PrivateRoute component={Reports} redirectTo={'/login'} />}
-        />
-        <Route
-          path="/registration"
+          path="/login"
           element={
-            <RestrictedRoute
-              component={Registration}
-              redirectTo={'/home/expenses'}
-            />
+            <RestrictedRoute component={LogIn} redirectTo={'/home/expenses'} />
           }
         />
-        <Route path="*" element={<NotFound />} />
-      </Route>
-      <Route
-        path="/login"
-        element={
-          <RestrictedRoute component={LogIn} redirectTo={'/home/expenses'} />
-        }
-      />
-    </Routes>
+      </Routes>
+      <ToastContainer autoClose={1500} />
+    </>
   );
 };

@@ -1,29 +1,26 @@
 // const { default: styled } = require('@emotion/styled');
 import styled from '@emotion/styled';
-import mobile from '../../images/backgroundMobile.svg';
-import tablet from '../../images/backgroundTablet.svg';
-import home from '../../images/backgroundHome.svg';
+// import mobile from '../../images/backgroundMobile.svg';
+// import tablet from '../../images/backgroundTablet.svg';
+// import home from '../../images/backgroundHome.svg';
 
 export const LoginContainer = styled.div`
-  max-width: 480px;
-  margin-left: auto;
-  margin-right: auto;
-  width: 320px;
-  height: 856px;
-  background-image: url(${mobile});
+
+  margin: 0 auto;
+  position: relative;
+
+  @media screen and (min-width: 480px) {
+    max-width: 320px;
+  }
 
   @media screen and (min-width: 768px) {
     max-width: 768px;
     width: 768px;
-    height:1024px;
-    background-image: url(${tablet});
   }
 
   @media screen and (min-width: 1280px) {
     max-width: 1280px;
     width: 1280px;
-    height: 850px;
-    background-image: url(${home});
   }
 `;
 
@@ -34,8 +31,14 @@ export const LoginBody = styled.div`
     justify-content: space-evenly;
     padding-left: 20px;
     padding-right: 20px;
-    width: 100%;
-    height: 100%;
+
+    @media screen and (min-width: 480px) {
+      max-width: 320px;
+    }
+
+    @media screen and (min-width: 768px) {
+      max-width: 768px;
+    }
 `;
 
 export const DivEl = styled.div`
@@ -48,11 +51,12 @@ export const DivEl = styled.div`
     line-height: 14px;
     text-align: center;
     letter-spacing: 0.04em;
-    
+    margin-top: 80px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-bottom: 105px;
 
     p {
       min-width:222px;
@@ -78,7 +82,7 @@ export const DivEl = styled.div`
   @media screen and (min-width: 768px) {
     
     max-width: 426px;
-    
+    margin-bottom: 155px;
     height: 552px;
     padding: 56px 84px;
   }
@@ -86,6 +90,8 @@ export const DivEl = styled.div`
   @media screen and (min-width: 1280px) {
     top: 173px;
     left: 60%;
+    margin-top: 0;
+    margin-bottom: 125px;
   }
 
   //

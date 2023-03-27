@@ -48,6 +48,7 @@ export default class Chart extends Component {
           fill="#000"
           textAnchor="middle"
           dominantBaseline="middle"
+
         >
           {text}
         </text>
@@ -118,56 +119,42 @@ export default class Chart extends Component {
       dValue = this.RoundedRectData(x, y, width, height, 0, 10, 10, 0);
     }
 
-    return (
-      <path
-        d={dValue}
-        stroke="none"
-        fill={fill}
-      />
-    );
+    return <path d={dValue} stroke="none" fill={fill} />;
   };
 
   isMobile(width) {
-    return width <= 320;
+    return width <= 768;
   }
 
   updateDimensions = () => {
     this.setState({ isMobile: this.isMobile(window.innerWidth) });
   };
 
-  mapData = (arg) => {
+  mapData = arg => {
     let result = [];
     if (!arg || !arg?.length) {
       return result;
     }
 
-    Object.entries(arg[1]).filter(it => it[0] !== 'total').forEach(elem => {
-      result.push({
-        name: elem[0],
-        price: elem[1],
-        currency: 'UAH',
+    Object.entries(arg[1])
+      .filter(it => it[0] !== 'total')
+      .forEach(elem => {
+        result.push({
+          name: elem[0],
+          price: elem[1],
+          currency: 'UAH',
+        });
       });
-    });
     return result;
-  }
+  };
 
-  componentWillReceiveProps(nextProps) {
-    this.setState({
-      isMobile: this.isMobile(window.innerWidth),
-      data: [
-        {
-          name: null,
-          price: null,
-          currency: null,
-        },
-        ...this.mapData(nextProps.data),
-        {
-          name: null,
-          price: null,
-          currency: null,
-        },
-      ],
-    });
+  componentDidUpdate(prevProps, _) {
+    if (prevProps !== this.props) {
+      this.setState({
+        isMobile: this.isMobile(window.innerWidth),
+        data: [...this.mapData(this.props.data)],
+      });
+    }
   }
 
   componentDidMount() {
@@ -201,7 +188,10 @@ export default class Chart extends Component {
     }
 
     return (
-      <div style={{ width: '100%', height: `${height}px`, background: 'white' }}>
+      <div
+        style={{ width: '100%', height: `${height}px`, background: 'white', boxShadow:'0px 10px 60px rgba(170, 178, 197, 0.2)',
+        borderRadius: '30px', paddingTop: '22px' }}
+      >
         <ResponsiveContainer>
           <BarChart
             data={this.state.data}
@@ -219,9 +209,13 @@ export default class Chart extends Component {
               dataKey="price"
               fill="rgb(255 176 88)"
               shape={<this.TriangleBar isMobile={this.state.isMobile} />}
-              label={<this.RenderCustomizedLabel data={this.state.data} isMobile={this.state.isMobile} />}
-            >
-            </Bar>
+              label={
+                <this.RenderCustomizedLabel
+                  data={this.state.data}
+                  isMobile={this.state.isMobile}
+                />
+              }
+            ></Bar>
           </BarChart>
         </ResponsiveContainer>
       </div>

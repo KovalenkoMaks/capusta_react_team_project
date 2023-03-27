@@ -1,0 +1,44 @@
+.mainBg {
+  background-repeat: no-repeat;
+}
+
+.mainBgLogin {
+  background-image: url(../../images/singleKapusta.svg),
+    url(../../images/singleKapustaRotate.svg);
+  background-size: auto, auto;
+  background-position: left 35px bottom, top 104px right 0;
+}
+
+@media screen and (min-width: 768px) {
+
+  .mainBgLogin {
+    background-image: url(../../images/kapustas.svg),
+      url(../../images/twoKapustas.svg);
+    background-position: left 0 top 28px, left calc(50% - 200px) bottom 50px;
+    background-size: auto, auto;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+
+  .mainBgLogin {
+    background-image: url(../../images/twoKapustas.svg),
+      url(../../images/kapustas.svg);
+    animation: kapusta-main-desktop 4s linear infinite;
+  }
+}
+
+@keyframes kapusta-main-desktop {
+  0% {
+    background-position: left calc(50% - 311px) bottom 100px, left 0 top 28px,
+      left top;
+  }
+  50% {
+    background-position: left calc(50% - 311px) bottom 120px, left 0 top 66px,
+      left top;
+  }
+  100% {
+    background-position: left calc(50% - 311px) bottom 100px, left 0 top 28px,
+      left top;
+  }
+}

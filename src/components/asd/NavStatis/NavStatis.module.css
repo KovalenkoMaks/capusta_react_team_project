@@ -3,7 +3,7 @@ p {
   padding: 0;
 }
 
-@media screen and (min-width: 320px) and (max-width: 767px) {
+@media screen and (min-width: 320px) and (max-width: 767.9px) {
   .topСontainer {
     display: flex;
     flex-direction: column-reverse;
@@ -36,7 +36,7 @@ p {
   }
 }
 
-@media screen and (min-width: 320px) and (max-width: 767px) {
+@media screen and (min-width: 320px) and (max-width: 767.9px) {
   .button_goHomeArrowText {
     display: none;
   }
@@ -53,11 +53,12 @@ p {
   }
 }
 
-@media screen and (min-width: 320px) and (max-width: 767px) {
+@media screen and (min-width: 320px) and (max-width: 767.9px) {
   .button_goHomeArrow {
     position: absolute;
-    top: 22px;
-    left: 23px;
+    top: -30px;
+    left: 0;
+    padding: 6px 3px;
   }
 }
 
@@ -79,13 +80,13 @@ p {
   }
 }
 
-@media screen and (min-width: 320px) and (max-width: 767px) {
+@media screen and (min-width: 320px) and (max-width: 767.9px) {
   .month_switch {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-bottom: 32px;
-    margin-top: 56px;
+    margin-top: 16px;
   }
 }
 

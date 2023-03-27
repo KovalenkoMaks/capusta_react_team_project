@@ -5,25 +5,27 @@ import { Suspense } from 'react';
 import { Loader } from 'components/Loader/Loader';
 import { InputForm } from 'components/ExpensesPage/Form/Form';
 import { FormWrapper } from 'components/ExpensesPage/ExpensesPage.styled';
-import { TabletDesctopWrapper } from 'components/ExpensesPage/ExpensesPage.styled';
 import { NavMobile } from 'components/Mobile/NavMobile';
+import { useIsSmallScreen } from 'hooks/useIsSmallScreen';
+import { ExpensCont } from 'components/ExpensesPage/ExpensesPage.styled';
 
 const SharedLayout = () => {
+  const isSmallScreen = useIsSmallScreen()           ;
   return (
-    <div>
-      <NavMobile />
-      <Balance />
-      <NavigationLinks />
-      <FormWrapper>
-        <TabletDesctopWrapper>
-          <InputForm />
-        </TabletDesctopWrapper>
-
-        <Suspense fallback={<Loader />}>
-          <Outlet />
-        </Suspense>
-      </FormWrapper>
-    </div>
+    <>
+      {isSmallScreen && <NavigationLinks />}
+      <ExpensCont>
+        {isSmallScreen && <NavMobile />}
+        <Balance />
+        {!isSmallScreen && <NavigationLinks />}
+        <FormWrapper>
+          {!isSmallScreen && <InputForm />}
+          <Suspense fallback={<Loader />}>
+            <Outlet />
+          </Suspense>
+        </FormWrapper>
+      </ExpensCont>
+    </>
   );
 };
 

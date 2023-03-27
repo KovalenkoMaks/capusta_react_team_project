@@ -7,27 +7,40 @@ import { newBalance } from 'redux/transactions/operations';
 import { ReactComponent as Reports } from '../../../images/bar_chart.svg';
 import { BalanceContainer } from '../ExpensesPage.styled';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import BalanceModal from './BalanceModal';
 
 export const Balance = () => {
   const { transactions } = useTransactions();
-  const { balance } = useAuth();
-
-  let disabled = transactions.incomes.length === 0 && balance === 0;
-
+  const { balance, isRefreshing } = useAuth();
+  const [promptClose, setPromptClose] = useState(true);
+  let disabled = !(transactions.expenses.length === 0 && balance === 0);
   const dispatch = useDispatch();
+
   const onSubmit = (value, { resetForm }) => {
-    // console.log(value);
     dispatch(newBalance(value));
     resetForm();
+    if (!disabled) {
+      setPromptClose(prev => !prev);
+    }
   };
-  const showReport = !window.location.href.endsWith("reports");
-
+  const showReport = !window.location.href.endsWith('reports');
+  const toggleWindow = () => {
+    setPromptClose(prev => !prev);
+  };
   return (
     <BalanceContainer>
-      <div className="centered-container">
-        <Typography level={5} className="title">
-          Balance:
-        </Typography>
+      {showReport ? (
+        <Button type="text" className="reports">
+          <Link to="/reports">
+            Reports <Reports />
+          </Link>
+        </Button>
+      ) : null}
+      <Typography level={5} className="title">
+        Balance:
+      </Typography>
+      <div>
         <Formik initialValues={{ newBalance: '' }} onSubmit={onSubmit}>
           {({ values, handleChange, handleBlur, handleSubmit }) => (
             <Form onSubmit={handleSubmit}>
@@ -39,28 +52,34 @@ export const Balance = () => {
                     // value={values.name}
                     onChange={handleChange}
                     onBlur={handleBlur}
+                    className="input"
                     // disabled={!disabled}
-                    readOnly={!disabled}
+                    readOnly={disabled}
                   />
                 )}
               </Field>
-              {disabled ? (
+
+              {!isRefreshing && promptClose && !disabled && (
+                <BalanceModal onClose={toggleWindow} />
+              )}
+              {!disabled ? (
                 <Button type="text" htmlType="submit" className="button">
                   Confirm
                 </Button>
-              ) : null}
+              ) : (
+                <Button
+                  type="text"
+                  htmlType="submit"
+                  disabled
+                  className="button"
+                >
+                  Confirm
+                </Button>
+              )}
             </Form>
           )}
         </Formik>
       </div>
-      {
-        showReport ? <div className='report-btn'>
-          <Button type="text" className="reports">
-            <Link to='/reports'>Reports <Reports /></Link>
-          </Button>
-        </div> : null
-      }
-
     </BalanceContainer>
   );
 };
