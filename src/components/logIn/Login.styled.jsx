@@ -5,7 +5,6 @@ import styled from '@emotion/styled';
 // import home from '../../images/backgroundHome.svg';
 
 export const LoginContainer = styled.div`
-
   margin: 0 auto;
   position: relative;
 
@@ -25,20 +24,23 @@ export const LoginContainer = styled.div`
 `;
 
 export const LoginBody = styled.div`
-    align-items: center;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    padding-left: 20px;
-    padding-right: 20px;
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding-left: 20px;
+  padding-right: 20px;
 
-    @media screen and (min-width: 480px) {
-      max-width: 320px;
-    }
+  @media screen and (min-width: 480px) {
+    max-width: 320px;
+  }
 
-    @media screen and (min-width: 768px) {
-      max-width: 768px;
-    }
+  @media screen and (min-width: 768px) {
+    max-width: 768px;
+  }
+  @media screen and (min-width: 1279.9px) {
+    max-width: 1280px;
+  }
 `;
 
 export const DivEl = styled.div`
@@ -59,7 +61,7 @@ export const DivEl = styled.div`
     margin-bottom: 105px;
 
     p {
-      min-width:222px;
+      min-width: 222px;
       text-align: center;
       padding-left: 29px;
       padding-right: 29px;
@@ -80,7 +82,6 @@ export const DivEl = styled.div`
   }
 
   @media screen and (min-width: 768px) {
-
     max-width: 426px;
     margin-bottom: 155px;
     height: 552px;
@@ -90,11 +91,10 @@ export const DivEl = styled.div`
   @media screen and (min-width: 1280px) {
     top: 173px;
     left: 60%;
-    margin-top: 0;
-    margin-bottom: 125px;
+    margin-top: 117 px;
+    margin-bottom: 0;
   }
 
-  //
   box-shadow: 5px 10px 20px rgba(170, 178, 197, 0.4);
   Form {
     display: flex;
