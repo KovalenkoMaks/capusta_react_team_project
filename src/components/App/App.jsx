@@ -12,6 +12,7 @@ import SharedLayout from 'pages/SharedLayout/SharedLayout';
 import { NotFound } from 'components/NotFound/NotFound';
 import { useIsSmallScreen } from 'hooks/useIsSmallScreen';
 import { ToastContainer } from 'react-toastify';
+import { Background } from 'components/Background/Background';
 
 import 'react-toastify/dist/ReactToastify.css';
 import { useAuth } from 'hooks/useAuth';
@@ -44,6 +45,7 @@ export const App = () => {
 
   return (
     <>
+      <Background />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Navigate to="/home/expenses" />} />
@@ -69,7 +71,15 @@ export const App = () => {
           />
           {isSmallScreen && (
             <Route
-              path="transaction"
+              path="expense-transaction"
+              element={
+                <PrivateRoute component={Mobile} redirectTo={'/login'} />
+              }
+            />
+          )}
+          {isSmallScreen && (
+            <Route
+              path="income-transaction"
               element={
                 <PrivateRoute component={Mobile} redirectTo={'/login'} />
               }

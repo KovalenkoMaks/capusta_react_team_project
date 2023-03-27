@@ -6,6 +6,7 @@ import Button from 'components/Button/Button';
 import { DivEl, LoginContainer, LoginBody } from './Login.styled';
 import HomePageView from 'components/HomePageView/HomePageView';
 import Header from 'components/Header/Header';
+import BgImage from 'components/BgImage/BgImage';
 import * as Yup from 'yup';
 
 const LogIn = () => {
@@ -27,9 +28,10 @@ const LogIn = () => {
     email: Yup.string().email('Invalid email').required('Required'),
   });
   return (
-    <>
+  <>
+      <Header />
+      <BgImage type="Login">
       <LoginContainer>
-        <Header />
         <LoginBody>
           <HomePageView />
           <DivEl>
@@ -97,6 +99,7 @@ const LogIn = () => {
           </DivEl>
         </LoginBody>
       </LoginContainer>
+    </BgImage>
     </>
   );
 };

@@ -37,7 +37,7 @@ export const InputForm = () => {
   // });
   // location.pathname === '/home/expenses';
   let items = [];
-  location.pathname === '/home/expenses'
+  location.pathname === '/home/expenses' || location.pathname === '/expense-transaction'
     ? (items = categories.expenses.map(e => {
         return { value: e, label: e };
       }))
@@ -60,14 +60,14 @@ export const InputForm = () => {
     query.amount = Number(query.amount);
     query.amount = Number(query.amount.toFixed(0));
     resetForm();
-    if (location.pathname === '/home/expenses') {
+    if (location.pathname === '/home/expenses' || location.pathname === '/expense-transaction') {
       dispatch(addAnExpense(query))
         .unwrap()
         .then(() => {
           dispatch(getMonthStatsExpenses());
         });
     }
-    if (location.pathname === '/home/income') {
+    if (location.pathname === '/home/income' || location.pathname === '/income-transaction') {
       dispatch(addAnIncome(query))
         .unwrap()
         .then(() => {
@@ -132,7 +132,7 @@ export const InputForm = () => {
                   />
                 )}
               </Field>
-              <div style={{ width: '165px' }}>
+              <div >
                 <FieldEl
                   name="category"
                   as={Select}

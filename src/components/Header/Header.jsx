@@ -7,7 +7,7 @@ import { useAuth } from 'hooks/useAuth.js';
 export default function Header() {
   const { isLoggedIn } = useAuth();
   return (
-    <>
+    <div style={{height: '54px', width: '100vw', backgroundColor: '#ffffff'}}>
       <Container>
         <Link to="/home/expenses" alt="homepage">
           <LogoIcon />
@@ -20,6 +20,6 @@ export default function Header() {
           </>
         )}
       </Container>
-    </>
+    </div>
   );
 }

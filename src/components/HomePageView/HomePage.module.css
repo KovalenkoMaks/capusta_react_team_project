@@ -1,83 +1,84 @@
 @media screen and (min-width: 320px) {
-    .titleWord {
-        margin: 0;
-        font-size: 51px;
-        font-weight: 900;
-        line-height: calc(1.18);
-        text-transform: none;
-        color: rgb(0, 0, 0);
-    }
+  .titleWord {
+    margin: 0;
+    font-size: 51px;
+    font-weight: 900;
+    line-height: calc(1.18);
+    text-transform: none;
+    color: rgb(0, 0, 0);
+  }
 
-    .titleLetter {
-        font-weight: 900;
-        font-size: 39px;
-    }
+  .titleLetter {
+    font-weight: 900;
+    font-size: 39px;
+  }
 
-    .titleText {
-        margin: 0;
-        padding: 0;
-        padding-top: 3px;
-        padding-left: 14px;
-        font-family: 'Roboto';
-        font-style: normal;
-        font-weight: 700;
-        font-size: 13px;
-        line-height: 15px;
-        letter-spacing: 0.15em;
-        text-transform: uppercase;
-        color: #52555F;
-    }
+  .titleText {
+    margin: 0;
+    padding: 0;
+    padding-top: 3px;
+    padding-left: 14px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 15px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #52555f;
+  }
 }
 
 @media screen and (min-width: 768px) {
-    .titleWord {
-        margin: 0;
-        font-size: 87px;
-        font-weight: 900;
-        text-transform: none;
-        color: rgb(0, 0, 0);
-    }
+  .title {
+    width: 426px;
+    margin-top: 80px;
+  }
 
-    .titleLetter {
-        font-weight: 900;
-        font-size: 65px;
-    }
+  .titleWord {
+    margin: 0;
+    font-size: 87px;
+    font-weight: 900;
+    text-transform: none;
+    color: rgb(0, 0, 0);
+  }
 
-    .titleText {
-        margin: 0;
-        padding: 0;
-        padding-left: 62px;
-        font-size: 16px;
-        line-height: 19px;
-        letter-spacing: 0.18em;
+  .titleLetter {
+    font-weight: 900;
+    font-size: 65px;
+  }
 
-    }
-
-
+  .titleText {
+    margin: 0;
+    padding: 0;
+    padding-left: 62px;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: 0.18em;
+  }
 }
 
 @media screen and (min-width: 1280px) {
-    .titleWord {
-        margin: 0;
-        padding: 0;
-        font-size: 102px;
-        font-weight: 900;
-        text-transform: none;
-        color: rgb(0, 0, 0);
-    }
+  .titleWord {
+    margin: 0;
+    padding: 0;
+    font-size: 102px;
+    font-weight: 900;
+    text-transform: none;
+    color: rgb(0, 0, 0);
+  }
 
-    .titleLetter {
-        font-weight: 900;
-        font-size: 78px;
-    }
+  .titleLetter {
+    font-weight: 900;
+    font-size: 78px;
+  }
 
-    .titleText {
-        margin: 0;
-        padding: 0;
-        padding-left: 70px;
-        font-size: 16px;
-        line-height: 19px;
-        letter-spacing: 0.18em;
-
-    }
+  .titleText {
+    margin: 0;
+    padding: 0;
+    padding-left: 70px;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: 0.18em;
+  }
 }

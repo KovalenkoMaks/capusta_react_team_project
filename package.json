@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://KovalenkoMaks.github.io/capusta_react_team_project/",
   "dependencies": {
+    "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
     "@react-oauth/google": "^0.9.0",
     "@reduxjs/toolkit": "^1.9.3",
