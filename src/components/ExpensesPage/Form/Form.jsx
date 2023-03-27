@@ -37,7 +37,8 @@ export const InputForm = () => {
   // });
   // location.pathname === '/home/expenses';
   let items = [];
-  location.pathname === '/home/expenses' || location.pathname === '/expense-transaction'
+  location.pathname === '/home/expenses' ||
+  location.pathname === '/expense-transaction'
     ? (items = categories.expenses.map(e => {
         return { value: e, label: e };
       }))
@@ -60,14 +61,20 @@ export const InputForm = () => {
     query.amount = Number(query.amount);
     query.amount = Number(query.amount.toFixed(0));
     resetForm();
-    if (location.pathname === '/home/expenses' || location.pathname === '/expense-transaction') {
+    if (
+      location.pathname === '/home/expenses' ||
+      location.pathname === '/expense-transaction'
+    ) {
       dispatch(addAnExpense(query))
         .unwrap()
         .then(() => {
           dispatch(getMonthStatsExpenses());
         });
     }
-    if (location.pathname === '/home/income' || location.pathname === '/income-transaction') {
+    if (
+      location.pathname === '/home/income' ||
+      location.pathname === '/income-transaction'
+    ) {
       dispatch(addAnIncome(query))
         .unwrap()
         .then(() => {
@@ -95,32 +102,37 @@ export const InputForm = () => {
             touched,
           }) => (
             <Form onSubmit={handleSubmit} className="formmm">
-              {!isSmallScreen && <Field name="date">
-                {({ field }) => (
-                  <DatePicker
-                    {...field}
-                    onChange={date =>
-                      handleChange({
-                        target: {
-                          name: 'date',
-                          value: date,
-                        },
-                      })
-                    }
-                    defaultValue={initialValues.date.toDate()}
-                    placeholder={initialValues.date.format('YYYY-MM-DD')}
-                    onBlur={handleBlur}
-                    format={dateFormat}
-                    bordered={false}
-                    suffixIcon={calendarIcon}
-                    size="middle"
-                    name="date"
-                    label="date"
-                    style={{ paddingLeft: '0', width: '100%', maxWidth: '120px' }}
-                    
-                  />
-                )}
-              </Field>}
+              {!isSmallScreen && (
+                <Field name="date">
+                  {({ field }) => (
+                    <DatePicker
+                      {...field}
+                      onChange={date =>
+                        handleChange({
+                          target: {
+                            name: 'date',
+                            value: date,
+                          },
+                        })
+                      }
+                      defaultValue={initialValues.date.toDate()}
+                      // placeholder={initialValues.date.format('YYYY-MM-DD')}
+                      onBlur={handleBlur}
+                      format={dateFormat}
+                      bordered={false}
+                      suffixIcon={calendarIcon}
+                      size="middle"
+                      name="date"
+                      label="date"
+                      style={{
+                        paddingLeft: '0',
+                        width: '100%',
+                        maxWidth: '120px',
+                      }}
+                    />
+                  )}
+                </Field>
+              )}
               <Field name="description">
                 {({ field }) => (
                   <Input
@@ -132,41 +144,47 @@ export const InputForm = () => {
                   />
                 )}
               </Field>
-              <div >
+              <div>
                 <FieldEl
                   name="category"
                   as={Select}
                   placeholder={initialValues.category}
                   onChange={value => setFieldValue('category', value)}
                   options={items}
-                  className='category'
+                  className="category"
                 ></FieldEl>
               </div>
-              {isSmallScreen && <Field name="date">
-                {({ field }) => (
-                  <DatePicker
-                    {...field}
-                    onChange={date =>
-                      handleChange({
-                        target: {
-                          name: 'date',
-                          value: date,
-                        },
-                      })
-                    }
-                    onBlur={handleBlur}
-                    placeholder={dayjs().format(dateFormat)}
-                    format={dateFormat}
-                    bordered={false}
-                    suffixIcon={calendarIcon}
-                    size="middle"
-                    name="date"
-                    label="date"
-                    style={{ paddingLeft: '0', width: '100%', maxWidth: '120px', marginRight: '20px' }}
-                    
-                  />
-                )}
-              </Field>}
+              {isSmallScreen && (
+                <Field name="date">
+                  {({ field }) => (
+                    <DatePicker
+                      {...field}
+                      onChange={date =>
+                        handleChange({
+                          target: {
+                            name: 'date',
+                            value: date,
+                          },
+                        })
+                      }
+                      onBlur={handleBlur}
+                      placeholder={dayjs().format(dateFormat)}
+                      format={dateFormat}
+                      bordered={false}
+                      suffixIcon={calendarIcon}
+                      size="middle"
+                      name="date"
+                      label="date"
+                      style={{
+                        paddingLeft: '0',
+                        width: '100%',
+                        maxWidth: '120px',
+                        marginRight: '20px',
+                      }}
+                    />
+                  )}
+                </Field>
+              )}
 
               <Field name="amount">
                 {({ field }) => (
@@ -190,18 +208,17 @@ export const InputForm = () => {
                   border="none"
                   textColor="#fff"
                   className="submitBtn"
-                  text='Input'
-                >
-                </Button>
+                  text="Input"
+                ></Button>
                 <Button
-                  type='button'
+                  type="button"
                   width="125px"
                   disabled={false}
                   onClick={() => resetForm()}
                   backgroundColor="transparent"
-                  border='2px solid #F6F7FC'
-                  textColor='#52555F'
-                  text='Clear'
+                  border="2px solid #F6F7FC"
+                  textColor="#52555F"
+                  text="Clear"
                 >
                   Clear
                 </Button>
