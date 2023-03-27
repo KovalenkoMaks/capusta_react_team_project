@@ -8,7 +8,7 @@ import {
   getMonthStatsExpenses,
 } from 'redux/transactions/operations';
 // import { useLocation } from 'react-router';
-// import { useTransactions } from 'hooks/useTransactions';
+import { useTransactions } from 'hooks/useTransactions';
 
 import { useAuth } from 'hooks/useAuth';
 // import { getAllUserData } from 'redux/auth/operations';
@@ -17,9 +17,9 @@ export const ExpensesPage = () => {
   // const location = useLocation();
   const { isRefreshing } = useAuth();
   const dispatch = useDispatch();
-  // const { categories } = useTransactions();
+  const { categories } = useTransactions();
   useEffect(() => {
-    // if (categories.expenses.length > 0) return;
+    if (categories.expenses.length > 0) return;
     if (isRefreshing) return;
     dispatch(expenseCategories())
       .unwrap()
