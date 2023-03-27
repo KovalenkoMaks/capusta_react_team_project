@@ -77,6 +77,7 @@ export const App = () => {
               }
             />
           )}
+          {!isSmallScreen && (<Route path='expense-transaction' element={<Navigate to="/home/expenses" />}/>)}
           {isSmallScreen && (
             <Route
               path="income-transaction"
@@ -85,6 +86,7 @@ export const App = () => {
               }
             />
           )}
+          {!isSmallScreen && (<Route path='income-transaction' element={<Navigate to="/home/income" />}/>)}
           <Route path="*" element={<NotFound />} />
         </Route>
         <Route
