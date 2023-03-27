@@ -10,8 +10,8 @@ export default function Button({
   border,
   textColor,
   filter,
-}){
-
+  id,
+}) {
   return (
     <>
       <StyledBtn
@@ -22,8 +22,11 @@ export default function Button({
         backgroundColor={backgroundColor}
         border={border}
         textColor={textColor}
-        filter ={filter}
-      >{text}</StyledBtn>
+        filter={filter}
+        id={id}
+      >
+        {text}
+      </StyledBtn>
     </>
   );
 }

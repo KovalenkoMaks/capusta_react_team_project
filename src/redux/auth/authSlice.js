@@ -49,9 +49,13 @@ export const authSlice = createSlice({
       .addCase(logIn.rejected, (state, action) => {})
 
       //LogOut
+      .addCase(logOut.pending, (state, action) => {
+        state.isLoggedIn = false;
+      })
       .addCase(logOut.fulfilled, (state, action) => {
         state.user = { balance: '', email: '', id: '' };
         state.isLoggedIn = false;
+        state.isRefreshing = false;
         state.sid = '';
         state.accessToken = '';
         state.refreshToken = '';

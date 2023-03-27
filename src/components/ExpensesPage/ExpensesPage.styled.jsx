@@ -649,6 +649,7 @@ export const BodyTrEl = styled.tr`
     margin-right: 38px;
 
     @media screen and (min-width: 1280px) {
+      padding-right: 43px;
       width: 147px;
     }
   }

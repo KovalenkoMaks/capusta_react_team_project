@@ -16,11 +16,9 @@ export const Modal = styled.div`
   flex-direction: column;
   align-items: center;
   cursor: pointer;
-
   @media screen and (min-width: 768px) {
     top: 63px;
   }
-
   &:before {
     content: '';
     position: absolute;
