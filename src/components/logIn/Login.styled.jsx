@@ -42,7 +42,7 @@ export const LoginBody = styled.div`
 `;
 
 export const DivEl = styled.div`
-  @media screen and (min-width: 320px) { 
+  @media screen and (min-width: 320px) {
     max-width: 280px;
     height: 496px;
     background-color: #fff;
@@ -70,7 +70,7 @@ export const DivEl = styled.div`
       flex-direction: column;
       padding-left: 20px;
       padding-right: 20px;
-      
+
       p {
         text-align: start;
         padding-left: unset;
@@ -80,7 +80,7 @@ export const DivEl = styled.div`
   }
 
   @media screen and (min-width: 768px) {
-    
+
     max-width: 426px;
     margin-bottom: 155px;
     height: 552px;
@@ -118,7 +118,6 @@ export const DivEl = styled.div`
     display: flex;
     gap: 8px;
     justify-content: center;
-    margin-top: 20px;
     @media screen and (min-width: 768px) {
       Button {
         width: 122px;
