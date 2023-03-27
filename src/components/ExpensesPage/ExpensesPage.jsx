@@ -5,11 +5,10 @@ import { useDispatch } from 'react-redux';
 import {
   expenseCategories,
   getMonthStatsExpenses,
-  getMonthStatsIncomes,
 } from 'redux/transactions/operations';
 // import { useLocation } from 'react-router';
 import { useTransactions } from 'hooks/useTransactions';
-import { getAllUserData } from 'redux/auth/operations';
+
 import { useAuth } from 'hooks/useAuth';
 
 export const ExpensesPage = () => {
@@ -27,7 +26,8 @@ export const ExpensesPage = () => {
         dispatch(getMonthStatsExpenses());
       })
       .catch(console.log);
-  }, [categories.expenses.length, dispatch]);
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <>
