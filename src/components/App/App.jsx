@@ -15,6 +15,7 @@ import { ToastContainer } from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.css';
 import { useAuth } from 'hooks/useAuth';
+import { expenseCategories } from 'redux/transactions/operations';
 
 // це треба буде переробити і теж зробити Suspense i Outlet
 // бо тут теж є частинки, які не треба перерендерювати (я про Expenses i Income)
@@ -31,6 +32,7 @@ export const App = () => {
     dispatch(refresh())
       .unwrap()
       .then(() => {
+        dispatch(expenseCategories());
         dispatch(getAllUserData());
       });
     // eslint-disable-next-line
