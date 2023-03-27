@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/capusta_react_team_project/static/css/main.56e94715.css",
-    "main.js": "/capusta_react_team_project/static/js/main.647c6f4a.js",
+    "main.js": "/capusta_react_team_project/static/js/main.dcae11f2.js",
     "static/js/283.4fa0afdf.chunk.js": "/capusta_react_team_project/static/js/283.4fa0afdf.chunk.js",
     "static/js/977.09ba74c6.chunk.js": "/capusta_react_team_project/static/js/977.09ba74c6.chunk.js",
     "static/css/475.45dcdf6e.chunk.css": "/capusta_react_team_project/static/css/475.45dcdf6e.chunk.css",
@@ -16,7 +16,6 @@
     "static/media/singleKapusta.svg": "/capusta_react_team_project/static/media/singleKapusta.61c8014b229fe554186f.svg",
     "static/media/logoIcon.svg": "/capusta_react_team_project/static/media/logoIcon.9a1219fa7b0c5ccef923ebbd77f9ee7b.svg",
     "static/media/calendar.svg": "/capusta_react_team_project/static/media/calendar.d58d6bfbc2c68ee135620551a62695bf.svg",
-    "static/media/google.svg": "/capusta_react_team_project/static/media/google.45390fe8c864f6ba12f2fcaab8463918.svg",
     "static/media/calculator.svg": "/capusta_react_team_project/static/media/calculator.548cfa77d066c8000a1216da93e9d1fb.svg",
     "static/media/deleteTable.svg": "/capusta_react_team_project/static/media/deleteTable.635b5bb669cfd7feae3f424e39d2874c.svg",
     "index.html": "/capusta_react_team_project/index.html",
@@ -25,7 +24,7 @@
     "static/media/arrowGoBack.svg": "/capusta_react_team_project/static/media/arrowGoBack.82d4509b95f1253d62e9ff291dbf5cef.svg",
     "static/media/closeIcon.svg": "/capusta_react_team_project/static/media/closeIcon.725652eddfe0bd34d7c252763578a80c.svg",
     "main.56e94715.css.map": "/capusta_react_team_project/static/css/main.56e94715.css.map",
-    "main.647c6f4a.js.map": "/capusta_react_team_project/static/js/main.647c6f4a.js.map",
+    "main.dcae11f2.js.map": "/capusta_react_team_project/static/js/main.dcae11f2.js.map",
     "283.4fa0afdf.chunk.js.map": "/capusta_react_team_project/static/js/283.4fa0afdf.chunk.js.map",
     "977.09ba74c6.chunk.js.map": "/capusta_react_team_project/static/js/977.09ba74c6.chunk.js.map",
     "475.45dcdf6e.chunk.css.map": "/capusta_react_team_project/static/css/475.45dcdf6e.chunk.css.map",
@@ -35,6 +34,6 @@
   },
   "entrypoints": [
     "static/css/main.56e94715.css",
-    "static/js/main.647c6f4a.js"
+    "static/js/main.dcae11f2.js"
   ]
 }
