@@ -7,7 +7,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   height: 100vh;
   color: #52555f;
-  background-color: #f2f5fc;
+  background-color: transparent;
   /* max-width: max-content; */
 }
 

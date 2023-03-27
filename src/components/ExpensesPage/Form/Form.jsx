@@ -37,7 +37,7 @@ export const InputForm = () => {
   // });
   // location.pathname === '/home/expenses';
   let items = [];
-  location.pathname === '/home/expenses'
+  location.pathname === '/home/expenses' || location.pathname === '/expense-transaction'
     ? (items = categories.expenses.map(e => {
         return { value: e, label: e };
       }))

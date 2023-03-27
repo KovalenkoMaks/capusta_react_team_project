@@ -5,7 +5,15 @@ import { logIn } from 'redux/auth/operations';
 import GoogleLogin from 'components/GoogleLogin/GoogleLogin';
 import Button from 'components/Button/Button';
 import { DivEl, LoginContainer, LoginBody } from './Login.styled';
-import HomePageView from 'components/HomePageView/HomePageView';
+import { ReactComponent as SingleKapusta } from '../../images/singleKapusta.svg';
+import { ReactComponent as TwoKapustas } from '../../images/twoKapustas.svg';
+import { ReactComponent as ManyKapustas } from '../../images/kapustas.svg';
+import {
+  SingleKapustaBottEl,
+  SingleKapustaTopEl,
+  TwoKapustasEl,
+  ManyKapustasEl,
+} from 'components/Background/Background.styled';
 import Header from 'components/Header/Header';
 import * as Yup from 'yup';
 import { toast } from 'react-toastify';
@@ -26,10 +34,18 @@ const LogIn = () => {
   });
   return (
     <>
+      <SingleKapustaTopEl>
+        <SingleKapusta />
+      </SingleKapustaTopEl>
+      <ManyKapustasEl><ManyKapustas/></ManyKapustasEl>
+      <Header />
       <LoginContainer>
-        <Header />
+        <SingleKapustaBottEl>
+          <SingleKapusta />
+        </SingleKapustaBottEl>
+
+        <TwoKapustasEl><TwoKapustas/></TwoKapustasEl>
         <LoginBody>
-          <HomePageView />
           <DivEl>
             <p>You can log in with your Google Account:</p>
             <div className="login-form">

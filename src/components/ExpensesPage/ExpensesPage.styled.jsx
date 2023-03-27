@@ -1,5 +1,4 @@
 import { NavLink } from 'react-router-dom';
-import img from '../../images/backHomePage.svg';
 
 const { default: styled } = require('@emotion/styled');
 
@@ -11,7 +10,6 @@ export const BalanceContainer = styled.div`
 
   @media screen and (min-width: 768px) {
     position: relative;
-    margin-top: 40px;
     flex-direction: row;
     justify-content: flex-start;
     margin-bottom: 60px;
@@ -22,7 +20,6 @@ export const BalanceContainer = styled.div`
     justify-content: center;
     margin-bottom: 8px;
     margin-left: 0;
-    margin-top: 0;
   }
 
   .reports {
@@ -152,10 +149,12 @@ export const ExpensCont = styled.div`
     max-width: 704px;
   }
 
-  background-image: url(${img});
+  @media screen and (min-width: 760px) and (max-width: 1279.9px) {
+    margin-bottom: 298px;
+  }
+
   @media screen and (min-width: 1280px) {
     max-width: 1098px;
-    height: 850px;
     margin-left: -29px;
   }
 `;
@@ -228,6 +227,7 @@ export const FormWrapper = styled.div`
 `;
 
 export const FormContainer = styled.div`
+
   .formmm {
     display: flex;
     align-items: center;

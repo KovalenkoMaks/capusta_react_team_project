@@ -12,6 +12,7 @@ import SharedLayout from 'pages/SharedLayout/SharedLayout';
 import { NotFound } from 'components/NotFound/NotFound';
 import { useIsSmallScreen } from 'hooks/useIsSmallScreen';
 import { ToastContainer } from 'react-toastify';
+import { Background } from 'components/Background/Background';
 
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -35,13 +36,14 @@ export const App = () => {
 
   return (
     <>
+      <Background />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Navigate to="/home/expenses" />} />
 
           <Route path="/home" element={<SharedLayout />}>
             <Route path="" element={<Navigate to="/home/expenses" />} />
-              <Route
+            <Route
               path="expenses"
               element={
                 <PrivateRoute component={Expenses} redirectTo={'/login'} />
@@ -59,12 +61,22 @@ export const App = () => {
             element={<PrivateRoute component={Reports} redirectTo={'/login'} />}
           />
           {isSmallScreen && (
+            <Route
+              path="expense-transaction"
+              element={
+                <PrivateRoute component={Mobile} redirectTo={'/login'} />
+              }
+            />
+          )}
+          {isSmallScreen && (
+            <Route
+              path="income-transaction"
+              element={
+                <PrivateRoute component={Mobile} redirectTo={'/login'} />
+              }
+            />
+          )}
           <Route
-            path="transaction"
-            element={<PrivateRoute component={Mobile} redirectTo={'/login'} />}
-          />
-        )}
-        <Route
             path="/registration"
             element={
               <RestrictedRoute

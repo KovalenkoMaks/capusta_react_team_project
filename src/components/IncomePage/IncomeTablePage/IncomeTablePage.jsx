@@ -43,7 +43,7 @@ export const IncomeTablePage = () => {
     <>
     <TableWrapper>
     {isSmallScreen ? (
-      <div style={{marginTop: '60px'}}>
+      <div style={{marginTop: '125px'}}>
         {reversedArr.length === 0 ? (
           <></>
         ) : (

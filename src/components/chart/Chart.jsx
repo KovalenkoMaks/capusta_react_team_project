@@ -48,6 +48,7 @@ export default class Chart extends Component {
           fill="#000"
           textAnchor="middle"
           dominantBaseline="middle"
+
         >
           {text}
         </text>
@@ -188,7 +189,8 @@ export default class Chart extends Component {
 
     return (
       <div
-        style={{ width: '100%', height: `${height}px`, background: 'white' }}
+        style={{ width: '100%', height: `${height}px`, background: 'white', boxShadow:'0px 10px 60px rgba(170, 178, 197, 0.2)',
+        borderRadius: '30px', paddingTop: '22px' }}
       >
         <ResponsiveContainer>
           <BarChart
