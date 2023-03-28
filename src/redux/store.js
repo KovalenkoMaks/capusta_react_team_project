@@ -16,7 +16,7 @@ import { transactionsSlice } from './transactions/transactionsSlice';
 const authPersistConfig = {
   key: 'userAuth',
   storage,
-  whitelist: ['sid', 'refreshToken', 'isLoggedIn'],
+  whitelist: ['sid', 'refreshToken', 'isLoggedIn', 'showBalanceModal'],
 };
 
 export const store = configureStore({
