@@ -1,6 +1,5 @@
 import '../../../node_modules/modern-normalize/modern-normalize.css';
-import { PrivateRoute } from 'components/utils/PrivateRoute';
-import { RestrictedRoute } from 'components/utils/RestrictedRout';
+import { PrivateRoute, RestrictedRoute } from 'components/utils';
 import Layout from 'pages/Layout/Layout';
 import LogIn from 'components/logIn/Login';
 import { lazy, useEffect } from 'react';
@@ -21,8 +20,6 @@ import {
   getMonthStatsExpenses,
 } from 'redux/transactions/operations';
 
-// це треба буде переробити і теж зробити Suspense i Outlet
-// бо тут теж є частинки, які не треба перерендерювати (я про Expenses i Income)
 const Expenses = lazy(() => import('pages/Expenses/Expenses'));
 const Income = lazy(() => import('pages/Income/Income'));
 const Reports = lazy(() => import('pages/Report/Report'));
@@ -30,9 +27,10 @@ const Mobile = lazy(() => import('components/Mobile/Mobile'));
 export const App = () => {
   const dispatch = useDispatch();
   const isSmallScreen = useIsSmallScreen();
-  const { isLoggedIn } = useAuth();
+  const { isLoggedIn, isRefreshing } = useAuth();
   useEffect(() => {
     if (!isLoggedIn) return;
+    if (isRefreshing) return;
     dispatch(refresh())
       .unwrap()
       .then(() => {
@@ -77,7 +75,12 @@ export const App = () => {
               }
             />
           )}
-          {!isSmallScreen && (<Route path='expense-transaction' element={<Navigate to="/home/expenses" />}/>)}
+          {!isSmallScreen && (
+            <Route
+              path="expense-transaction"
+              element={<Navigate to="/home/expenses" />}
+            />
+          )}
           {isSmallScreen && (
             <Route
               path="income-transaction"
@@ -86,7 +89,12 @@ export const App = () => {
               }
             />
           )}
-          {!isSmallScreen && (<Route path='income-transaction' element={<Navigate to="/home/income" />}/>)}
+          {!isSmallScreen && (
+            <Route
+              path="income-transaction"
+              element={<Navigate to="/home/income" />}
+            />
+          )}
           <Route path="*" element={<NotFound />} />
         </Route>
         <Route
