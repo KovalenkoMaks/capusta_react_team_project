@@ -2,7 +2,6 @@ import Style from './SpendingMonStat.module.css';
 import { Icons } from '../Icons/Icons';
 import { ReportsItemsCard } from '../ReportsItemsCard/ReportsItemsCard';
 
-
 export const SpendingMoneyStatisticts = ({
   handelClickOnCategory,
   handelArrow,

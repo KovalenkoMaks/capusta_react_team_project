@@ -53,7 +53,7 @@ export const InputForm = () => {
     category: 'Select category',
   };
 
-  const onSubmit = (value, { resetForm }) => {
+  const onSubmit = (value, { resetForm, setSubmitting }) => {
     const query = { ...value };
     let date = new Date(value.date.toString());
     date = format(date, 'yyyy-MM-dd');
@@ -82,11 +82,7 @@ export const InputForm = () => {
         });
     }
   };
-  // const validationSchema = Yup.object().shape({
-  //   amount: Yup.string()
-  //     .required('Required')
-  //     .matches(/^\d+(\.\d{1,2})?$/, 'Invalid amount'),
-  // });
+
   return (
     <FormContainer>
       <div style={{ display: 'flex' }}>
@@ -98,8 +94,6 @@ export const InputForm = () => {
             handleSubmit,
             setFieldValue,
             resetForm,
-            errors,
-            touched,
           }) => (
             <Form onSubmit={handleSubmit} className="formmm">
               {!isSmallScreen && (
@@ -116,7 +110,6 @@ export const InputForm = () => {
                         })
                       }
                       defaultValue={initialValues.date.toDate()}
-                      // placeholder={initialValues.date.format('YYYY-MM-DD')}
                       onBlur={handleBlur}
                       format={dateFormat}
                       bordered={false}
@@ -148,6 +141,7 @@ export const InputForm = () => {
                 <FieldEl
                   name="category"
                   as={Select}
+                  value={values.category || ''}
                   placeholder={initialValues.category}
                   onChange={value => setFieldValue('category', value)}
                   options={items}
@@ -189,6 +183,7 @@ export const InputForm = () => {
               <Field name="amount">
                 {({ field }) => (
                   <Input
+                    type="number"
                     {...field}
                     onChange={handleChange}
                     onBlur={handleBlur}

@@ -1,8 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getAllUserData, logOut } from '../auth/operations';
+import { logOut } from '../auth/operations';
 import {
-  addAnExpense,
-  addAnIncome,
   expenseCategories,
   getDataTransaction,
   getMonthStatsExpenses,
@@ -26,76 +24,39 @@ export const transactionsSlice = createSlice({
   extraReducers: builder =>
     builder
 
-      //getAllUserData
-      .addCase(getAllUserData.pending, (state, action) => {})
-      .addCase(getAllUserData.fulfilled, (state, action) => {
-        // state.transactions = action.payload.transactions;
-      })
-      .addCase(getAllUserData.rejected, (state, action) => {})
-
       //getMonthStatsExpenses
-      .addCase(getMonthStatsExpenses.pending, (state, action) => {})
       .addCase(getMonthStatsExpenses.fulfilled, (state, action) => {
         state.monthsStats.expenses = action.payload.monthsStats;
         state.transactions.expenses = action.payload.expenses;
       })
-      .addCase(getMonthStatsExpenses.rejected, (state, action) => {})
 
       //getMonthStatsIncomes
-      .addCase(getMonthStatsIncomes.pending, (state, action) => {})
       .addCase(getMonthStatsIncomes.fulfilled, (state, action) => {
         state.transactions.incomes = action.payload.incomes;
         state.monthsStats.incomes = action.payload.monthsStats;
       })
-      .addCase(getMonthStatsIncomes.rejected, (state, action) => {})
 
       //getExpenseCategories
-      .addCase(expenseCategories.pending, (state, action) => {})
       .addCase(expenseCategories.fulfilled, (state, action) => {
         state.categories.expenses = action.payload;
       })
-      .addCase(expenseCategories.rejected, (state, action) => {})
 
       //getIncomeCategories
-      .addCase(incomesCategories.pending, (state, action) => {})
       .addCase(incomesCategories.fulfilled, (state, action) => {
         state.categories.incomes = action.payload;
       })
-      .addCase(incomesCategories.rejected, (state, action) => {})
 
-      //addAnExpense
-      .addCase(addAnExpense.pending, (state, action) => {})
-      .addCase(addAnExpense.fulfilled, (state, action) => {
-        // state.categories = action.payload;
-      })
-      .addCase(addAnExpense.rejected, (state, action) => {})
-
-      //addAnIncome
-      .addCase(addAnIncome.pending, (state, action) => {})
-      .addCase(addAnIncome.fulfilled, (state, action) => {
-        // state.categories = action.payload;
-      })
-      .addCase(addAnIncome.rejected, (state, action) => {})
-
-      //getDataTransaction
-      //     dataTransaction: {
-      //   expenses: { expenseTotal: '', expenseData: {} },
-      //   incomes: [],
-      // },
-      .addCase(getDataTransaction.pending, (state, action) => {})
+      // getDataTransaction
       .addCase(getDataTransaction.fulfilled, (state, action) => {
-        // console.log(action.payload);
         state.dataTransaction.incomes = action.payload.incomes;
         state.dataTransaction.expenses.expenseTotal =
           action.payload.expenses.expenseTotal;
         state.dataTransaction.expenses.expenseData =
           action.payload.expenses.expensesData;
       })
-      .addCase(getDataTransaction.rejected, (state, action) => {})
 
       //LogOut
-      .addCase(logOut.pending, (state, action) => {})
-      .addCase(logOut.fulfilled, (state, action) => {
+      .addCase(logOut.fulfilled, state => {
         state.transactions = { expenses: [], incomes: [] };
         state.monthsStats = { expenses: {}, incomes: {} };
         state.categories = { expenses: [], incomes: [] };
@@ -103,16 +64,7 @@ export const transactionsSlice = createSlice({
           expenses: { expenseTotal: '', expenseData: {} },
           incomes: [],
         };
-      })
-      .addCase(logOut.rejected, (state, action) => {}),
+      }),
 });
-// initialState: {
-//     transactions: { expenses: [], incomes: [] },
-//     monthsStats: { expenses: {}, incomes: {} },
-//     categories: { expenses: [], incomes: [] },
-//     dataTransaction: {
-//       expenses: { expenseTotal: '', expenseData: {} },
-//       incomes: [],
-//     },
-//   },
+
 export default transactionsSlice.reducer;

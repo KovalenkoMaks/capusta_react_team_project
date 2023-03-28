@@ -9,7 +9,7 @@ import {
 import { ReactComponent as CloseIcon } from 'images/closeIcon.svg';
 import Button from 'components/Button/Button';
 
-const modalElement = document.querySelector('#modal');
+const modalElement = document.querySelector('#modal-root');
 export default function ConfirmModal({
   onClick,
   text,
