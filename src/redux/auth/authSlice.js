@@ -17,8 +17,13 @@ export const authSlice = createSlice({
     sid: '',
     refreshToken: '',
     registration: 'false',
+    showBalanceModal: true,
   },
-  reducers: {},
+  reducers: {
+    toggleshowBalanceModal: state => {
+      state.showBalanceModal = false;
+    },
+  },
   extraReducers: builder =>
     builder
 
@@ -109,3 +114,4 @@ export const authSlice = createSlice({
 });
 
 export default authSlice.reducer;
+export const { toggleshowBalanceModal } = authSlice.actions;

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Modal = styled.div`
   position: absolute;
   top: 235px;
-  z-index: 15;
+  z-index: 16;
   max-width: 280px;
   box-sizing: border-box;
   max-height: 150px;

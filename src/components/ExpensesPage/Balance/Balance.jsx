@@ -6,28 +6,33 @@ import { useDispatch } from 'react-redux';
 import { newBalance } from 'redux/transactions/operations';
 import { ReactComponent as Reports } from '../../../images/bar_chart.svg';
 import { BalanceContainer } from '../ExpensesPage.styled';
-import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import BalanceModal from './BalanceModal';
+import { toggleshowBalanceModal } from 'redux/auth/authSlice';
 
 export const Balance = () => {
+  const location = useLocation();
   const { transactions } = useTransactions();
   const { balance, isRefreshing } = useAuth();
-  const [promptClose, setPromptClose] = useState(true);
+
+  const { showBalanceModal } = useAuth();
   let disabled = !(transactions.expenses.length === 0 && balance === 0);
   const dispatch = useDispatch();
 
   const onSubmit = (value, { resetForm }) => {
     dispatch(newBalance(value));
     resetForm();
-    if (!disabled) {
-      setPromptClose(prev => !prev);
-    }
   };
   const showReport = !window.location.href.endsWith('reports');
   const toggleWindow = () => {
-    setPromptClose(prev => !prev);
+    dispatch(toggleshowBalanceModal());
   };
+  const modalShow =
+    (location.pathname === '/home/income' ||
+      location.pathname === '/home/expenses') &&
+    !isRefreshing &&
+    !disabled;
+
   return (
     <BalanceContainer>
       {showReport ? (
@@ -49,17 +54,15 @@ export const Balance = () => {
                   <Input
                     {...field}
                     placeholder={`${balance}.00 UAH`}
-                    // value={values.name}
                     onChange={handleChange}
                     onBlur={handleBlur}
                     className="input"
-                    // disabled={!disabled}
                     readOnly={disabled}
                   />
                 )}
               </Field>
 
-              {!isRefreshing && promptClose && !disabled && (
+              {modalShow && showBalanceModal && (
                 <BalanceModal onClose={toggleWindow} />
               )}
               {!disabled ? (
